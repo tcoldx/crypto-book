@@ -1,6 +1,6 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import { Home, Coin, Portfolio } from "components";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Home, Coin, Portfolio } from "pages";
 import "./App.css";
 
 function App() {
