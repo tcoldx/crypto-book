@@ -1,10 +1,11 @@
 import React from "react";
+import { Wrapper } from "./Portfolio.styles";
 
 const Portfolio = () => {
   return (
-    <div>
+    <Wrapper>
       <h1>Portfolio</h1>
-    </div>
+    </Wrapper>
   );
 };
 

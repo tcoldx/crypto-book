@@ -1,5 +1,31 @@
 .App {
-  text-align: center;
+  background: #1f2128;
+  margin: auto;
+  border: 10px solid rgb(25, 27, 31);
+  max-width: 1200px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+::-webkit-input-placeholder {
+  color: white;
+  font-weight: bold;
+}
+
+body {
+  font-family: "Exo", sans-serif;
+  background: rgb(25, 27, 31);
+  min-height: 100vh;
+  color: white;
+}
+
+button {
+  border: none;
+  cursor: pointer;
 }
 
 .App-logo {
