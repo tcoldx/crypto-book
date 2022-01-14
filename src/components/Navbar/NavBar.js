@@ -1,5 +1,5 @@
 import React from "react";
-import Theme from "assets/Images/ThemeIcon.svg";
+import ThemeToggle from "components/ThemeToggle";
 import SearchIcon from "assets/Images/SearchIcon.svg";
 import CurrencySign from "assets/Images/Currency.svg";
 import {
@@ -10,13 +10,12 @@ import {
   Search,
   Button,
   SearchWrap,
-  ThemeChange,
   SelectWrap,
   CurrencyWrap,
   Select,
 } from "./NavBar.styles";
 
-const NavBar = () => {
+const NavBar = (props) => {
   return (
     <NavWrap>
       <Nav>
@@ -37,9 +36,7 @@ const NavBar = () => {
               <option>BTC</option>
             </Select>
           </SelectWrap>
-          <ThemeChange>
-            <img src={Theme} width={20} height={20} alt="theme" />
-          </ThemeChange>
+          <ThemeToggle handleClick={props.handleClick} />
         </NavRight>
       </Nav>
     </NavWrap>

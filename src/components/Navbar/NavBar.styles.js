@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export const NavWrap = styled.div`
   width: 100%;
-  background: rgb(25, 27, 31);
+  background: ${(props) => props.theme.main};
   padding-block: 4px;
 `;
 
@@ -19,7 +19,6 @@ export const NavLeft = styled.div`
   display: flex;
   align-items: center;
   margin-left: 50px;
-  color: white;
 `;
 
 export const Nav = styled.div`
@@ -32,7 +31,7 @@ export const Nav = styled.div`
 `;
 
 export const SelectWrap = styled.div`
-  background: #2c2f36;
+  background: ${(props) => props.theme.card.secondary};
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -48,7 +47,7 @@ export const SearchWrap = styled.div`
   border-radius: 6px;
   width: 200px;
   padding-left: 8px;
-  background: #2c2f36;
+  background: ${(props) => props.theme.card.secondary};
   height: 38px;
 `;
 
@@ -57,19 +56,18 @@ export const Search = styled.input`
   border: none;
   width: 80%;
   outline: none;
-  background: #2c2f36;
+  background: ${(props) => props.theme.card.secondary};
   height: 24px;
 `;
 
 export const Button = styled(Link)`
-  color: white;
+  color: ${(props) => props.theme.color};
   border-radius: 8px;
   display: flex;
   font-weight: bold;
-  text-decoration: none;
   align-items: center;
   justify-content: center;
-  background: #2c2f36;
+  background: ${(props) => props.theme.card.secondary};
   width: 100px;
   height: 38px;
 `;
@@ -78,28 +76,17 @@ export const Select = styled.select`
   border: none;
   outline: none;
   width: 70px;
-  background: rgb(44, 47, 54);
+  background: ${(props) => props.theme.card.secondary};
   margin-left: 3px;
   padding-block: 4px;
-  color: white;
-`;
-
-export const ThemeChange = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
-  background: #2c2f36;
-  cursor: pointer;
+  color: ${(props) => props.theme.color};
 `;
 
 export const CurrencyWrap = styled.div`
   display: flex;
   width: 20px;
   height: 20px;
-  background: rgb(25, 27, 31);
+  background: ${(props) => props.theme.card.secondary};
   border-radius: 10px;
   align-items: center;
   justify-content: center;

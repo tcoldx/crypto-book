@@ -2,7 +2,7 @@ import React from "react";
 import { MarketChart, CoinTable } from "components";
 import { ContentWrap, Overview, Content, ChartWrapper } from "./Home.styles";
 
-const Home = () => {
+const Home = (props) => {
   return (
     <ContentWrap>
       <Content>
