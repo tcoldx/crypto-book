@@ -8,8 +8,8 @@ const Home = (props) => {
       <Content>
         <Overview>Your Overview</Overview>
         <ChartWrapper>
-          <MarketChart />
-          <MarketChart />
+          <MarketChart type="price" />
+          <MarketChart type="volume" />
         </ChartWrapper>
         <Overview>Your Overview</Overview>
         <CoinTable />

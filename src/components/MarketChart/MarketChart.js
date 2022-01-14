@@ -1,10 +1,11 @@
 import React from "react";
+import { PriceChart, VolumeChart } from "components";
 import { ChartContainer } from "./MarketChart.styles";
 
 const MarketChart = (props) => {
   return (
     <ChartContainer>
-      <h2>222</h2>
+      <div>{props.type === "price" && <PriceChart />}</div>
     </ChartContainer>
   );
 };

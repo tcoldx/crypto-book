@@ -3,36 +3,16 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Home, Coin, Portfolio } from "pages";
 import { NavBar, NavUnder } from "components";
 import { GlobalStyle } from "styling/GlobalStyle";
+import { darkTheme, lightTheme } from "styling/theme";
 import { ThemeProvider } from "styled-components";
 import { Container } from "App.css";
 
 function App() {
   const [toggle, setToggle] = useState(false);
-
-  const darkTheme = {
-    main: "#191B1F",
-    color: "white",
-    card: {
-      main: "#1F2128",
-      secondary: "#2C2F36",
-    },
-  };
-
-  const lightTheme = {
-    main: "#FFFFFF",
-    color: "black",
-    card: {
-      main: "#FCFCFC",
-      secondary: "#FCFCFC",
-    },
-  };
-
-  const handleClick = () => {
-    setToggle(toggle ? false : true);
-  };
-
+  const handleClick = () => setToggle(toggle ? false : true);
+  const toggleTheme = () => (toggle ? lightTheme : darkTheme);
   return (
-    <ThemeProvider theme={toggle ? lightTheme : darkTheme}>
+    <ThemeProvider theme={toggleTheme}>
       <Container>
         <GlobalStyle />
         <Router>
