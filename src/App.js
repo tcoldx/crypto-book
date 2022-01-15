@@ -1,16 +1,17 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { ThemeProvider } from "styled-components";
+import { GlobalStyle } from "styling/GlobalStyle";
 import { NavBar, NavUnder } from "components";
 import { Home, Coin, Portfolio } from "pages";
-import { GlobalStyle } from "styling/GlobalStyle";
+
 import { darkTheme, lightTheme } from "styling/theme";
-import { ThemeProvider } from "styled-components";
 import { Container } from "App.css";
 
 function App() {
   const [toggle, setToggle] = useState(true);
   const toggleTheme = () => setToggle(!toggle);
-  const Theme = () => (toggle ? darkTheme : lightTheme);
+  const Theme = toggle ? darkTheme : lightTheme;
   return (
     <ThemeProvider theme={Theme}>
       <Container>
