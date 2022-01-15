@@ -36,7 +36,7 @@ const NavBar = (props) => {
               <option>BTC</option>
             </Select>
           </SelectWrap>
-          <ThemeToggle handleClick={props.handleClick} />
+          <ThemeToggle toggle={props.toggle} />
         </NavRight>
       </Nav>
     </NavWrap>

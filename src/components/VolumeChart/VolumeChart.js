@@ -1,6 +1,6 @@
 import React from "react";
 import { Bar } from "react-chartjs-2";
-import { Container } from "App.css";
+import { Container } from "./VolumeChart.styles";
 
 const VolumeChart = () => {
   const options = {
@@ -50,7 +50,7 @@ const VolumeChart = () => {
   };
   return (
     <Container>
-      <Bar barData={barData} options={options} />
+      <Bar data={barData} options={options} />
     </Container>
   );
 };

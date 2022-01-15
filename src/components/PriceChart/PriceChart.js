@@ -1,6 +1,6 @@
 import React from "react";
 import { Line } from "react-chartjs-2";
-import { Container } from "App.css";
+import { Container } from "./PriceChart.styles";
 
 const PriceChart = (props) => {
   const data = (canvas) => {

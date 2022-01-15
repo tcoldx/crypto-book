@@ -1,14 +1,17 @@
 import React from "react";
 import { ThemeChange } from "./ThemeToggle.styles";
-import Theme from "assets/Images/ThemeIcon.svg";
+import theme from "assets/Images/ThemeIcon.svg";
 
 const ThemeToggle = (props) => {
+  const handleClick = () => {
+    props.toggle();
+  };
   return (
     <div>
       <ThemeChange>
         <img
-          onClick={props.handleClick}
-          src={Theme}
+          onClick={handleClick}
+          src={theme}
           width={20}
           height={20}
           alt="theme"

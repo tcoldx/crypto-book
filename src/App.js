@@ -1,28 +1,27 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { Home, Coin, Portfolio } from "pages";
 import { NavBar, NavUnder } from "components";
+import { Home, Coin, Portfolio } from "pages";
 import { GlobalStyle } from "styling/GlobalStyle";
 import { darkTheme, lightTheme } from "styling/theme";
 import { ThemeProvider } from "styled-components";
 import { Container } from "App.css";
 
 function App() {
-  const [toggle, setToggle] = useState(false);
-  const handleClick = () => setToggle(toggle ? false : true);
-  const toggleTheme = () => (toggle ? lightTheme : darkTheme);
+  const [toggle, setToggle] = useState(true);
+  const toggleTheme = () => setToggle(!toggle);
+  const Theme = () => (toggle ? darkTheme : lightTheme);
   return (
-    <ThemeProvider theme={toggleTheme}>
+    <ThemeProvider theme={Theme}>
       <Container>
         <GlobalStyle />
         <Router>
-          <NavBar handleClick={handleClick} />
+          <NavBar toggle={toggleTheme} />
           <NavUnder />
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route exact path="/coin" component={Coin} />
+            <Route exact path="/coin/:coinId" component={Coin} />
             <Route exact path="/portfolio" component={Portfolio} />
-            <Route />
           </Switch>
         </Router>
       </Container>
