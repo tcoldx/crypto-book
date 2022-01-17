@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
 export const CoinWrap = styled.div`
-  background: #191b1f;
+  background: ${(props) => props.theme.main};
   margin-top: 30px;
 `;

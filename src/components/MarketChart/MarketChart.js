@@ -1,10 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { PriceChart, VolumeChart } from "components";
 import { ChartContainer } from "./MarketChart.styles";
+import { useDispatch, useSelector } from "react-redux";
+import { getChartData } from "store/coins/actions";
 
-const MarketChart = () => {
+const MarketChart = (props) => {
+  const dispatch = useDispatch();
+  const { data } = useSelector((state) => state.market);
+
+  useEffect(() => {
+    dispatch(getChartData());
+  }, []);
+
   return (
     <ChartContainer>
-      <h2>222</h2>
+      <div>
+        {props.type === "price" && <PriceChart />}
+        {props.type === "volume" && <VolumeChart />}
+      </div>
     </ChartContainer>
   );
 };
