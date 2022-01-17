@@ -6,6 +6,12 @@ const CoinTable = () => {
   return (
     <CoinWrap>
       <ClipLoader width={200} color="#00FF5F" />
+      <table>
+        <thead>
+          <th></th>
+        </thead>
+        <tbody></tbody>
+      </table>
     </CoinWrap>
   );
 };
