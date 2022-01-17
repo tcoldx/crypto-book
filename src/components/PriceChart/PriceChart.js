@@ -10,16 +10,17 @@ const PriceChart = (props) => {
     gradient.addColorStop(0.5, "rgba(17,121,9, 0.4)");
     gradient.addColorStop(0, "rgba(2,0,36, 1)");
     return {
-      labels: ["1", "2", "3", "4", "5", "6"],
+      labels: props.dataLabel,
       datasets: [
         {
+          lineTension: 0.3,
           label: "BTC",
-          borderWidth: 1,
-          pointRadius: 2,
-          data: [1, 2, 3, 4, 5, 6],
+          pointRadius: 0,
+          data: props.dataPoint,
           fill: true,
           backgroundColor: gradient,
           borderColor: "#00FF5F",
+          borderWidth: 2,
         },
       ],
     };
@@ -28,7 +29,7 @@ const PriceChart = (props) => {
   const options = {
     plugins: {
       legend: {
-        display: true,
+        display: false,
       },
       layout: {
         padding: 15,
@@ -48,7 +49,7 @@ const PriceChart = (props) => {
       },
       x: {
         grid: {
-          display: true,
+          display: false,
           borderWidth: 0,
         },
         ticks: {

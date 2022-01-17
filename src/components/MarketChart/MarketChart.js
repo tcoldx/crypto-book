@@ -1,23 +1,47 @@
 import React, { useEffect } from "react";
-import { PriceChart, VolumeChart } from "components";
-import { ChartContainer } from "./MarketChart.styles";
+import { PriceChart, VolumeChart, ChartLegend } from "components";
+import {
+  ChartContainer,
+  ChartWrap,
+  ChartLegendWrap,
+} from "./MarketChart.styles";
 import { useDispatch, useSelector } from "react-redux";
-import { getChartData } from "store/coins/actions";
+import { getChartData, getMarketPrice } from "store/coins/actions";
 
 const MarketChart = (props) => {
   const dispatch = useDispatch();
-  const { data } = useSelector((state) => state.market);
-
+  const {
+    priceData,
+    volumeData,
+    priceLabels,
+    volumeLabels,
+    currentPrice,
+    currentVolume,
+  } = useSelector((state) => state.market);
   useEffect(() => {
     dispatch(getChartData());
+    dispatch(getMarketPrice());
+    // eslint-disable-next-line
   }, []);
-
+  console.log(currentPrice, currentVolume);
   return (
     <ChartContainer>
-      <div>
-        {props.type === "price" && <PriceChart />}
-        {props.type === "volume" && <VolumeChart />}
-      </div>
+      <ChartLegendWrap>
+        {props.type === "price" && (
+          <ChartLegend type="Price" market={currentPrice} />
+        )}
+        {props.type === "volume" && (
+          <ChartLegend type="Volume 24h" market={currentVolume} />
+        )}
+      </ChartLegendWrap>
+      <ChartWrap>
+        {props.type === "price" && (
+          <PriceChart dataLabel={priceLabels} dataPoint={priceData} />
+        )}
+        {props.type === "volume" && (
+          <VolumeChart dataLabel={volumeLabels} dataPoint={volumeData} />
+        )}
+      </ChartWrap>
     </ChartContainer>
   );
 };

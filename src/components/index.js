@@ -4,3 +4,4 @@ export { default as MarketChart } from "./MarketChart";
 export { default as CoinTable } from "./CoinTable";
 export { default as PriceChart } from "./PriceChart";
 export { default as VolumeChart } from "./VolumeChart";
+export { default as ChartLegend } from "./ChartLegend";

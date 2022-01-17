@@ -8,14 +8,8 @@ const ThemeToggle = (props) => {
   };
   return (
     <div>
-      <ThemeChange>
-        <img
-          onClick={handleClick}
-          src={theme}
-          width={20}
-          height={20}
-          alt="theme"
-        />
+      <ThemeChange onClick={handleClick}>
+        <img src={theme} width={20} height={20} alt="theme" />
       </ThemeChange>
     </div>
   );

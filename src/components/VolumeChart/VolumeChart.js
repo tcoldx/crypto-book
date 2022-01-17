@@ -2,11 +2,11 @@ import React from "react";
 import { Bar } from "react-chartjs-2";
 import { Container } from "./VolumeChart.styles";
 
-const VolumeChart = () => {
+const VolumeChart = (props) => {
   const options = {
     plugins: {
       legend: {
-        display: true,
+        display: false,
       },
       layout: {
         padding: 15,
@@ -26,7 +26,7 @@ const VolumeChart = () => {
       },
       x: {
         grid: {
-          display: true,
+          display: false,
           borderWidth: 0,
         },
         ticks: {
@@ -37,14 +37,15 @@ const VolumeChart = () => {
   };
 
   const barData = {
-    labels: ["1", "2", "3", "4", "5"],
+    labels: props.dataLabel,
     datasets: [
       {
         label: "Volume 24h",
-        data: [1, 2, 3, 4, 5],
+        data: props.dataPoint,
         fill: true,
         backgroundColor: "#2172E5",
         borderColor: "#00FF5F",
+        borderRadius: 2,
       },
     ],
   };

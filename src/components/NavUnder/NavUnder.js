@@ -1,11 +1,12 @@
 import React from "react";
 import { NavWrap, NavUnderContainer } from "./NavUnder.styles";
+import BarLoader from "react-spinners/BarLoader";
 
 const NavUnder = () => {
   return (
     <NavWrap>
       <NavUnderContainer>
-        <h3>2</h3>
+        <BarLoader width={300} speedMultiplier={2} />
       </NavUnderContainer>
     </NavWrap>
   );

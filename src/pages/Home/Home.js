@@ -6,12 +6,12 @@ const Home = (props) => {
   return (
     <ContentWrap>
       <Content>
-        <Overview>Your Overview</Overview>
+        <Overview>Bitcoin Overview</Overview>
         <ChartWrapper>
           <MarketChart type="price" />
           <MarketChart type="volume" />
         </ChartWrapper>
-        <Overview>Your Overview</Overview>
+        <Overview>Coin Overview</Overview>
         <CoinTable />
       </Content>
     </ContentWrap>

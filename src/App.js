@@ -11,9 +11,9 @@ import { Container } from "App.css";
 function App() {
   const [toggle, setToggle] = useState(true);
   const toggleTheme = () => setToggle(!toggle);
-  const Theme = toggle ? darkTheme : lightTheme;
+  const theme = toggle ? darkTheme : lightTheme;
   return (
-    <ThemeProvider theme={Theme}>
+    <ThemeProvider theme={theme}>
       <Container>
         <GlobalStyle />
         <Router>
