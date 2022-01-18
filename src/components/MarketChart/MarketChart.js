@@ -23,7 +23,6 @@ const MarketChart = (props) => {
     dispatch(getMarketPrice());
     // eslint-disable-next-line
   }, []);
-  console.log(currentPrice, currentVolume);
   return (
     <ChartContainer>
       <ChartLegendWrap>

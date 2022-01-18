@@ -5,6 +5,7 @@ const initialState = {
   volumeLabels: [],
   currentPrice: [],
   currentVolume: [],
+  coins: [],
   isPriceLoading: true,
   isVolumeLoading: true,
   hasError: false,
@@ -23,6 +24,12 @@ export const market = (state = initialState, action) => {
         volumeData,
         volumeLabels,
         priceLabels,
+      };
+
+    case "FETCH_COINS_SUCCESS":
+      return {
+        ...state,
+        coins: action.payload,
       };
 
     case "FETCH_DATA_SUCCESS":

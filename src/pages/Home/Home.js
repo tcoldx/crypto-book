@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { MarketChart, CoinTable } from "components";
+import { getCoins } from "store/coins/actions";
+import { useDispatch, useSelector } from "react-redux";
 import { ContentWrap, Overview, Content, ChartWrapper } from "./Home.styles";
 
 const Home = (props) => {
+  const dispatch = useDispatch();
+  const { coins } = useSelector((state) => state.market);
+  useEffect(() => {
+    dispatch(getCoins());
+    // eslint-disable-next-line
+  }, []);
   return (
     <ContentWrap>
       <Content>
@@ -12,7 +20,7 @@ const Home = (props) => {
           <MarketChart type="volume" />
         </ChartWrapper>
         <Overview>Coin Overview</Overview>
-        <CoinTable />
+        <CoinTable coins={coins} />
       </Content>
     </ContentWrap>
   );

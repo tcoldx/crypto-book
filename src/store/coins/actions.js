@@ -29,6 +29,26 @@ export const getChartData = () => async (dispatch) => {
   }
 };
 
+export const getCoins = (value) => async (dispatch, getState) => {
+  // return an action
+  try {
+    dispatch({
+      type: "FETCH_COINS_PENDING",
+    });
+    const { data } = await axios.get(
+      `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=50&page=1&sparkline=true&price_change_percentage=1h%2C7d`
+    );
+    dispatch({
+      type: "FETCH_COINS_SUCCESS",
+      payload: data,
+    });
+  } catch (err) {
+    dispatch({
+      type: "FETCH_COINS_ERROR",
+    });
+  }
+};
+
 export const getMarketPrice = () => async (dispatch) => {
   try {
     dispatch({

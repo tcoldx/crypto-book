@@ -5,3 +5,4 @@ export { default as CoinTable } from "./CoinTable";
 export { default as PriceChart } from "./PriceChart";
 export { default as VolumeChart } from "./VolumeChart";
 export { default as ChartLegend } from "./ChartLegend";
+export { default as CoinList } from "./CoinList.js";

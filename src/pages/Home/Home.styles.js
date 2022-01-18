@@ -5,7 +5,6 @@ export const ContentWrap = styled.div`
   justify-content: center;
   width: 100%;
   color: ${(props) => props.theme.color};
-  height: 100vh;
 `;
 
 export const Content = styled.div`
