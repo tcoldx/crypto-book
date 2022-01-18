@@ -14,7 +14,7 @@ export const Content = styled.div`
 
 export const Overview = styled.h1`
   margin-top: 30px;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
 `;
 
 export const ChartWrapper = styled.div`
