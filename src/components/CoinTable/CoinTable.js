@@ -8,7 +8,9 @@ const CoinTable = () => {
       <ClipLoader width={200} color="#00FF5F" />
       <table>
         <thead>
-          <th></th>
+          <tr>
+            <th></th>
+          </tr>
         </thead>
         <tbody></tbody>
       </table>
