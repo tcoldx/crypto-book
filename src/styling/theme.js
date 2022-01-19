@@ -5,6 +5,10 @@ export const darkTheme = {
     main: "#1F2128",
     secondary: "#2C2F36",
   },
+  percent: {
+    red: "#fe1040",
+    green: "#00fc2a",
+  },
 };
 
 export const lightTheme = {
