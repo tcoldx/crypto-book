@@ -1,7 +1,5 @@
 import React from "react";
 import { CoinWrap, Table, OuterDiv, TH } from "./CoinTable.styles";
-import Filter from "assets/Images/TableFilter.svg";
-import ClipLoader from "react-spinners/ClipLoader";
 import { CoinList } from "components";
 
 const CoinTable = (props) => {
