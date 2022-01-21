@@ -1,6 +1,7 @@
 export const darkTheme = {
   main: "#191B1F",
   color: "white",
+  border: "#707070",
   card: {
     main: "#1F2128",
     secondary: "#2C2F36",
@@ -14,6 +15,7 @@ export const darkTheme = {
 export const lightTheme = {
   main: "#FFFFFF",
   color: "black",
+  border: "#DCDCDC",
   card: {
     main: "#FCFCFC",
     secondary: "#FCFCFC",

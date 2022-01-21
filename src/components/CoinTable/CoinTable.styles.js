@@ -13,6 +13,7 @@ export const Table = styled.table`
   color: white;
   width: 100%;
   text-align: center;
+  color: ${(props) => props.theme.color};
   letter-spacing: 0.01071em;
   border-collapse: collapse;
 `;
@@ -24,5 +25,6 @@ export const OuterDiv = styled.div`
 export const TH = styled.th`
   padding-block: 24px;
   font-size: 11px;
-  border-bottom: 1px solid #707070;
+  font-weight: bold;
+  border-bottom: 1px solid ${(props) => props.theme.border};
 `;

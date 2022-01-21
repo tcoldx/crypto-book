@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Row = styled.tr`
-  border-bottom: 1px solid #707070;
+  border-bottom: 1px solid ${(props) => props.theme.border};
 `;
 
 export const TD = styled.td`
@@ -19,6 +19,7 @@ export const NameColumn = styled.div`
   align-items: center;
   column-gap: 10px;
   justify-content: flex-start;
+  width: 90px;
 `;
 
 export const Span = styled.div`
