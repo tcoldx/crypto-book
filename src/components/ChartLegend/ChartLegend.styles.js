@@ -6,7 +6,7 @@ export const Header = styled.div`
 `;
 
 export const Price = styled.div`
-  font-size: 18px;
+  font-size: 24px;
   font-weight: bold;
 `;
 
