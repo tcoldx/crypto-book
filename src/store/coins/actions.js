@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const getChartData = () => async (dispatch, getState) => {
   const state = getState();
-  const { currentCurrency } = state.global;
+  const currentCurrency = state.global.currentCurrency;
   try {
     dispatch({
       type: "FETCH_MARKET_PENDING",
