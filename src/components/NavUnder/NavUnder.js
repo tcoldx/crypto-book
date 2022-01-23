@@ -18,15 +18,15 @@ import {
 
 const NavUnder = () => {
   const dispatch = useDispatch();
-  const { navData } = useSelector((state) => state.global);
+  const { navData, currentCurrency } = useSelector((state) => state.global);
   useEffect(() => {
     dispatch(getNavData());
     // eslint-disable-next-line
-  }, []);
+  }, [currentCurrency]);
   const currencies = navData?.data?.active_cryptocurrencies;
   const markets = navData?.data?.markets;
-  const totalMarketCap = navData?.data?.total_market_cap.usd;
-  const totalVolume = navData?.data?.total_volume.usd;
+  const totalMarketCap = navData?.data?.total_market_cap[currentCurrency];
+  const totalVolume = navData?.data?.total_volume[currentCurrency];
   const bitcoinPercentage = navData?.data?.market_cap_percentage.btc;
   const ethereumPercentage = navData?.data?.market_cap_percentage.eth;
   return (
