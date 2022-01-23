@@ -17,3 +17,10 @@ export const getNavData = () => async (dispatch) => {
     });
   }
 };
+
+export const changeCurrency = (currency) => {
+  return {
+    type: "CHANGE_CURRENCY",
+    payload: currency,
+  };
+};
