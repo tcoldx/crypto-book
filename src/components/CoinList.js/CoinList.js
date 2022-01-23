@@ -63,10 +63,8 @@ const CoinList = ({
       <TD>
         <ContentWrap>
           <MarketWrap>
-            <Bullet>•</Bullet>
-            {convertNumber(volume)}
-            <Bullet>•</Bullet>
-            {convertNumber(marketCap)}
+            <Bullet>•</Bullet>${convertNumber(volume)}
+            <Bullet>•</Bullet>${convertNumber(marketCap)}
           </MarketWrap>
           <PercentageBar>
             <Market marketCap={marketCap} volume={volume} />

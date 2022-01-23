@@ -10,6 +10,7 @@ import { getChartData, getMarketPrice } from "store/coins/actions";
 
 const MarketChart = (props) => {
   const dispatch = useDispatch();
+  const { currentCurrency } = useSelector((state) => state.global);
   const {
     priceData,
     volumeData,
@@ -22,7 +23,7 @@ const MarketChart = (props) => {
     dispatch(getChartData());
     dispatch(getMarketPrice());
     // eslint-disable-next-line
-  }, []);
+  }, [currentCurrency]);
   return (
     <ChartContainer>
       <ChartLegendWrap>
