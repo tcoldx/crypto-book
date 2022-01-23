@@ -21,7 +21,7 @@ function App() {
           <NavUnder />
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route exact path="/coin/:coinId" component={Coin} />
+            <Route exact path="/coin/coinId" component={Coin} />
             <Route exact path="/portfolio" component={Portfolio} />
           </Switch>
         </Router>
