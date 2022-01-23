@@ -11,7 +11,7 @@ export const TD = styled.td`
 `;
 
 export const RankWrap = styled.div`
-  margin-left: 24px;
+  margin: 0px 10px;
 `;
 
 export const NameColumn = styled.div`

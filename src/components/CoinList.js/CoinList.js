@@ -30,9 +30,11 @@ const CoinList = ({
 }) => {
   return (
     <Row>
-      <RankWrap>
-        <TD>{rank}</TD>
-      </RankWrap>
+      <TD>
+        <RankWrap>
+          <span>{rank}</span>
+        </RankWrap>
+      </TD>
       <TD>
         <NameColumn>
           <img width={20} height={20} src={image} alt="img" />
