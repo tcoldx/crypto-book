@@ -1,8 +1,10 @@
 import React from "react";
 import { CoinWrap, Table, OuterDiv, TH } from "./CoinTable.styles";
+import ClipLoader from "react-spinners/ClipLoader";
 import { CoinList } from "components";
 
 const CoinTable = (props) => {
+  if (!props.coins) return <ClipLoader />;
   return (
     <CoinWrap>
       <OuterDiv>

@@ -24,6 +24,13 @@ const MarketChart = (props) => {
     dispatch(getMarketPrice());
     // eslint-disable-next-line
   }, [currentCurrency]);
+  console.log(currentVolume);
+  if (!currentVolume)
+    return (
+      <ChartContainer>
+        <h1>loading...</h1>
+      </ChartContainer>
+    );
   return (
     <ChartContainer>
       <ChartLegendWrap>

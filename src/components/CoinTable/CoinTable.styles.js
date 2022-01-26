@@ -7,6 +7,7 @@ export const CoinWrap = styled.div`
   justify-content: center;
   margin-top: 30px;
   padding: 20px;
+  border-radius: 10px;
 `;
 
 export const Table = styled.table`

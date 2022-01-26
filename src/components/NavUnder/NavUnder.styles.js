@@ -53,7 +53,7 @@ export const Percentage = styled.div`
 `;
 
 export const VolumePercentage = styled.div`
-  background: white;
+  background: ${(props) => props.theme.color};
   border-radius: 10px;
   width: ${(props) => props.market};
   height: 8px;
