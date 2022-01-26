@@ -5,6 +5,7 @@ import {
   ChartWrap,
   ChartLegendWrap,
 } from "./MarketChart.styles";
+import { ClipLoader } from "react-spinners";
 import { useDispatch, useSelector } from "react-redux";
 import { getChartData, getMarketPrice } from "store/coins/actions";
 
@@ -24,11 +25,10 @@ const MarketChart = (props) => {
     dispatch(getMarketPrice());
     // eslint-disable-next-line
   }, [currentCurrency]);
-  console.log(currentVolume);
   if (!currentVolume)
     return (
       <ChartContainer>
-        <h1>loading...</h1>
+        <ClipLoader color="#00FC2A" />
       </ChartContainer>
     );
   return (

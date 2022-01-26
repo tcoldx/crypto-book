@@ -8,7 +8,6 @@ export const getCoin = (currency) => async (dispatch, getState) => {
     const { data } = await axios.get(
       `https://api.coingecko.com/api/v3/coins/${currency}?localization=false&tickers=false&market_data=true&community_data=true&developer_data=false&sparkline=false`
     );
-    console.log(data);
     dispatch({
       type: "COIN_DATA_SUCCESS",
       payload: data,
