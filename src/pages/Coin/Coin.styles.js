@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -38,6 +37,8 @@ export const SiteLink = styled.a`
   background: ${(props) => props.theme.main};
   display: flex;
   width: 80%;
+  font-weight: bold;
+  font-size: 12px;
   text-decoration: none;
   color: ${(props) => props.theme.color};
   align-items: center;
@@ -52,4 +53,9 @@ export const SiteInner = styled.div`
   justify-content: space-between;
   align-items: center;
   color: ${(props) => props.theme.color};
+`;
+
+export const ChartContain = styled.div`
+  display: flex;
+  justify-content: center;
 `;

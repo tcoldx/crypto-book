@@ -1,10 +1,21 @@
-import React from "react";
-import { Wrapper } from "./Portfolio.styles";
+import React, { useState } from "react";
+import {
+  Wrapper,
+  AssetButton,
+  H2,
+  StatMenuContainer,
+} from "./Portfolio.styles";
 
 const Portfolio = () => {
+  const [open, setOpen] = useState(true);
+  const handleClick = () => {
+    setOpen(!open);
+  };
   return (
     <Wrapper>
-      <h1>Portfolio</h1>
+      <AssetButton onClick={handleClick}>Add Asset</AssetButton>
+      <H2>Your Statistics</H2>
+      {open && <StatMenuContainer>1</StatMenuContainer>}
     </Wrapper>
   );
 };

@@ -1,6 +1,7 @@
 const initialState = {
   navData: [],
   currentCurrency: "usd",
+  currentCoin: "bitcoin",
 };
 
 export const global = (state = initialState, action) => {
@@ -15,6 +16,12 @@ export const global = (state = initialState, action) => {
       return {
         ...state,
         currentCurrency: action.payload,
+      };
+
+    case "CHANGE_COIN":
+      return {
+        ...state,
+        currentCoin: action.payload,
       };
 
     default:

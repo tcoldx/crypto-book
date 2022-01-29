@@ -1,8 +1,14 @@
 import React, { useEffect } from "react";
-import { getCoin } from "store/coin/actions";
+import { getCoin, getCoinChartData } from "store/coin/actions";
 import { useDispatch, useSelector } from "react-redux";
-import { CoinSummary } from "components";
+import { getCurrentCoin } from "store/global/actions";
 import Chain from "assets/Images/chain.svg";
+import {
+  CoinChartChange,
+  CoinPageChart,
+  CoinSummary,
+  CurrencyConverter,
+} from "components";
 import {
   ContentWrap,
   H4,
@@ -11,15 +17,19 @@ import {
   WebsiteContainer,
   SiteLink,
   SiteInner,
+  ChartContain,
 } from "./Coin.styles";
 
 const Coin = (props) => {
   const dispatch = useDispatch();
-  const { coin } = useSelector((state) => state.coin);
+  const { coin, priceData, priceLabels } = useSelector((state) => state.coin);
   const coinId = props.match.params.coinId;
+  // a little hack to get the Id always Uppercase for chart reasons
 
   useEffect(() => {
     dispatch(getCoin(coinId));
+    dispatch(getCurrentCoin(coinId));
+    dispatch(getCoinChartData());
     // eslint-disable-next-line
   }, [coinId]);
   if (!coin) return <h1>loading...</h1>;
@@ -54,6 +64,11 @@ const Coin = (props) => {
             </SiteInner>
           </SiteLink>
         </WebsiteContainer>
+        <CurrencyConverter coinData={coin} coin={coin.symbol} />
+        <CoinChartChange />
+        <ChartContain>
+          <CoinPageChart dataLabel={priceLabels} dataPoint={priceData} />
+        </ChartContain>
       </ContentWrap>
     </Container>
   );
