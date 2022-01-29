@@ -6,3 +6,7 @@ export { default as PriceChart } from "./PriceChart";
 export { default as VolumeChart } from "./VolumeChart";
 export { default as ChartLegend } from "./ChartLegend";
 export { default as CoinList } from "./CoinList.js";
+export { default as CoinSummary } from "./CoinSummary";
+export { default as CurrencyConverter } from "./CurrencyConverter";
+export { default as CoinPageChart } from "./CoinPageChart";
+export { default as CoinChartChange } from "./CoinChartChange";

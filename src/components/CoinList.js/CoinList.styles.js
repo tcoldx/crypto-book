@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const Row = styled.tr`
   border-bottom: 1px solid ${(props) => props.theme.border};
@@ -63,4 +64,9 @@ export const MarketWrap = styled.div`
   display: flex;
   justify-content: space-between;
   width: 130px;
+`;
+
+export const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: ${(props) => props.theme.color};
 `;

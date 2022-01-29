@@ -24,3 +24,10 @@ export const changeCurrency = (currency) => {
     payload: currency,
   };
 };
+
+export const getCurrentCoin = (coin) => {
+  return {
+    type: "CHANGE_COIN",
+    payload: coin,
+  };
+};

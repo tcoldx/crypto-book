@@ -11,6 +11,7 @@ import {
   MarketWrap,
   ContentWrap,
   RankWrap,
+  StyledLink,
 } from "./CoinList.styles";
 import { formatPercent } from "utils/formatPercent";
 import { convertNumber } from "utils/convertNumber";
@@ -38,7 +39,7 @@ const CoinList = ({
       <TD>
         <NameColumn>
           <img width={20} height={20} src={image} alt="img" />
-          <span>{name}</span>
+          <StyledLink to={`/coin/${name.toLowerCase()}`}>{name}</StyledLink>
           <span>({symbol.toUpperCase()})</span>
         </NameColumn>
       </TD>
