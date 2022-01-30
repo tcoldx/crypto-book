@@ -66,10 +66,10 @@ const Coin = (props) => {
         </WebsiteContainer>
         <CurrencyConverter coinData={coin} coin={coin.symbol} />
         <CoinChartChange />
-        <ChartContain>
-          <CoinPageChart dataLabel={priceLabels} dataPoint={priceData} />
-        </ChartContain>
       </ContentWrap>
+      <ChartContain>
+        <CoinPageChart dataLabel={priceLabels} dataPoint={priceData} />
+      </ChartContain>
     </Container>
   );
 };

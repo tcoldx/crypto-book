@@ -58,4 +58,5 @@ export const SiteInner = styled.div`
 export const ChartContain = styled.div`
   display: flex;
   justify-content: center;
+  width: 100%;
 `;

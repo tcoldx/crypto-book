@@ -33,7 +33,7 @@ const CoinPageChart = (props) => {
       },
       layout: {
         padding: 15,
-        maintainAspectRatio: true,
+        maintainAspectRatio: false,
       },
     },
     scales: {
@@ -60,7 +60,7 @@ const CoinPageChart = (props) => {
   };
   return (
     <ChartWrapper>
-      <Line options={options} data={data} />
+      <Line height="100%" options={options} data={data} />
     </ChartWrapper>
   );
 };
