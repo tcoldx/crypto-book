@@ -7,8 +7,7 @@ export const InputContainer = styled.div`
   margin-bottom: 20px;
   gap: 28px;
 `;
-
-export const Input = styled.button`
+export const DayButton = styled.button`
   height: 22px;
   width: 22px;
   border: 1px solid rgb(0, 255, 95);
@@ -17,7 +16,7 @@ export const Input = styled.button`
   box-shadow: rgb(0 255 95 / 25%) 0px 0px 0px 5px;
 `;
 
-export const InputWrap = styled.div`
+export const ButtonWrap = styled.div`
   display: flex;
   align-items: center;
 `;
