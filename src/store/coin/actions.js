@@ -20,20 +20,16 @@ export const getCoin = (currency) => async (dispatch, getState) => {
   }
 };
 
-export const getCoinChartData = () => async (dispatch, getState) => {
+export const getCoinChartData = (duration) => async (dispatch, getState) => {
   const state = getState();
-  const { currentCurrency, currentCoin } = state.global;
-  const todaysDate = Math.floor(Date.now() / 1000);
-  const sevenDays = Math.floor(Date.now() / 1000 - 7 * 24 * 60 * 60 * 1000);
-  console.log(todaysDate);
+  const { currentCurrency } = state.global;
   try {
     dispatch({
       type: "FETCH_CHART_PENDING",
     });
     const { data } = await axios.get(
-      `https://api.coingecko.com/api/v3/coins/${currentCoin}/market_chart/range?vs_currency=${currentCurrency}&from=${sevenDays}&to=${todaysDate}`
+      `https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=${currentCurrency}&days=${duration}`
     );
-    console.log(data);
     const priceData = data.prices.map((el) => el[1]);
     const priceLabels = data.prices
       .map((el) => new Date(el[0]).getDate().toString())

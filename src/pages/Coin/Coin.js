@@ -24,7 +24,6 @@ const Coin = (props) => {
   const dispatch = useDispatch();
   const { coin, priceData, priceLabels } = useSelector((state) => state.coin);
   const coinId = props.match.params.coinId;
-  // a little hack to get the Id always Uppercase for chart reasons
 
   useEffect(() => {
     dispatch(getCoin(coinId));
@@ -32,6 +31,7 @@ const Coin = (props) => {
     dispatch(getCoinChartData());
     // eslint-disable-next-line
   }, [coinId]);
+
   if (!coin) return <h1>loading...</h1>;
   return (
     <Container>
