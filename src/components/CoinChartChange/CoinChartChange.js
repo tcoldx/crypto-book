@@ -16,6 +16,7 @@ const CoinChartChange = () => {
 
   useEffect(() => {
     dispatch(getCoinChartData(duration));
+    // eslint-disable-next-line
   }, [duration]);
   return (
     <InputContainer>
