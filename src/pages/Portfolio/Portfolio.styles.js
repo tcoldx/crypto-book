@@ -24,7 +24,30 @@ export const H2 = styled.h2`
 `;
 
 export const StatMenuContainer = styled.div`
-  background: #2c2f36;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.6);
   color: ${(props) => props.theme.color};
-  width: 400px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const Img = styled.img`
+  position: relative;
+  float: right;
+  margin-right: 13px;
+  cursor: pointer;
+  width: 22px;
+  height: 22px;
+`;
+
+export const StatMenuWrap = styled.div`
+  background: #2c2f36;
+  width: 687px;
+  height: 38%;
+  border-radius: 10px;
 `;

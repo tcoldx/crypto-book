@@ -15,6 +15,7 @@ import {
 } from "./CoinList.styles";
 import { formatPercent } from "utils/formatPercent";
 import { convertNumber } from "utils/convertNumber";
+import { TableChart } from "components";
 const CoinList = ({
   rank,
   name,
@@ -28,6 +29,7 @@ const CoinList = ({
   circulating,
   supply,
   image,
+  sparkline,
 }) => {
   return (
     <Row>
@@ -85,6 +87,9 @@ const CoinList = ({
             <Supply circulating={circulating} supply={supply} />
           </PercentageBar>
         </ContentWrap>
+      </TD>
+      <TD>
+        <TableChart dataPoint={sparkline} />
       </TD>
     </Row>
   );

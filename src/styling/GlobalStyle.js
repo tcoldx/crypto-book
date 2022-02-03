@@ -17,7 +17,7 @@ export const GlobalStyle = createGlobalStyle`
   }
   
   body {
-    font-family: "Exo", sans-serif;
+    font-family: "Poppins";
     background: ${(props) => props.theme.main};
     min-height: 100vh;
     color: white;

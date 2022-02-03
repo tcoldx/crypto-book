@@ -16,6 +16,12 @@ export const DayButton = styled.button`
   box-shadow: rgb(0 255 95 / 25%) 0px 0px 0px 5px;
 `;
 
+export const DayBorder = styled.div`
+  height: 22px;
+  width: 22px;
+  border: 1px solid rgb(0, 255, 95);
+`;
+
 export const ButtonWrap = styled.div`
   display: flex;
   align-items: center;

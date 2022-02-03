@@ -1,10 +1,8 @@
 import React from "react";
 import { CoinWrap, Table, OuterDiv, TH } from "./CoinTable.styles";
-import ClipLoader from "react-spinners/ClipLoader";
 import { CoinList } from "components";
 
 const CoinTable = (props) => {
-  if (!props.coins) return <ClipLoader />;
   return (
     <CoinWrap>
       <OuterDiv>
@@ -19,6 +17,7 @@ const CoinTable = (props) => {
               <TH>7d%</TH>
               <TH>24h Volume/Market Cap</TH>
               <TH>Circulating/Total Supply</TH>
+              <TH>Last 7d</TH>
             </tr>
           </thead>
           <tbody>

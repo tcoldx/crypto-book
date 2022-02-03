@@ -22,7 +22,7 @@ export const CoinNameContainer = styled.div`
 
 export const TopContentContainer = styled.div`
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
 `;
 
 export const CoinMarketContainer = styled.div`

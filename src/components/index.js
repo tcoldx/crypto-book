@@ -10,3 +10,4 @@ export { default as CoinSummary } from "./CoinSummary";
 export { default as CurrencyConverter } from "./CurrencyConverter";
 export { default as CoinPageChart } from "./CoinPageChart";
 export { default as CoinChartChange } from "./CoinChartChange";
+export { default as TableChart } from "./TableChart";

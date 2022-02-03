@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getNavData } from "store/global/actions";
 import { convertNumber } from "utils/convertNumber";
+import BarLoader from "react-spinners/BarLoader";
 import Point from "assets/Images/bulletPoint.svg";
 import BTC from "assets/Images/bitcoin.svg";
 import ETH from "assets/Images/ethereum.svg";
@@ -29,6 +30,14 @@ const NavUnder = () => {
   const totalVolume = navData?.data?.total_volume[currentCurrency];
   const bitcoinPercentage = navData?.data?.market_cap_percentage.btc;
   const ethereumPercentage = navData?.data?.market_cap_percentage.eth;
+  if (!isNaN(navData))
+    return (
+      <NavWrap>
+        <NavUnderContainer>
+          <BarLoader width={400} color="#00FC2A" />
+        </NavUnderContainer>
+      </NavWrap>
+    );
   return (
     <NavWrap>
       <NavUnderContainer>

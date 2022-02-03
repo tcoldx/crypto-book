@@ -9,7 +9,6 @@ export const Container = styled.div`
 
 export const H4 = styled.h4`
   margin-top: 20px;
-  margin-left: 38px;
   margin-bottom: 20px;
 `;
 

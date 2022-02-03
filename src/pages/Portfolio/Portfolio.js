@@ -1,21 +1,34 @@
 import React, { useState } from "react";
+import ExitButton from "assets/Images/xbutton.svg";
 import {
   Wrapper,
   AssetButton,
   H2,
   StatMenuContainer,
+  Img,
+  StatMenuWrap,
 } from "./Portfolio.styles";
 
 const Portfolio = () => {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   const handleClick = () => {
-    setOpen(!open);
+    setOpen(true);
+  };
+  const handleExit = () => {
+    setOpen(false);
   };
   return (
     <Wrapper>
-      <AssetButton onClick={handleClick}>Add Asset</AssetButton>
+      {open && (
+        <StatMenuContainer>
+          <StatMenuWrap>
+            <div>Select Coins</div>
+            <Img onClick={handleExit} src={ExitButton} alt="button" />
+          </StatMenuWrap>
+        </StatMenuContainer>
+      )}
       <H2>Your Statistics</H2>
-      {open && <StatMenuContainer>1</StatMenuContainer>}
+      <AssetButton onClick={handleClick}>Add Asset</AssetButton>
     </Wrapper>
   );
 };

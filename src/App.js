@@ -4,7 +4,6 @@ import { ThemeProvider } from "styled-components";
 import { GlobalStyle } from "styling/GlobalStyle";
 import { NavBar, NavUnder } from "components";
 import { Home, Coin, Portfolio } from "pages";
-
 import { darkTheme, lightTheme } from "styling/theme";
 import { Container } from "App.css";
 
