@@ -1,0 +1,25 @@
+import styled from "styled-components";
+
+export const SelectCoinWrap = styled.div`
+  background: #2c2f36;
+`;
+
+export const SelectCoin = styled.div`
+  cursor: pointer;
+  &:hover {
+    opacity: 0.5;
+  }
+`;
+
+export const Input = styled.input`
+  background: #191b1f;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+`;
+
+export const InputContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`;

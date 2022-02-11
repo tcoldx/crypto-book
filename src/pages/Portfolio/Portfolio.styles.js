@@ -37,8 +37,9 @@ export const StatMenuContainer = styled.div`
 `;
 
 export const Img = styled.img`
-  position: relative;
-  float: right;
+  position: absolute;
+  top: 35%;
+  left: 70%;
   margin-right: 13px;
   cursor: pointer;
   width: 22px;
@@ -46,8 +47,65 @@ export const Img = styled.img`
 `;
 
 export const StatMenuWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   background: #2c2f36;
   width: 687px;
   height: 38%;
   border-radius: 10px;
+`;
+
+export const ContentWrap = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+`;
+
+export const CoinTopContent = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const CoinCard = styled.div`
+  display: flex;
+  flex-direction: column;
+  background: #191b1f;
+  border-radius: 10px;
+  height: 130px;
+  width: 155px;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const InnerCoinCard = styled.div`
+  background: #1f2128;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+`;
+
+export const CoinSelectors = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
+
+export const ButtonWrap = styled.div`
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+`;
+
+export const Button = styled.button`
+  border: none;
+  border-radius: 10px;
+  width: 200px;
+  height: 39px;
+  color: #06d554;
+  background: #ffffff;
 `;

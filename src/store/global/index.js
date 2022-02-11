@@ -2,6 +2,7 @@ const initialState = {
   navData: [],
   currentCurrency: "usd",
   currentCoin: "bitcoin",
+  coins: null,
 };
 
 export const global = (state = initialState, action) => {
@@ -22,6 +23,12 @@ export const global = (state = initialState, action) => {
       return {
         ...state,
         currentCoin: action.payload,
+      };
+
+    case "SEARCH_SUCCESS":
+      return {
+        ...state,
+        coins: action.payload,
       };
 
     default:
