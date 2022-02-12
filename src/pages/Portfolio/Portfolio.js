@@ -49,7 +49,9 @@ const Portfolio = () => {
       dispatch(getSearch(value));
     }
     setCoinData({ ...coinData, [name]: value });
-    setClose(false);
+    if (name === "name") {
+      setClose(false);
+    }
   };
 
   const handleSave = () => {

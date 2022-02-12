@@ -14,7 +14,7 @@ const PortfolioCoinInput = (props) => {
     if (key === "name") {
       return "search";
     }
-    if (key === "value") {
+    if (key === "amount") {
       return "number";
     }
   };
@@ -53,6 +53,7 @@ const PortfolioCoinInput = (props) => {
                 key={el.id}
                 onClick={(e) => props.handleOption(e, el.id)}
               >
+                <img src={el.thumb} width={20} height={20} alt="coin" />
                 {el.name}
               </SelectCoin>
             );

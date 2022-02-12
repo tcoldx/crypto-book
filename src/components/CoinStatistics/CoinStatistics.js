@@ -44,13 +44,13 @@ const CoinStatistics = (props) => {
               </span>
               <span>
                 Price Change 24h
-                <Span>{priceChange.toFixed(2)}</Span>
+                <Span>{priceChange?.toFixed(2)}</Span>
               </span>
               <span>
                 Market Cap vs Volume<Span>{formatPercent(marketVsVolume)}</Span>
               </span>
               <span>
-                Circ supply vs Max supply<Span>${supplyVsMax.toFixed(2)}</Span>
+                Circ supply vs Max supply<Span>${supplyVsMax?.toFixed(2)}</Span>
               </span>
             </MarketStatWrap>
           </MarketStatContainer>
@@ -66,7 +66,7 @@ const CoinStatistics = (props) => {
               <span>
                 Amount price change since purchase
                 <Span>
-                  {currentData[0]?.price_change_percentage_7d_in_currency.toFixed(
+                  {currentData[0]?.price_change_percentage_7d_in_currency?.toFixed(
                     2
                   )}
                   %

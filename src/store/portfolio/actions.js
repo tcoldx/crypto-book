@@ -3,15 +3,18 @@ import { portfolioDate } from "utils/formatPortfolioDate";
 
 export const getCoinInfo = (data) => async (dispatch) => {
   const { amount, name, date } = data;
-
+  let today = new Date();
+  let givenDate = new Date(date);
   try {
     dispatch({
       type: "COIN_INFO_PENDING",
     });
     const { data } = await axios.get(
-      `https://api.coingecko.com/api/v3/coins/${name}/history?date=${portfolioDate(
-        date
-      )}`
+      `https://api.coingecko.com/api/v3/coins/${name}/history?date=${
+        givenDate > today
+          ? alert("please use a previous date or the current")
+          : portfolioDate(date)
+      }`
     );
     console.log(data);
     dispatch({
@@ -37,7 +40,7 @@ export const getCoinsData = (currency) => async (dispatch) => {
       type: "GET_COINLIST_PENDING",
     });
     const { data } = await axios.get(
-      `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=24h%2C7d%2C30d`
+      `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&order=market_cap_desc&per_page=500&page=1&sparkline=false&price_change_percentage=24h%2C7d%2C30d`
     );
     dispatch({
       type: "GET_COINLIST_SUCCESS",

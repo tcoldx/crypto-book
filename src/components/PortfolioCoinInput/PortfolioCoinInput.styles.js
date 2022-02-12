@@ -1,6 +1,9 @@
 import styled from "styled-components";
 
 export const SelectCoinWrap = styled.div`
+  position: absolute;
+  border-radius: 6px;
+  top: 45%;
   background: #2c2f36;
 `;
 
