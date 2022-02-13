@@ -14,12 +14,18 @@ export const SelectCoin = styled.div`
   }
 `;
 
+export const Loader = styled.span`
+  display: ${(props) => props.display};
+`;
+
 export const Input = styled.input`
   background: #191b1f;
   color: white;
   border: none;
   padding: 10px;
   border-radius: 10px;
+  outline: none;
+  font-weight: bold;
 `;
 
 export const InputContainer = styled.div`

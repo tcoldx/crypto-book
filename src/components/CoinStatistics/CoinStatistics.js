@@ -12,6 +12,7 @@ import {
   CoinStatContainer,
   CoinStatWrap,
   Span,
+  Name,
 } from "./CoinStatistics.styles";
 
 const CoinStatistics = (props) => {
@@ -32,7 +33,7 @@ const CoinStatistics = (props) => {
         <StatLeft>
           <CoinContainer>
             <img src={image} alt="coin" width={30} height={30} />
-            <span>{name}</span>
+            <Name>{name.length > 12 ? name.slice(0, 12) + "..." : name}</Name>
           </CoinContainer>
         </StatLeft>
         <StatRight>
@@ -40,17 +41,24 @@ const CoinStatistics = (props) => {
           <MarketStatContainer>
             <MarketStatWrap>
               <span>
-                Current Price:<Span>{currentPrice}</Span>
+                Current Price:
+                <Span>{!currentPrice ? "-" : "$" + currentPrice}</Span>
               </span>
               <span>
                 Price Change 24h
                 <Span>{priceChange?.toFixed(2)}</Span>
               </span>
               <span>
-                Market Cap vs Volume<Span>{formatPercent(marketVsVolume)}</Span>
+                Market Cap vs Volume
+                <Span>
+                  {!marketVsVolume ? "-" : formatPercent(marketVsVolume)}
+                </Span>
               </span>
               <span>
-                Circ supply vs Max supply<Span>${supplyVsMax?.toFixed(2)}</Span>
+                Circ supply vs Max supply
+                <Span>
+                  {!supplyVsMax ? "-" : "$" + supplyVsMax?.toFixed(2)}
+                </Span>
               </span>
             </MarketStatWrap>
           </MarketStatContainer>

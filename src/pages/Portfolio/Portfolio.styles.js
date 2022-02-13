@@ -109,3 +109,7 @@ export const Button = styled.button`
   color: #06d554;
   background: #ffffff;
 `;
+
+export const Span = styled.span`
+  font-size: 7px;
+`;

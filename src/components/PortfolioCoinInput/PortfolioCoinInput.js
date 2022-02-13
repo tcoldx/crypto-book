@@ -8,9 +8,6 @@ import {
 
 const PortfolioCoinInput = (props) => {
   const smartType = (key) => {
-    if (key === "date") {
-      return "date";
-    }
     if (key === "name") {
       return "search";
     }
@@ -26,7 +23,7 @@ const PortfolioCoinInput = (props) => {
       return "amount";
     }
     if (key === "date") {
-      return "dd/mm/yyyy";
+      return "dd-mm-yyyy";
     }
   };
   return (
@@ -37,29 +34,27 @@ const PortfolioCoinInput = (props) => {
             key={key}
             onChange={props.handleChange}
             name={key}
+            autoComplete="off"
             value={value}
             type={smartType(key)}
             placeholder={smartPlaceholder(key)}
           />
         );
       })}
-      <SelectCoinWrap>
-        {props.coinList?.map((el) => {
-          if (props.close) {
-            return null;
-          } else {
+      {props.close ? null : (
+        <SelectCoinWrap>
+          {props.coinList?.map((el) => {
             return (
               <SelectCoin
                 key={el.id}
                 onClick={(e) => props.handleOption(e, el.id)}
               >
-                <img src={el.thumb} width={20} height={20} alt="coin" />
                 {el.name}
               </SelectCoin>
             );
-          }
-        })}
-      </SelectCoinWrap>
+          })}
+        </SelectCoinWrap>
+      )}
     </InputContainer>
   );
 };

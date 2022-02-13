@@ -70,4 +70,9 @@ export const CoinStatWrap = styled.div`
 
 export const Span = styled.span`
   color: #00fc2a;
+  margin-left: 6px;
+`;
+
+export const Name = styled.div`
+  font-size: 10px;
 `;

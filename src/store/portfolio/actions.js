@@ -1,10 +1,13 @@
 import axios from "axios";
-import { portfolioDate } from "utils/formatPortfolioDate";
 
 export const getCoinInfo = (data) => async (dispatch) => {
   const { amount, name, date } = data;
   let today = new Date();
   let givenDate = new Date(date);
+
+  if (amount < 1) {
+    return null;
+  }
   try {
     dispatch({
       type: "COIN_INFO_PENDING",
@@ -13,7 +16,7 @@ export const getCoinInfo = (data) => async (dispatch) => {
       `https://api.coingecko.com/api/v3/coins/${name}/history?date=${
         givenDate > today
           ? alert("please use a previous date or the current")
-          : portfolioDate(date)
+          : date
       }`
     );
     console.log(data);

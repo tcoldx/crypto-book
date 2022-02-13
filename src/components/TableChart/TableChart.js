@@ -1,6 +1,6 @@
 import React from "react";
 import { Line } from "react-chartjs-2";
-import { Container } from "./TableChart.styles";
+import { Container, ChartWrap } from "./TableChart.styles";
 
 const TableChart = ({ dataPoint }) => {
   const price = dataPoint?.price.map((el) => el);
@@ -19,10 +19,10 @@ const TableChart = ({ dataPoint }) => {
           label: "BTC",
           pointRadius: 0,
           data: price,
-          fill: true,
+          fill: false,
           backgroundColor: gradient,
           borderColor: "#00FF5F",
-          borderWidth: 2,
+          borderWidth: 1,
         },
       ],
     };
@@ -63,7 +63,9 @@ const TableChart = ({ dataPoint }) => {
   };
   return (
     <Container>
-      <Line data={data} options={options} />
+      <ChartWrap>
+        <Line data={data} options={options} />
+      </ChartWrap>
     </Container>
   );
 };

@@ -14,6 +14,7 @@ import {
   CoinCard,
   CoinSelectors,
   ContentWrap,
+  Span,
   ButtonWrap,
   Button,
   CoinTopContent,
@@ -21,7 +22,7 @@ import {
 import { CoinStatistics, PortfolioCoinInput } from "components";
 
 const Portfolio = () => {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   const [coin, setCoin] = useState({});
   const [savedCoin, setSavedCoin] = useState([]);
   const [close, setClose] = useState(false);
@@ -45,12 +46,12 @@ const Portfolio = () => {
   };
   const handleChange = (e) => {
     const { name, value } = e.target;
-    if (isNaN(value)) {
+    if (isNaN(value) && name === "name") {
       dispatch(getSearch(value));
     }
     setCoinData({ ...coinData, [name]: value });
     if (name === "name") {
-      setClose(false);
+      setClose(name === "name" ? false : null);
     }
   };
 
@@ -78,7 +79,7 @@ const Portfolio = () => {
                   <InnerCoinCard>
                     <img src={coin.thumb} alt="coin" />
                   </InnerCoinCard>
-                  <span>{coin.name}</span>
+                  <Span>{coin.name}</Span>
                 </CoinCard>
                 <CoinSelectors>
                   <PortfolioCoinInput
@@ -107,7 +108,7 @@ const Portfolio = () => {
             key={el.purchaseData.id}
             name={el.purchaseData.name}
             image={el.purchaseData.image.thumb}
-            price={el.purchaseData.market_data.current_price}
+            price={el?.purchaseData?.market_data?.current_price}
             amount={el.amountPurchased}
             purchaseDate={el.datePurchased}
           />
