@@ -53,11 +53,19 @@ const Portfolio = () => {
     if (name === "name") {
       setClose(name === "name" ? false : null);
     }
+    setClose(value === "" ? true : false);
   };
 
   const handleSave = () => {
     setSavedCoin([...savedCoin, coinData]);
     dispatch(getCoinInfo(coinData));
+    setCoin({});
+    setCoinData({
+      name: "",
+      amount: "",
+      date: "",
+    });
+    setOpen(coinData ? false : true);
   };
 
   const handleOption = (e, el) => {
@@ -77,7 +85,7 @@ const Portfolio = () => {
               <CoinTopContent>
                 <CoinCard>
                   <InnerCoinCard>
-                    <img src={coin.thumb} alt="coin" />
+                    {coinData ? <img src={coin.thumb} /> : null}
                   </InnerCoinCard>
                   <Span>{coin.name}</Span>
                 </CoinCard>

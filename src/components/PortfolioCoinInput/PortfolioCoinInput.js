@@ -19,8 +19,8 @@ const PortfolioCoinInput = (props) => {
     if (key === "name") {
       return "Search coin...";
     }
-    if (key === "value") {
-      return "amount";
+    if (key === "amount") {
+      return "amount coin";
     }
     if (key === "date") {
       return "dd-mm-yyyy";

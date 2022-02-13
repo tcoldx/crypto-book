@@ -19,7 +19,6 @@ export const getCoinInfo = (data) => async (dispatch) => {
           : date
       }`
     );
-    console.log(data);
     dispatch({
       type: "COIN_HISTORY_SUCCESS",
       payload: {

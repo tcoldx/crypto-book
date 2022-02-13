@@ -69,7 +69,8 @@ const CoinStatistics = (props) => {
                 Coin amount: <Span>{amount}</Span>
               </span>
               <span>
-                Amount Value <Span>{price[currentCurrency]?.toFixed(2)}</Span>{" "}
+                Amount Value
+                <Span>{price ? price[currentCurrency]?.toFixed(2) : null}</Span>
               </span>
               <span>
                 Amount price change since purchase

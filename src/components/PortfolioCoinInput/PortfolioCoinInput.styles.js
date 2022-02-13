@@ -26,6 +26,10 @@ export const Input = styled.input`
   border-radius: 10px;
   outline: none;
   font-weight: bold;
+  ::placeholder {
+    font-weight: 1;
+    opacity: 0.7;
+  }
 `;
 
 export const InputContainer = styled.div`
