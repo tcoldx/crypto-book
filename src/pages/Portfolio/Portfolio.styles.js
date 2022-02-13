@@ -66,6 +66,7 @@ export const ContentWrap = styled.div`
 export const CoinTopContent = styled.div`
   display: flex;
   justify-content: space-between;
+  margin: 10px;
 `;
 
 export const CoinCard = styled.div`
@@ -73,7 +74,6 @@ export const CoinCard = styled.div`
   flex-direction: column;
   background: #191b1f;
   border-radius: 10px;
-  height: 130px;
   width: 155px;
   justify-content: center;
   align-items: center;
@@ -106,10 +106,11 @@ export const Button = styled.button`
   border-radius: 10px;
   width: 200px;
   height: 39px;
+  font-weight: bold;
   color: #06d554;
   background: #ffffff;
 `;
 
 export const Span = styled.span`
-  font-size: 7px;
+  font-size: 15px;
 `;

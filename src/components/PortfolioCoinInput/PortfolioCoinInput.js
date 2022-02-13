@@ -17,13 +17,13 @@ const PortfolioCoinInput = (props) => {
   };
   const smartPlaceholder = (key) => {
     if (key === "name") {
-      return "Search coin...";
+      return "Search coin";
     }
     if (key === "amount") {
-      return "amount coin";
+      return "Amount coin";
     }
     if (key === "date") {
-      return "dd-mm-yyyy";
+      return "DD-MM-YYYY";
     }
   };
   return (
