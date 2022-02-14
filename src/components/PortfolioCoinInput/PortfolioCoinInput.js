@@ -7,40 +7,25 @@ import {
 } from "./PortfolioCoinInput.styles";
 
 const PortfolioCoinInput = (props) => {
-  const smartType = (key) => {
-    if (key === "name") {
-      return "search";
-    }
-    if (key === "amount") {
-      return "number";
-    }
-  };
-  const smartPlaceholder = (key) => {
-    if (key === "name") {
-      return "Search coin";
-    }
-    if (key === "amount") {
-      return "Amount coin";
-    }
-    if (key === "date") {
-      return "DD-MM-YYYY";
-    }
-  };
   return (
     <InputContainer>
-      {Object.entries(props.coinData).map(([key, value]) => {
-        return (
-          <Input
-            key={key}
-            onChange={props.handleChange}
-            name={key}
-            autoComplete="off"
-            value={value}
-            type={smartType(key)}
-            placeholder={smartPlaceholder(key)}
-          />
-        );
-      })}
+      <Input
+        onChange={(e) => props.handleChange(e)}
+        autoComplete="off"
+        type="search"
+        value={props.coinData.name}
+        placeholder="Search Coin..."
+      />
+      <Input
+        type="number"
+        placeholder="Amount Coin"
+        onChange={(e) => props.handleAmountChange(e)}
+      />
+      <Input
+        type="search"
+        placeholder="DD-MM-YYYY"
+        onChange={(e) => props.handleDateChange(e)}
+      />
       {props.close ? null : (
         <SelectCoinWrap>
           {props.coinList?.map((el) => {

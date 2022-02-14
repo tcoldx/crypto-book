@@ -45,15 +45,24 @@ const Portfolio = () => {
     setOpen(!open);
   };
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    if (isNaN(value) && name === "name") {
-      dispatch(getSearch(value));
+    const { value } = e.target;
+    dispatch(getSearch(value));
+    setCoinData({ ...coinData, name: value });
+    if (value === "") {
+      setClose(true);
+    } else {
+      setClose(false);
     }
-    setCoinData({ ...coinData, [name]: value });
-    if (name === "name") {
-      setClose(name === "name" ? false : null);
-    }
-    setClose(value === "" ? true : false);
+  };
+
+  const handleAmountChange = (e) => {
+    const { value } = e.target;
+    setCoinData({ ...coinData, amount: value });
+  };
+
+  const handleDateChange = (e) => {
+    const { value } = e.target;
+    setCoinData({ ...coinData, date: value });
   };
 
   const handleSave = () => {
@@ -85,13 +94,15 @@ const Portfolio = () => {
               <CoinTopContent>
                 <CoinCard>
                   <InnerCoinCard>
-                    {coinData ? <img src={coin.thumb} /> : null}
+                    {coin.thumb ? <img src={coin.thumb} alt="coin" /> : null}
                   </InnerCoinCard>
                   <Span>{coin.name}</Span>
                 </CoinCard>
                 <CoinSelectors>
                   <PortfolioCoinInput
                     handleOption={handleOption}
+                    handleAmountChange={handleAmountChange}
+                    handleDateChange={handleDateChange}
                     handleChange={handleChange}
                     coinData={coinData}
                     coinList={coins}
