@@ -31,3 +31,23 @@ export const getCurrentCoin = (coin) => {
     payload: coin,
   };
 };
+
+export const getSearch = (search) => async (dispatch) => {
+  try {
+    dispatch({
+      type: "SEARCH_PENDING",
+    });
+    const { data } = await axios.get(
+      `https://crypto-app-server.herokuapp.com/coins/${search}`
+    );
+    dispatch({
+      type: "SEARCH_SUCCESS",
+      payload: data,
+    });
+  } catch (err) {
+    dispatch({
+      type: "SEARCH_ERROR",
+      payload: err,
+    });
+  }
+};

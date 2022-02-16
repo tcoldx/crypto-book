@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
-  width: 100px;
+export const Container = styled.div``;
+export const ChartWrap = styled.div`
+  width: 49.5%;
 `;

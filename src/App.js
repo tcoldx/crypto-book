@@ -6,6 +6,7 @@ import { NavBar, NavUnder } from "components";
 import { Home, Coin, Portfolio } from "pages";
 import { darkTheme, lightTheme } from "styling/theme";
 import { Container } from "App.css";
+import MobileNavBar from "components/MobileNavBar";
 
 function App() {
   const [toggle, setToggle] = useState(true);
@@ -23,6 +24,7 @@ function App() {
             <Route exact path="/coin/:coinId" component={Coin} />
             <Route exact path="/portfolio" component={Portfolio} />
           </Switch>
+          <MobileNavBar />
         </Router>
       </Container>
     </ThemeProvider>

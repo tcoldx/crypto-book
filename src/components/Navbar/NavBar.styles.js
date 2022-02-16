@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export const NavWrap = styled.div`
   width: 100%;
@@ -60,16 +60,23 @@ export const Search = styled.input`
   height: 24px;
 `;
 
-export const Button = styled(Link)`
+export const Button = styled(NavLink)`
   color: ${(props) => props.theme.color};
   border-radius: 8px;
   display: flex;
   font-weight: bold;
   align-items: center;
   justify-content: center;
-  background: ${(props) => props.theme.card.secondary};
+  background: transparent;
   width: 100px;
   height: 38px;
+  &.active {
+    background: #2c2f36;
+  }
+  &:hover {
+    color: #00fc2a;
+    transition: color 1s;
+  }
 `;
 
 export const Select = styled.select`
