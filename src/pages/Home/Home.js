@@ -1,8 +1,14 @@
 import React, { useEffect } from "react";
-import { MarketChart, CoinTable } from "components";
+import { MarketChart, CoinTable, ChartSlider } from "components";
 import { getCoins } from "store/coins/actions";
 import { useDispatch, useSelector } from "react-redux";
-import { ContentWrap, Overview, Content, ChartWrapper } from "./Home.styles";
+import {
+  ContentWrap,
+  Overview,
+  Content,
+  ChartWrapper,
+  MobileChartWrap,
+} from "./Home.styles";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -16,6 +22,9 @@ const Home = () => {
     <ContentWrap>
       <Content>
         <Overview>Bitcoin Overview</Overview>
+        <MobileChartWrap>
+          <ChartSlider />
+        </MobileChartWrap>
         <ChartWrapper>
           <MarketChart type="price" />
           <MarketChart type="volume" />

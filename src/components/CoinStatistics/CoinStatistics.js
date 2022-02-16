@@ -41,7 +41,7 @@ const CoinStatistics = (props) => {
           </CoinContainer>
           <NameContainer>
             <Name>{name.length > 12 ? name.slice(0, 12) + "..." : name}</Name>
-            <Name>({symbol.toUpperCase()})</Name>
+            <Name>({symbol?.toUpperCase()})</Name>
           </NameContainer>
         </StatLeft>
         <StatRight>
