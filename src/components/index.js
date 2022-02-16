@@ -13,3 +13,4 @@ export { default as CoinChartChange } from "./CoinChartChange";
 export { default as TableChart } from "./TableChart";
 export { default as CoinStatistics } from "./CoinStatistics";
 export { default as PortfolioCoinInput } from "./PortfolioCoinInput";
+export { default as ChartSlider } from "./ChartSlider";

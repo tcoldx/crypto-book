@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const SelectCoinWrap = styled.div`
   position: absolute;
+  top: 45%;
   border-radius: 6px;
-  top: 43%;
   height: 140px;
   overflow: hidden;
   background: #2c2f36;
@@ -38,5 +38,5 @@ export const Input = styled.input`
 export const InputContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 10px;
 `;

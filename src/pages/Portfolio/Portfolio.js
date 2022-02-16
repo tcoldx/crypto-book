@@ -18,6 +18,8 @@ import {
   ButtonWrap,
   Button,
   CoinTopContent,
+  StatHeader,
+  ImageWrap,
 } from "./Portfolio.styles";
 import { CoinStatistics, PortfolioCoinInput } from "components";
 
@@ -62,10 +64,11 @@ const Portfolio = () => {
 
   const handleDateChange = (e) => {
     const { value } = e.target;
+
     setCoinData({ ...coinData, date: value });
   };
 
-  const handleSave = () => {
+  const handleSave = (data) => {
     setSavedCoin([...savedCoin, coinData]);
     dispatch(getCoinInfo(coinData));
     setCoin({});
@@ -74,7 +77,7 @@ const Portfolio = () => {
       amount: "",
       date: "",
     });
-    setOpen(coinData ? false : true);
+    setOpen(!data ? true : false);
   };
 
   const handleOption = (e, el) => {
@@ -88,8 +91,10 @@ const Portfolio = () => {
       {open && (
         <StatMenuContainer>
           <StatMenuWrap>
-            <div>Select Coins</div>
-            <Img onClick={handleClick} src={ExitButton} alt="button" />
+            <H2>Select Coins</H2>
+            <ImageWrap>
+              <Img onClick={handleClick} src={ExitButton} alt="button" />
+            </ImageWrap>
             <ContentWrap>
               <CoinTopContent>
                 <CoinCard>
@@ -110,16 +115,21 @@ const Portfolio = () => {
                   />
                 </CoinSelectors>
               </CoinTopContent>
-              <ButtonWrap>
-                <Button onClick={handleClick}>Close</Button>
-                <Button onClick={handleSave}>Save and Continue</Button>
-              </ButtonWrap>
             </ContentWrap>
+            <ButtonWrap>
+              <Button onClick={handleClick}>Close</Button>
+              <Button onClick={() => handleSave(coinData)}>
+                Save and Continue
+              </Button>
+            </ButtonWrap>
           </StatMenuWrap>
         </StatMenuContainer>
       )}
-      <H2>Your Statistics</H2>
+
       <AssetButton onClick={handleClick}>Add Asset</AssetButton>
+      <StatHeader>
+        <H2>Your Statistics</H2>
+      </StatHeader>
       {coinsData.map((el) => {
         return (
           <CoinStatistics

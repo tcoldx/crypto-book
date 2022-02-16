@@ -34,6 +34,17 @@ export const CoinContainer = styled.div`
 export const StatRight = styled.div`
   display: flex;
   flex-direction: column;
+  margin-left: 12px;
+  justify-content: space-evenly;
+`;
+
+export const NameContainer = styled.div`
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  justify-content: center;
+  width: 100%;
+  gap: 6px;
 `;
 
 export const MarketStatContainer = styled.div`
@@ -49,6 +60,8 @@ export const MarketStatWrap = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  font-weight: bold;
+  font-size: 12px;
   width: 100%;
 `;
 
@@ -66,6 +79,8 @@ export const CoinStatWrap = styled.div`
   align-items: center;
   justify-content: space-evenly;
   width: 100%;
+  font-size: 12px;
+  font-weight: bold;
 `;
 
 export const Span = styled.span`
@@ -74,5 +89,32 @@ export const Span = styled.span`
 `;
 
 export const Name = styled.div`
-  font-size: 10px;
+  font-size: 11px;
+  margin-top: 5px;
+`;
+
+export const BarContainer = styled.div`
+  background: #2172e5;
+  border-radius: 10px;
+  width: 60px;
+  height: 8px;
+`;
+export const Percentage = styled.div`
+  background: ${(props) => props.theme.color};
+  border-radius: 10px;
+  width: ${(props) => props.marketAndVolume}px;
+  height: 8px;
+`;
+
+export const MarketColumn = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const BarWrap = styled.div`
+  margin-left: 6px;
+  max-width: 80px;
+  overflow: hidden;
+  border-radius: 10px;
 `;

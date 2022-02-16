@@ -23,12 +23,17 @@ const NavBar = (props) => {
     const { value } = e.target;
     dispatch(changeCurrency(value));
   };
+
   return (
     <NavWrap>
       <Nav>
         <NavLeft>
-          <Button to="/">Coins</Button>
-          <Button to="/portfolio">Portfolio</Button>
+          <Button activeClassName="active" exact to="/">
+            Coins
+          </Button>
+          <Button activeClassName="active" exact to="/portfolio">
+            Portfolio
+          </Button>
         </NavLeft>
         <NavRight>
           <SearchWrap>

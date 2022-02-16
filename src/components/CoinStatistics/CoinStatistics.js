@@ -13,6 +13,11 @@ import {
   CoinStatWrap,
   Span,
   Name,
+  BarContainer,
+  Percentage,
+  MarketColumn,
+  BarWrap,
+  NameContainer,
 } from "./CoinStatistics.styles";
 
 const CoinStatistics = (props) => {
@@ -26,15 +31,18 @@ const CoinStatistics = (props) => {
     currentData[0]?.market_cap / currentData[0]?.total_volume;
   const supplyVsMax =
     currentData[0]?.circulating_supply / currentData[0]?.total_supply;
-
+  const symbol = currentData[0]?.symbol;
   return (
     <Container>
       <StatWrap>
         <StatLeft>
           <CoinContainer>
             <img src={image} alt="coin" width={30} height={30} />
-            <Name>{name.length > 12 ? name.slice(0, 12) + "..." : name}</Name>
           </CoinContainer>
+          <NameContainer>
+            <Name>{name.length > 12 ? name.slice(0, 12) + "..." : name}</Name>
+            <Name>({symbol.toUpperCase()})</Name>
+          </NameContainer>
         </StatLeft>
         <StatRight>
           <span>Market Price:</span>
@@ -48,12 +56,17 @@ const CoinStatistics = (props) => {
                 Price Change 24h
                 <Span>{priceChange?.toFixed(2)}</Span>
               </span>
-              <span>
-                Market Cap vs Volume
+              <MarketColumn>
+                <span>Market Cap vs Volume</span>
                 <Span>
                   {!marketVsVolume ? "-" : formatPercent(marketVsVolume)}
                 </Span>
-              </span>
+                <BarWrap>
+                  <BarContainer>
+                    <Percentage marketAndVolume={marketVsVolume} />
+                  </BarContainer>
+                </BarWrap>
+              </MarketColumn>
               <span>
                 Circ supply vs Max supply
                 <Span>

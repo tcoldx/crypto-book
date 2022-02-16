@@ -2,8 +2,6 @@ import axios from "axios";
 
 export const getCoinInfo = (data) => async (dispatch) => {
   const { amount, name, date } = data;
-  let today = new Date();
-  let givenDate = new Date(date);
 
   if (amount < 1) {
     return null;
@@ -13,11 +11,10 @@ export const getCoinInfo = (data) => async (dispatch) => {
       type: "COIN_INFO_PENDING",
     });
     const { data } = await axios.get(
-      `https://api.coingecko.com/api/v3/coins/${name}/history?date=${
-        givenDate > today
-          ? alert("please use a previous date or the current")
-          : date
-      }`
+      `https://api.coingecko.com/api/v3/coins/${name}/history?date=${date
+        .split("-")
+        .reverse()
+        .join("-")}`
     );
     dispatch({
       type: "COIN_HISTORY_SUCCESS",
