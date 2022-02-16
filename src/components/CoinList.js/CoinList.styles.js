@@ -9,6 +9,42 @@ export const TD = styled.td`
   font-size: 11px;
   padding-block: 24px;
   font-weight: bold;
+
+  &:nth-child(9) {
+    @media (max-width: 1219px) {
+      display: none;
+    }
+  }
+  &:nth-child(8) {
+    @media (max-width: 1099px) {
+      display: none;
+    }
+  }
+  &:nth-child(7) {
+    @media (max-width: 899px) {
+      display: none;
+    }
+  }
+  &:nth-child(6) {
+    @media (max-width: 767px) {
+      display: none;
+    }
+  }
+  &:nth-child(5) {
+    @media (max-width: 620px) {
+      display: none;
+    }
+  }
+  &:nth-child(4) {
+    @media (max-width: 499px) {
+      display: none;
+    }
+  }
+  &:nth-child(1) {
+    @media (max-width: 369px) {
+      display: none;
+    }
+  }
 `;
 
 export const RankWrap = styled.div`
@@ -23,9 +59,11 @@ export const NameColumn = styled.div`
   width: 90px;
 `;
 
-export const Span = styled.div`
-  color: ${(props) => props.color};
-`;
+export const Span = styled.div.attrs((props) => ({
+  style: {
+    color: props.color,
+  },
+}))``;
 
 export const ContentWrap = styled.div`
   display: flex;

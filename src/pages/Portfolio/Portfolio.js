@@ -28,6 +28,7 @@ const Portfolio = () => {
   const [coin, setCoin] = useState({});
   const [savedCoin, setSavedCoin] = useState([]);
   const [close, setClose] = useState(false);
+
   const [coinData, setCoinData] = useState({
     name: "",
     amount: 0,
@@ -59,6 +60,8 @@ const Portfolio = () => {
 
   const handleAmountChange = (e) => {
     const { value } = e.target;
+    console.log(value);
+    if (value < 0) return;
     setCoinData({ ...coinData, amount: value });
   };
 

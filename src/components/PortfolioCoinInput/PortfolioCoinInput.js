@@ -38,18 +38,22 @@ const PortfolioCoinInput = (props) => {
         type="search"
         value={props.coinData.name}
         placeholder="Select Coins"
+        required
       />
       <Input
         type="number"
         placeholder="Purchased Amount"
-        min={1}
+        min={0}
+        value={props.coinData.amount}
         onChange={(e) => props.handleAmountChange(e)}
+        required
       />
       <Input
         type="date"
         max={currentDate}
         placeholder="Purchased Date"
         onChange={(e) => props.handleDateChange(e)}
+        required
       />
       {props.close ? null : (
         <SelectCoinWrap>

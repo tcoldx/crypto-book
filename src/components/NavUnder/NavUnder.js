@@ -15,6 +15,9 @@ import {
   Percentage,
   BarContainer,
   VolumePercentage,
+  MarketCapWrap,
+  CoinAndExchange,
+  EthereumWrap,
 } from "./NavUnder.styles";
 
 const NavUnder = () => {
@@ -42,14 +45,17 @@ const NavUnder = () => {
     <NavWrap>
       <NavUnderContainer>
         <NavUnderWrap>
-          <span>Coins {currencies}</span>
-          <span>Exchange {markets}</span>
-          <img src={Point} width={6} height={6} alt="bullet-point" />
-          <span>
-            ${convertNumber(Math.round(totalMarketCap))}
+          <CoinAndExchange>
+            <div>Coins {currencies}</div>
+            <div>Exchange {markets}</div>
+            <img src={Point} width={6} height={6} alt="bullet-point" />
+          </CoinAndExchange>
+          <MarketCapWrap>
+            <span>${convertNumber(Math.round(totalMarketCap))}</span>
             <img src={GreenCaret} alt="caret" width={8} height={8} />
-          </span>
-          <img src={Point} width={6} height={6} alt="bullet-point" />
+            <img src={Point} width={6} height={6} alt="bullet-point" />
+          </MarketCapWrap>
+
           <PercentContainer>
             <span> {convertNumber(Math.round(totalVolume))}</span>
             <BarContainer>
@@ -66,16 +72,18 @@ const NavUnder = () => {
               />
             </BarContainer>
           </PercentContainer>
-          <PercentContainer>
-            <img src={ETH} width={10} height={10} alt="ethereum" />
-            <span>{Math.round(ethereumPercentage)}%</span>
-            <BarContainer>
-              <Percentage
-                market={navData?.data?.total_market_cap.btc}
-                volume={navData?.data?.total_volume.btc}
-              />
-            </BarContainer>
-          </PercentContainer>
+          <EthereumWrap>
+            <PercentContainer>
+              <img src={ETH} width={10} height={10} alt="ethereum" />
+              <span>{Math.round(ethereumPercentage)}%</span>
+              <BarContainer>
+                <Percentage
+                  market={navData?.data?.total_market_cap.btc}
+                  volume={navData?.data?.total_volume.btc}
+                />
+              </BarContainer>
+            </PercentContainer>
+          </EthereumWrap>
         </NavUnderWrap>
       </NavUnderContainer>
     </NavWrap>

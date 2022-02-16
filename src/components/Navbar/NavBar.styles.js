@@ -49,6 +49,10 @@ export const SearchWrap = styled.div`
   padding-left: 8px;
   background: ${(props) => props.theme.card.secondary};
   height: 38px;
+
+  @media (max-width: 767px) {
+    display: none;
+  }
 `;
 
 export const Search = styled.input`
@@ -97,4 +101,25 @@ export const CurrencyWrap = styled.div`
   border-radius: 10px;
   align-items: center;
   justify-content: center;
+`;
+
+export const ThemeWrap = styled.div`
+  right: 0;
+  @media (max-width: 767px) {
+    display: none;
+  }
+`;
+
+export const Overview = styled.div`
+  display: none;
+  @media (max-width: 767px) {
+    display: block;
+  }
+`;
+
+export const ButtonWrap = styled.div`
+  display: flex;
+  @media (max-width: 767px) {
+    display: none;
+  }
 `;

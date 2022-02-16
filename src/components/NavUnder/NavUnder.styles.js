@@ -4,7 +4,7 @@ export const NavWrap = styled.div`
   display: flex;
   color: ${(props) => props.theme.color};
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   width: 100%;
   padding-bottom: 25px;
 `;
@@ -18,6 +18,10 @@ export const NavUnderContainer = styled.div`
   background: ${(props) => props.theme.main};
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
+  @media (max-width: 760px) {
+    width: 100%;
+    background: #2c2d33;
+  }
 `;
 
 export const NavUnderWrap = styled.div`
@@ -57,4 +61,29 @@ export const VolumePercentage = styled.div`
   border-radius: 10px;
   width: ${(props) => props.market};
   height: 8px;
+`;
+
+export const MarketCapWrap = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  @media (max-width: 999px) {
+    display: none;
+  }
+`;
+
+export const CoinAndExchange = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  @media (max-width: 1299px) {
+    display: none;
+  }
+`;
+
+export const EthereumWrap = styled.div`
+  @media (max-width: 469px) {
+    display: none;
+  }
 `;

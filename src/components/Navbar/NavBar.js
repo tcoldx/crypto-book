@@ -15,6 +15,9 @@ import {
   SelectWrap,
   CurrencyWrap,
   Select,
+  ThemeWrap,
+  Overview,
+  ButtonWrap,
 } from "./NavBar.styles";
 
 const NavBar = (props) => {
@@ -28,12 +31,17 @@ const NavBar = (props) => {
     <NavWrap>
       <Nav>
         <NavLeft>
-          <Button activeClassName="active" exact to="/">
-            Coins
-          </Button>
-          <Button activeClassName="active" exact to="/portfolio">
-            Portfolio
-          </Button>
+          <Overview>
+            <h2>Overview</h2>
+          </Overview>
+          <ButtonWrap>
+            <Button activeClassName="active" exact to="/">
+              Coins
+            </Button>
+            <Button activeClassName="active" exact to="/portfolio">
+              Portfolio
+            </Button>
+          </ButtonWrap>
         </NavLeft>
         <NavRight>
           <SearchWrap>
@@ -52,7 +60,9 @@ const NavBar = (props) => {
               <option value="usd">USD</option>
             </Select>
           </SelectWrap>
-          <ThemeToggle toggle={props.toggle} />
+          <ThemeWrap>
+            <ThemeToggle toggle={props.toggle} />
+          </ThemeWrap>
         </NavRight>
       </Nav>
     </NavWrap>
