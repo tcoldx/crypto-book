@@ -59,9 +59,11 @@ export const NameColumn = styled.div`
   width: 90px;
 `;
 
-export const Span = styled.div`
-  color: ${(props) => props.color};
-`;
+export const Span = styled.div.attrs((props) => ({
+  style: {
+    color: props.color,
+  },
+}))``;
 
 export const ContentWrap = styled.div`
   display: flex;
