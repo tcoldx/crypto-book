@@ -37,21 +37,21 @@ const PortfolioCoinInput = (props) => {
         autoComplete="off"
         type="search"
         value={props.coinData.name}
-        nameError={props.nameError}
+        nameError={props?.nameError}
         placeholder="Select Coins"
       />
       <Input
         type="number"
         placeholder="Purchased Amount"
         min={0}
-        amountError={props.amountError}
+        amountError={props?.amountError}
         value={props.coinData.amount}
         onChange={(e) => props.handleAmountChange(e)}
       />
       <Input
         type="date"
         max={currentDate}
-        dateError={props.dateError}
+        dateError={props?.dateError}
         placeholder="Purchased Date"
         onChange={(e) => props.handleDateChange(e)}
       />

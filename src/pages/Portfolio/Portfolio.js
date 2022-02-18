@@ -75,15 +75,15 @@ const Portfolio = () => {
 
   const handleSave = (data) => {
     if (data.name.length <= 0) {
-      setNameError(true);
+      setNameError(!nameError);
       return;
     }
     if (data.date.length <= 0) {
-      setDateError(true);
+      setDateError(!dateError);
       return;
     }
     if (data.amount <= 0) {
-      setAmountError(true);
+      setAmountError(!amountError);
       return;
     }
     setSavedCoin([...savedCoin, coinData]);
