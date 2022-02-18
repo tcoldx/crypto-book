@@ -33,9 +33,11 @@ export const Input = styled.input`
     font-weight: 1;
     opacity: 0.7;
   }
-  &:required {
-    border: 1px solid red;
-  }
+  ${({ nameError }) =>
+    nameError &&
+    `
+  border: 1px solid red;
+  `}
 `;
 
 export const InputContainer = styled.div`

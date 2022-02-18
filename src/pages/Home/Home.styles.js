@@ -14,6 +14,10 @@ export const Content = styled.div`
 export const Overview = styled.h1`
   margin-top: 30px;
   font-size: 1.3rem;
+
+  @media (max-width: 899px) {
+    display: none;
+  }
 `;
 
 export const ChartWrapper = styled.div`
@@ -33,7 +37,6 @@ export const MobileChartWrap = styled.div`
   width: 100%;
   height: 300px;
   border-radius: 10px;
-  background: ${(props) => props.theme.main};
 
   @media (max-width: 899px) {
     display: flex;

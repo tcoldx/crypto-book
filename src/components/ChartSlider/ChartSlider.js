@@ -1,15 +1,17 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getMarketPrice, getChartData } from "store/coins/actions";
 import Slider from "react-slick";
-import { SliderWrapper, ChartWrap } from "./ChartSlider.styles";
+import { SliderWrapper, ChartWrap, SliderButton } from "./ChartSlider.styles";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { PriceChart, VolumeChart, ChartLegend } from "components";
 
-const ChartSlider = (props) => {
+const ChartSlider = React.memo((props) => {
+  const slider = useRef(null);
   const settings = {
-    dots: true,
+    dots: false,
+    arrows: false,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
@@ -34,7 +36,14 @@ const ChartSlider = (props) => {
 
   return (
     <SliderWrapper>
-      <Slider {...settings}>
+      <SliderButton left="65%" onClick={() => slider?.current?.slickPrev()}>
+        &#60;
+      </SliderButton>
+      <SliderButton right="20px" onClick={() => slider?.current?.slickNext()}>
+        &#62;
+      </SliderButton>
+
+      <Slider ref={slider} {...settings}>
         <ChartWrap>
           <ChartLegend type="Price" market={currentPrice} />
           <PriceChart dataLabel={priceLabels} dataPoint={priceData} />
@@ -46,6 +55,6 @@ const ChartSlider = (props) => {
       </Slider>
     </SliderWrapper>
   );
-};
+});
 
 export default ChartSlider;

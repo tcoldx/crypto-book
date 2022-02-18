@@ -16,6 +16,7 @@ import {
 import { formatPercent } from "utils/formatPercent";
 import { convertNumber } from "utils/convertNumber";
 import { TableChart } from "components";
+
 const CoinList = ({
   rank,
   name,

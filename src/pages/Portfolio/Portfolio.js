@@ -28,6 +28,9 @@ const Portfolio = () => {
   const [coin, setCoin] = useState({});
   const [savedCoin, setSavedCoin] = useState([]);
   const [close, setClose] = useState(false);
+  const [amountError, setAmountError] = useState(false);
+  const [dateError, setDateError] = useState(false);
+  const [nameError, setNameError] = useState(false);
 
   const [coinData, setCoinData] = useState({
     name: "",
@@ -60,7 +63,6 @@ const Portfolio = () => {
 
   const handleAmountChange = (e) => {
     const { value } = e.target;
-    console.log(value);
     if (value < 0) return;
     setCoinData({ ...coinData, amount: value });
   };
@@ -72,6 +74,18 @@ const Portfolio = () => {
   };
 
   const handleSave = (data) => {
+    if (data.name.length <= 0) {
+      setNameError(true);
+      return;
+    }
+    if (data.date.length <= 0) {
+      setDateError(true);
+      return;
+    }
+    if (data.amount <= 0) {
+      setAmountError(true);
+      return;
+    }
     setSavedCoin([...savedCoin, coinData]);
     dispatch(getCoinInfo(coinData));
     setCoin({});
@@ -80,7 +94,7 @@ const Portfolio = () => {
       amount: "",
       date: "",
     });
-    setOpen(!data ? true : false);
+    setOpen(false);
   };
 
   const handleOption = (e, el) => {
@@ -112,6 +126,9 @@ const Portfolio = () => {
                     handleAmountChange={handleAmountChange}
                     handleDateChange={handleDateChange}
                     handleChange={handleChange}
+                    nameError={nameError}
+                    amountError={amountError}
+                    dateError={dateError}
                     coinData={coinData}
                     coinList={coins}
                     close={close}

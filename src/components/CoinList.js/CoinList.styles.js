@@ -11,6 +11,7 @@ export const TD = styled.td`
   font-weight: bold;
 
   &:nth-child(9) {
+    width: 100px;
     @media (max-width: 1219px) {
       display: none;
     }
@@ -61,7 +62,7 @@ export const NameColumn = styled.div`
 
 export const Span = styled.div.attrs((props) => ({
   style: {
-    color: props.color,
+    color: `${props.color}`,
   },
 }))``;
 

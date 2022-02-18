@@ -2,7 +2,7 @@ import React from "react";
 import { CoinWrap, Table, OuterDiv, TH } from "./CoinTable.styles";
 import { CoinList } from "components";
 
-const CoinTable = (props) => {
+const CoinTable = React.memo((props) => {
   return (
     <CoinWrap>
       <OuterDiv>
@@ -46,6 +46,6 @@ const CoinTable = (props) => {
       </OuterDiv>
     </CoinWrap>
   );
-};
+});
 
 export default CoinTable;

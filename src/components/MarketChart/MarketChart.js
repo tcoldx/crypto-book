@@ -20,6 +20,7 @@ const MarketChart = (props) => {
     currentPrice,
     currentVolume,
   } = useSelector((state) => state.market);
+
   useEffect(() => {
     dispatch(getChartData());
     dispatch(getMarketPrice());

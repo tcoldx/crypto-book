@@ -10,7 +10,7 @@ import {
   MobileChartWrap,
 } from "./Home.styles";
 
-const Home = () => {
+const Home = React.memo(() => {
   const dispatch = useDispatch();
   const { coins } = useSelector((state) => state.market);
   const { currentCurrency } = useSelector((state) => state.global);
@@ -34,6 +34,6 @@ const Home = () => {
       </Content>
     </ContentWrap>
   );
-};
+});
 
 export default Home;
