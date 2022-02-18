@@ -27,6 +27,7 @@ const MobileDayChange = () => {
   };
   useEffect(() => {
     dispatch(getChartData(day));
+    // eslint-disable-next-line
   }, [day]);
   return (
     <Container>

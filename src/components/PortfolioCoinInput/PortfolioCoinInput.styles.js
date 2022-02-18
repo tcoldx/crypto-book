@@ -34,9 +34,7 @@ export const Input = styled.input`
     opacity: 0.7;
   }
   ${({ amountError, nameError, dateError }) =>
-    amountError &&
-    nameError &&
-    dateError &&
+    (amountError || nameError || dateError) &&
     `
   border: 1px solid red;
   `}

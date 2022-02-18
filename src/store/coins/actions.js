@@ -9,7 +9,7 @@ export const getChartData = (item) => async (dispatch, getState) => {
     });
     const { data } = await axios.get(
       `https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=${currentCurrency}&days=${
-        item ? item : "30"
+        item || "30"
       }&interval="daily"`
     );
     // setting the chart labels and the price into variable with data

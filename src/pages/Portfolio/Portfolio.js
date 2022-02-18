@@ -59,33 +59,38 @@ const Portfolio = () => {
     } else {
       setClose(false);
     }
+    setNameError(false);
   };
 
   const handleAmountChange = (e) => {
     const { value } = e.target;
     if (value < 0) return;
     setCoinData({ ...coinData, amount: value });
+    setAmountError(false);
   };
 
   const handleDateChange = (e) => {
     const { value } = e.target;
-
     setCoinData({ ...coinData, date: value });
+    setDateError(false);
   };
 
   const handleSave = (data) => {
     if (data.name.length <= 0) {
-      setNameError(!nameError);
+      setNameError(true);
       return;
     }
     if (data.date.length <= 0) {
-      setDateError(!dateError);
+      setDateError(true);
       return;
     }
     if (data.amount <= 0) {
-      setAmountError(!amountError);
+      setAmountError(true);
       return;
     }
+    setNameError(data.name.length >= 1 ? false : true);
+    setAmountError(data.amount <= 0 ? false : true);
+    setDateError(data.date ? false : true);
     setSavedCoin([...savedCoin, coinData]);
     dispatch(getCoinInfo(coinData));
     setCoin({});
