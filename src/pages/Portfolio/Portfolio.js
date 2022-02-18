@@ -59,18 +59,20 @@ const Portfolio = () => {
     } else {
       setClose(false);
     }
+    setNameError(false);
   };
 
   const handleAmountChange = (e) => {
     const { value } = e.target;
     if (value < 0) return;
     setCoinData({ ...coinData, amount: value });
+    setAmountError(false);
   };
 
   const handleDateChange = (e) => {
     const { value } = e.target;
-
     setCoinData({ ...coinData, date: value });
+    setDateError(false);
   };
 
   const handleSave = (data) => {
@@ -86,6 +88,9 @@ const Portfolio = () => {
       setAmountError(true);
       return;
     }
+    setNameError(data.name.length >= 1 ? false : true);
+    setAmountError(data.amount <= 0 ? false : true);
+    setDateError(data.date ? false : true);
     setSavedCoin([...savedCoin, coinData]);
     dispatch(getCoinInfo(coinData));
     setCoin({});

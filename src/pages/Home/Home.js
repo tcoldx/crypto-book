@@ -1,5 +1,10 @@
 import React, { useEffect } from "react";
-import { MarketChart, CoinTable, ChartSlider } from "components";
+import {
+  MarketChart,
+  CoinTable,
+  ChartSlider,
+  MobileDayChange,
+} from "components";
 import { getCoins } from "store/coins/actions";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -29,6 +34,7 @@ const Home = React.memo(() => {
           <MarketChart type="price" />
           <MarketChart type="volume" />
         </ChartWrapper>
+        <MobileDayChange />
         <Overview>Coin Overview</Overview>
         <CoinTable coins={coins} />
       </Content>

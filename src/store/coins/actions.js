@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const getChartData = () => async (dispatch, getState) => {
+export const getChartData = (item) => async (dispatch, getState) => {
   const state = getState();
   const currentCurrency = state.global.currentCurrency;
   try {
@@ -8,7 +8,9 @@ export const getChartData = () => async (dispatch, getState) => {
       type: "FETCH_MARKET_PENDING",
     });
     const { data } = await axios.get(
-      `https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=${currentCurrency}&days=30&interval=daily`
+      `https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=${currentCurrency}&days=${
+        item || "30"
+      }&interval="daily"`
     );
     // setting the chart labels and the price into variable with data
     const priceData = data.prices.map((el) => el[1]);

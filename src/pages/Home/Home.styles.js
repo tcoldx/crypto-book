@@ -35,9 +35,8 @@ export const ChartWrapper = styled.div`
 export const MobileChartWrap = styled.div`
   display: none;
   width: 100%;
-  height: 300px;
   border-radius: 10px;
-
+  position: relative;
   @media (max-width: 899px) {
     display: flex;
     justify-content: center;
