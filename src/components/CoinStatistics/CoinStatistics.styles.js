@@ -1,13 +1,23 @@
 import styled from "styled-components";
 
-export const Container = styled.div``;
+export const Container = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
 
 export const StatWrap = styled.div`
   display: flex;
   margin-bottom: 20px;
   width: 100%;
-  flex-grow: column;
-  overflow: hidden;
+  margin: 10px;
+
+  @media (max-width: 899px) {
+    width: 500px;
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 export const StatLeft = styled.div`
@@ -15,8 +25,8 @@ export const StatLeft = styled.div`
   display: flex;
   flex-direction: column;
   height: 200px;
-  width: 180px;
   border-radius: 10px;
+  width: 180px;
   align-items: center;
   justify-content: center;
 `;
@@ -37,6 +47,11 @@ export const StatRight = styled.div`
   flex-direction: column;
   margin-left: 12px;
   justify-content: space-evenly;
+  width: 100%;
+
+  @media (max-width: 799px) {
+    gap: 20px;
+  }
 `;
 
 export const NameContainer = styled.div`
@@ -51,10 +66,15 @@ export const NameContainer = styled.div`
 export const MarketStatContainer = styled.div`
   display: flex;
   background: ${(props) => props.theme.main};
-  border-radius: 10px;'
-  width: 900px;
+  border-radius: 10px;
+  width: 100%;
   height: 60px;
   align-items: center;
+
+  @media (max-width: 799px) {
+    height: fit-content;
+    background: none;
+  }
 `;
 
 export const MarketStatWrap = styled.div`
@@ -64,17 +84,48 @@ export const MarketStatWrap = styled.div`
   font-weight: bold;
   font-size: 12px;
   width: 100%;
+
+  @media (max-width: 799px) {
+    flex-direction: column;
+    gap: 10px;
+  }
 `;
 
-export const StatContent = styled.div``;
+export const MarketHeader = styled.div`
+  margin-top: 10px;
+  font-weight: bold;
+`;
+
+export const CoinHeader = styled.div`
+  font-weight: bold;
+`;
+
+export const StatContent = styled.div`
+  @media (max-width: 899px) {
+    display: flex;
+    justify-content: flex-start;
+    background: #2c2d33;
+    font-size: 15px;
+    align-items: center;
+    border-radius: 10px;
+    padding: 10px;
+    height: 60px;
+    width: 100%;
+  }
+`;
 
 export const CoinStatContainer = styled.div`
   display: flex;
   background: ${(props) => props.theme.main};
   border-radius: 10px;
-  width: 900px;
+  width: 100%;
   height: 60px;
   align-items: center;
+
+  @media (max-width: 799px) {
+    height: fit-content;
+    background: none;
+  }
 `;
 
 export const CoinStatWrap = styled.div`
@@ -84,6 +135,11 @@ export const CoinStatWrap = styled.div`
   width: 100%;
   font-size: 12px;
   font-weight: bold;
+
+  @media (max-width: 799px) {
+    flex-direction: column;
+    gap: 10px;
+  }
 `;
 
 export const Span = styled.span`
@@ -118,6 +174,5 @@ export const MarketColumn = styled.div`
 export const BarWrap = styled.div`
   margin-left: 6px;
   max-width: 80px;
-  overflow: hidden;
   border-radius: 10px;
 `;

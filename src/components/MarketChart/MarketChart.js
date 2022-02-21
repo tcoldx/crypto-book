@@ -25,6 +25,7 @@ const MarketChart = (props) => {
     dispatch(getMarketPrice());
     // eslint-disable-next-line
   }, []);
+
   if (!currentVolume)
     return (
       <ChartContainer>
@@ -37,6 +38,7 @@ const MarketChart = (props) => {
         {props.type === "price" && (
           <ChartLegend type="Price" market={currentPrice} />
         )}
+
         {props.type === "volume" && (
           <ChartLegend type="Volume 24h" market={currentVolume} />
         )}

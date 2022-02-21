@@ -7,6 +7,7 @@ import {
   Wrapper,
   AssetButton,
   H2,
+  H1,
   StatMenuContainer,
   Img,
   StatMenuWrap,
@@ -125,6 +126,7 @@ const Portfolio = () => {
                   </InnerCoinCard>
                   <Span>{coin.name}</Span>
                 </CoinCard>
+                <H1>Select Coins</H1>
                 <CoinSelectors>
                   <PortfolioCoinInput
                     handleOption={handleOption}
@@ -140,13 +142,13 @@ const Portfolio = () => {
                   />
                 </CoinSelectors>
               </CoinTopContent>
+              <ButtonWrap>
+                <Button onClick={handleClick}>Close</Button>
+                <Button onClick={() => handleSave(coinData)}>
+                  Save and Continue
+                </Button>
+              </ButtonWrap>
             </ContentWrap>
-            <ButtonWrap>
-              <Button onClick={handleClick}>Close</Button>
-              <Button onClick={() => handleSave(coinData)}>
-                Save and Continue
-              </Button>
-            </ButtonWrap>
           </StatMenuWrap>
         </StatMenuContainer>
       )}

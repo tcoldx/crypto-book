@@ -19,6 +19,8 @@ import {
   BarWrap,
   NameContainer,
   StatContent,
+  CoinHeader,
+  MarketHeader,
 } from "./CoinStatistics.styles";
 
 const CoinStatistics = (props) => {
@@ -46,7 +48,7 @@ const CoinStatistics = (props) => {
           </NameContainer>
         </StatLeft>
         <StatRight>
-          <span>Market Price:</span>
+          <MarketHeader>Market Price:</MarketHeader>
           <MarketStatContainer>
             <MarketStatWrap>
               <StatContent>
@@ -54,11 +56,11 @@ const CoinStatistics = (props) => {
                 <Span>{!currentPrice ? "-" : "$" + currentPrice}</Span>
               </StatContent>
               <StatContent>
-                Price Change 24h
+                <span>Price Change 24h</span>
                 <Span>{priceChange?.toFixed(2)}</Span>
               </StatContent>
-              <MarketColumn>
-                <StatContent>
+              <StatContent>
+                <MarketColumn>
                   <span>Market Cap vs Volume</span>
                   <Span>
                     {!marketVsVolume ? "-" : formatPercent(marketVsVolume)}
@@ -68,8 +70,8 @@ const CoinStatistics = (props) => {
                       <Percentage marketAndVolume={marketVsVolume} />
                     </BarContainer>
                   </BarWrap>
-                </StatContent>
-              </MarketColumn>
+                </MarketColumn>
+              </StatContent>
               <StatContent>
                 Circ supply vs Max supply
                 <Span>
@@ -78,17 +80,17 @@ const CoinStatistics = (props) => {
               </StatContent>
             </MarketStatWrap>
           </MarketStatContainer>
-          <span>Coin Stats:</span>
+          <CoinHeader>Coin Stats:</CoinHeader>
           <CoinStatContainer>
             <CoinStatWrap>
-              <span>
+              <StatContent>
                 Coin amount: <Span>{amount}</Span>
-              </span>
-              <span>
+              </StatContent>
+              <StatContent>
                 Amount Value
                 <Span>{price ? price[currentCurrency]?.toFixed(2) : null}</Span>
-              </span>
-              <span>
+              </StatContent>
+              <StatContent>
                 Amount price change since purchase
                 <Span>
                   {currentData[0]?.price_change_percentage_7d_in_currency?.toFixed(
@@ -96,10 +98,10 @@ const CoinStatistics = (props) => {
                   )}
                   %
                 </Span>
-              </span>
-              <span>
+              </StatContent>
+              <StatContent>
                 Purchase date <Span>{purchaseDate}</Span>
-              </span>
+              </StatContent>
             </CoinStatWrap>
           </CoinStatContainer>
         </StatRight>

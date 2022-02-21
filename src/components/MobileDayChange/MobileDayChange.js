@@ -23,9 +23,13 @@ const days = [
 const MobileDayChange = () => {
   const dispatch = useDispatch();
   const [day, setDay] = useState("30");
+  const [active, setActive] = useState("1d");
+
   const handleClick = (item) => {
-    setDay(item);
+    setDay(item.value);
+    setActive(item.name);
   };
+
   useEffect(() => {
     dispatch(getChartData(day));
     // eslint-disable-next-line
@@ -34,9 +38,14 @@ const MobileDayChange = () => {
     <Container>
       <DayWrap>
         <DayContainer>
-          {days.map((el) => {
+          {days.map((el, i) => {
+            const isActive = el.name === active;
             return (
-              <DayItemWrap onClick={() => handleClick(el.value)} key={el.id}>
+              <DayItemWrap
+                active={isActive}
+                key={el.id}
+                onClick={() => handleClick(el)}
+              >
                 <Day>{el.name}</Day>
               </DayItemWrap>
             );

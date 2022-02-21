@@ -33,7 +33,6 @@ export const Day = styled.span`
 `;
 
 export const DayItemWrap = styled.div`
-  background: #00ff5f;
   width: 40px;
   height: 30px;
   display: flex;
@@ -42,4 +41,10 @@ export const DayItemWrap = styled.div`
   justify-content: center;
   padding: 5px;
   border-radius: 10px;
+  background: ${({ active }) => (active ? "#00ff5f" : "transparent")};
+
+  &:hover {
+    background: #00ff5f;
+    opacity: 0.5;
+  }
 `;

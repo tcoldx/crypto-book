@@ -1,6 +1,7 @@
 import React from "react";
 import { Line } from "react-chartjs-2";
 import { Container } from "./PriceChart.styles";
+import { ClipLoader } from "react-spinners";
 
 const PriceChart = (props) => {
   const data = (canvas) => {
@@ -58,6 +59,13 @@ const PriceChart = (props) => {
       },
     },
   };
+  if (!props.dataPoint && !props.dataLabel) {
+    return (
+      <Container>
+        <ClipLoader color="#00FC2A" />
+      </Container>
+    );
+  }
   return (
     <Container>
       <Line data={data} options={options} />

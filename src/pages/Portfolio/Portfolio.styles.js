@@ -11,16 +11,33 @@ export const Wrapper = styled.div`
 
 export const AssetButton = styled.button`
   background: #06d554;
-  width: 400px;
+  width: 50%;
   height: 60px;
   font-weight: bold;
+  margin: auto;
   border-radius: 10px;
   color: ${(props) => props.theme.color};
+
+  &:hover {
+    opacity: 0.5;
+  }
+
+  @media (max-width: 799px) {
+    width: 70%;
+  }
 `;
 
 export const H2 = styled.h2`
   font-weight: bold;
   font-size: 16px;
+
+  @media (max-width: 899px) {
+    margin-top: 10px;
+  }
+
+  @media (max-width: 899px) {
+    display: none;
+  }
 `;
 
 export const StatMenuContainer = styled.div`
@@ -57,7 +74,6 @@ export const StatMenuWrap = styled.div`
   justify-content: center;
   background: #2c2f36;
   width: 55%;
-  height: 46%;
   border-radius: 10px;
 `;
 
@@ -65,6 +81,8 @@ export const ContentWrap = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-around;
+  flex-direction: column;
+  gap: 10px;
   width: 100%;
   margin-bottom: 20px;
 `;
@@ -74,6 +92,13 @@ export const CoinTopContent = styled.div`
   justify-content: space-evenly;
   margin: 10px;
   width: 100%;
+
+  @media (max-width: 899px) {
+    margin: 0;
+    gap: 10px;
+    align-items: center;
+    flex-direction: column;
+  }
 `;
 
 export const CoinCard = styled.div`
@@ -84,6 +109,7 @@ export const CoinCard = styled.div`
   width: 155px;
   justify-content: center;
   align-items: center;
+  padding: 20px;
 `;
 
 export const InnerCoinCard = styled.div`
@@ -104,6 +130,10 @@ export const ButtonWrap = styled.div`
   display: flex;
   justify-content: space-between;
   gap: 10px;
+
+  @media (max-width: 700px) {
+    flex-direction: column;
+  }
 `;
 
 export const Button = styled.button`
@@ -118,10 +148,20 @@ export const Button = styled.button`
 
 export const Span = styled.span`
   font-size: 15px;
+  font-weight: bold;
 `;
 
 export const StatHeader = styled.div`
   margin-bottom: 12px;
   width: 72.5%;
   margin-top: 7px;
+`;
+
+export const H1 = styled.h1`
+  font-weight: bold;
+  font-size: 15px;
+
+  @media (min-width: 1200px) {
+    display: none;
+  }
 `;
