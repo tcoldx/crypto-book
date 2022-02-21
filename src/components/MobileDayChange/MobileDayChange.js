@@ -10,6 +10,7 @@ import {
   DayItemWrap,
   Container,
 } from "./MobileDayChange.styles";
+
 const days = [
   { id: 1, name: "1d", value: 1 },
   { id: 2, name: "1w", value: 7 },

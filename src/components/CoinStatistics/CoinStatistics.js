@@ -18,6 +18,7 @@ import {
   MarketColumn,
   BarWrap,
   NameContainer,
+  StatContent,
 } from "./CoinStatistics.styles";
 
 const CoinStatistics = (props) => {
@@ -48,31 +49,33 @@ const CoinStatistics = (props) => {
           <span>Market Price:</span>
           <MarketStatContainer>
             <MarketStatWrap>
-              <span>
+              <StatContent>
                 Current Price:
                 <Span>{!currentPrice ? "-" : "$" + currentPrice}</Span>
-              </span>
-              <span>
+              </StatContent>
+              <StatContent>
                 Price Change 24h
                 <Span>{priceChange?.toFixed(2)}</Span>
-              </span>
+              </StatContent>
               <MarketColumn>
-                <span>Market Cap vs Volume</span>
-                <Span>
-                  {!marketVsVolume ? "-" : formatPercent(marketVsVolume)}
-                </Span>
-                <BarWrap>
-                  <BarContainer>
-                    <Percentage marketAndVolume={marketVsVolume} />
-                  </BarContainer>
-                </BarWrap>
+                <StatContent>
+                  <span>Market Cap vs Volume</span>
+                  <Span>
+                    {!marketVsVolume ? "-" : formatPercent(marketVsVolume)}
+                  </Span>
+                  <BarWrap>
+                    <BarContainer>
+                      <Percentage marketAndVolume={marketVsVolume} />
+                    </BarContainer>
+                  </BarWrap>
+                </StatContent>
               </MarketColumn>
-              <span>
+              <StatContent>
                 Circ supply vs Max supply
                 <Span>
                   {!supplyVsMax ? "-" : "$" + supplyVsMax?.toFixed(2)}
                 </Span>
-              </span>
+              </StatContent>
             </MarketStatWrap>
           </MarketStatContainer>
           <span>Coin Stats:</span>

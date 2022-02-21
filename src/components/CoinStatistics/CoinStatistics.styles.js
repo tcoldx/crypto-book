@@ -7,6 +7,7 @@ export const StatWrap = styled.div`
   margin-bottom: 20px;
   width: 100%;
   flex-grow: column;
+  overflow: hidden;
 `;
 
 export const StatLeft = styled.div`
@@ -50,7 +51,7 @@ export const NameContainer = styled.div`
 export const MarketStatContainer = styled.div`
   display: flex;
   background: ${(props) => props.theme.main};
-  border-radius: 10px;
+  border-radius: 10px;'
   width: 900px;
   height: 60px;
   align-items: center;
@@ -64,6 +65,8 @@ export const MarketStatWrap = styled.div`
   font-size: 12px;
   width: 100%;
 `;
+
+export const StatContent = styled.div``;
 
 export const CoinStatContainer = styled.div`
   display: flex;
