@@ -7,6 +7,8 @@ import Caret from "assets/Images/greenCaret.svg";
 import RedCaret from "assets/Images/redCaret.svg";
 import Plus from "assets/Images/plus.svg";
 import Stack from "assets/Images/stack.svg";
+import LinkChain from "assets/Images/link.svg";
+
 import {
   CoinNameContainer,
   TopContentContainer,
@@ -62,6 +64,7 @@ const CoinSummary = (props) => {
           </span>
         </CoinNameContainer>
         <WebsiteLinkWrap>
+          <img src={LinkChain} alt="linkchain" />
           <StyledLink href={props.coin?.links?.homepage[0]}>
             {props.coin?.links?.homepage[0]}
           </StyledLink>

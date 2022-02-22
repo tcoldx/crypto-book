@@ -5,13 +5,25 @@ import {
   InputContainer,
   DayButton,
   ButtonWrap,
+  Span,
 } from "./CoinChartChange.styles";
+
+const days = [
+  { id: 1, value: 1, name: "1d" },
+  { id: 5, value: 7, name: "7d" },
+  { id: 12, value: 30, name: "30d" },
+  { id: 4, value: 90, name: "90d" },
+  { id: 77, value: 365, name: "1y" },
+  { id: 23, value: 720, name: "max" },
+];
 
 const CoinChartChange = () => {
   const [duration, setDuration] = useState("30");
+  const [active, setActive] = useState("7d");
   const dispatch = useDispatch();
-  const handleClick = (e) => {
-    setDuration(e.target.value);
+  const handleClick = (item) => {
+    setDuration(item.value);
+    setActive(item.name);
   };
 
   useEffect(() => {
@@ -20,30 +32,22 @@ const CoinChartChange = () => {
   }, [duration]);
   return (
     <InputContainer>
-      <ButtonWrap>
-        <DayButton type="radio" value="1" onClick={handleClick} />
-        <span>1d</span>
-      </ButtonWrap>
-      <ButtonWrap>
-        <DayButton type="radio" value="7" onClick={handleClick} />
-        <span>7d</span>
-      </ButtonWrap>
-      <ButtonWrap>
-        <DayButton type="radio" value="30" onClick={handleClick} />
-        <span>30d</span>
-      </ButtonWrap>
-      <ButtonWrap>
-        <DayButton type="radio" value="90" onClick={handleClick} />
-        <span>90d</span>
-      </ButtonWrap>
-      <ButtonWrap>
-        <DayButton type="radio" value="365" onClick={handleClick} />
-        <span>1y</span>
-      </ButtonWrap>
-      <ButtonWrap>
-        <DayButton type="radio" value="720" onClick={handleClick} />
-        <span>max</span>
-      </ButtonWrap>
+      {days.map((el) => {
+        const isActive = el.name === active;
+
+        return (
+          <ButtonWrap key={el.id}>
+            <DayButton
+              active={isActive}
+              key={el.id}
+              type="radio"
+              value={el.value}
+              onClick={() => handleClick(el)}
+            />
+            <Span>{el.name}</Span>
+          </ButtonWrap>
+        );
+      })}
     </InputContainer>
   );
 };
