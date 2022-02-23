@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { changeCurrency } from "store/global/actions";
-import { useDispatch } from "react-redux";
+import { getSearch } from "store/global/actions";
+import { useDispatch, useSelector } from "react-redux";
 import ThemeToggle from "components/ThemeToggle";
 import SearchIcon from "assets/Images/SearchIcon.svg";
 import CurrencySign from "assets/Images/Currency.svg";
@@ -18,13 +19,34 @@ import {
   ThemeWrap,
   Overview,
   ButtonWrap,
+  ItemsWrap,
+  Item,
+  StyledLink,
 } from "./NavBar.styles";
 
 const NavBar = (props) => {
+  const [close, setClose] = useState(false);
+
   const dispatch = useDispatch();
+  const { coins } = useSelector((state) => state.global);
+
   const handleChange = (e) => {
     const { value } = e.target;
     dispatch(changeCurrency(value));
+  };
+
+  const handleSearch = (e) => {
+    const { value } = e.target;
+    if (value === "") {
+      setClose(true);
+    } else {
+      setClose(false);
+    }
+    dispatch(getSearch(value));
+  };
+
+  const handleClick = () => {
+    setClose(true);
   };
 
   return (
@@ -46,7 +68,22 @@ const NavBar = (props) => {
         <NavRight>
           <SearchWrap>
             <img width={15} height={15} src={SearchIcon} alt="search" />
-            <Search type="search" placeholder="Search..." />
+            <Search
+              onChange={(e) => handleSearch(e)}
+              type="search"
+              placeholder="Search..."
+            />
+            {close ? null : (
+              <ItemsWrap>
+                {coins?.map((el) => {
+                  return (
+                    <Item onClick={handleClick} key={el.id}>
+                      <StyledLink to={`/coin/${el.id}`}>{el.name}</StyledLink>
+                    </Item>
+                  );
+                })}
+              </ItemsWrap>
+            )}
           </SearchWrap>
           <SelectWrap>
             <CurrencyWrap>

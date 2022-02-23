@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 export const NavWrap = styled.div`
   width: 100%;
@@ -93,6 +93,11 @@ export const Select = styled.select`
   color: ${(props) => props.theme.color};
 `;
 
+export const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: ${(props) => props.theme.color};
+`;
+
 export const CurrencyWrap = styled.div`
   display: flex;
   width: 20px;
@@ -121,5 +126,21 @@ export const ButtonWrap = styled.div`
   display: flex;
   @media (max-width: 767px) {
     display: none;
+  }
+`;
+
+export const ItemsWrap = styled.div`
+  position: absolute;
+  top: 10%;
+  border-radius: 6px;
+  height: 140px;
+  overflow: hidden;
+  background: #2c2f36;
+`;
+export const Item = styled.div`
+  cursor: pointer;
+  &:hover {
+    opacity: 0.5;
+    background: ${(props) => props.theme.main};
   }
 `;
