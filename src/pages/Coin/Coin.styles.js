@@ -24,11 +24,21 @@ export const DescriptionContainer = styled.div`
   font-size: 13px;
   background: ${(props) => props.theme.main};
   color: ${(props) => props.theme.color};
+
+  @media (max-width: 799px) {
+    width: 100%;
+  }
 `;
 
 export const WebsiteContainer = styled.div`
   display: flex;
   justify-content: space-evenly;
+  @media (max-width: 799px) {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+  }
 `;
 
 export const SiteLink = styled.a`
@@ -44,6 +54,11 @@ export const SiteLink = styled.a`
   padding: 13px;
   justify-content: center;
   border-radius: 10px;
+
+  @media (max-width: 799px) {
+    width: 100%;
+    background: #2c2d33;
+  }
 `;
 
 export const SiteInner = styled.div`

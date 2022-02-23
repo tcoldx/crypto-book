@@ -9,11 +9,20 @@ export const Container = styled.div`
 
 export const ConvertWrap = styled.div`
   display: flex;
+  align-items: center;
   gap: 28px;
+
+  @media (max-width: 799px) {
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
 `;
 
 export const ConvertContainer = styled.div`
   display: flex;
+  width: 100%;
 `;
 
 export const CoinName = styled.div`
@@ -33,6 +42,10 @@ export const InputWrap = styled.div`
   align-items: center;
   justify-content: flex-end;
   border: none;
+
+  @media (max-width: 799px) {
+    width: 100%;
+  }
 `;
 
 export const Input = styled.input`

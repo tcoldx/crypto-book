@@ -4,8 +4,11 @@ export const CoinNameWrap = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 20%;
   height: 34vh;
+
+  @media (max-width: 799px) {
+    width: 100%;
+  }
 `;
 
 export const CoinNameContainer = styled.div`
@@ -22,7 +25,15 @@ export const CoinNameContainer = styled.div`
 
 export const TopContentContainer = styled.div`
   display: flex;
+  width: 100%;
   justify-content: space-between;
+
+  @media (max-width: 799px) {
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
 `;
 
 export const CoinMarketContainer = styled.div`
@@ -34,6 +45,12 @@ export const CoinMarketContainer = styled.div`
   font-size: 15px;
   background: ${(props) => props.theme.main};
   width: 35%;
+
+  @media (max-width: 799px) {
+    width: 100%;
+    padding: 10px;
+    background: #2c2d33;
+  }
 `;
 
 export const Span = styled.span`
@@ -48,6 +65,11 @@ export const CoinPriceContainer = styled.div`
   justify-content: center;
   background: ${(props) => props.theme.main};
   width: 30%;
+
+  @media (max-width: 799px) {
+    width: 100%;
+    padding: 10px;
+  }
 `;
 
 export const ATH = styled.span`
@@ -74,6 +96,11 @@ export const WebsiteLinkWrap = styled.div`
   padding: 10px;
   border-radius: 8px;
   width: 100%;
+
+  @media (max-width: 799px) {
+    background: #2c2d33;
+    padding: 25px;
+  }
 `;
 
 export const PriceWrap = styled.div`

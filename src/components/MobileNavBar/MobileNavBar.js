@@ -16,10 +16,10 @@ const MobileNavBar = () => {
         <img src={Portfolio} width={40} height={40} alt="portfolio" />
         <div>Portfolio</div>
       </StyledLink>
-      <LinkWrap>
+      <StyledLink to="/coin/etheruem">
         <img src={Summary} width={40} height={40} alt="summary" />
         <div>Summary</div>
-      </LinkWrap>
+      </StyledLink>
       <LinkWrap>
         <img src={Search} width={40} height={40} alt="search" />
         <div>Search</div>

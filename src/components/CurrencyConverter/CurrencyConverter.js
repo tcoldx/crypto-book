@@ -45,8 +45,7 @@ const CurrencyConverter = (props) => {
             />
           </InputWrap>
         </ConvertContainer>
-
-        <img src={Converter} alt="convert" />
+        <img src={Converter} alt="convert" width={20} height={20} />
         <ConvertContainer>
           <CoinName>{currentCurrency.toUpperCase()}</CoinName>
           <InputWrap>
