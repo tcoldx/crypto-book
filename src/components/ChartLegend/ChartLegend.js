@@ -1,5 +1,5 @@
 import React from "react";
-import { numberFormat } from "utils/numberFormat";
+import { numberFormat } from "../../utils/numberFormat";
 import { Header, Price, ChartDate } from "./ChartLegend.styles";
 
 const ChartLegend = (props) => {

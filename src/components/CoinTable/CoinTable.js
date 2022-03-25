@@ -1,6 +1,6 @@
 import React from "react";
 import { CoinWrap, Table, OuterDiv, TH } from "./CoinTable.styles";
-import { CoinList } from "components";
+import { CoinList } from "../../components";
 
 const CoinTable = React.memo((props) => {
   return (

@@ -75,6 +75,11 @@ export const StatMenuWrap = styled.div`
   background: #2c2f36;
   width: 55%;
   border-radius: 10px;
+
+  @media (max-width: 799px) {
+    width: 90%;
+    height: 76%;
+  }
 `;
 
 export const ContentWrap = styled.div`
@@ -124,6 +129,11 @@ export const InnerCoinCard = styled.div`
 
 export const CoinSelectors = styled.div`
   width: 50%;
+
+  @media (max-width: 799px) {
+    width: 70%;
+    padding: 20px 12px;
+  }
 `;
 
 export const ButtonWrap = styled.div`

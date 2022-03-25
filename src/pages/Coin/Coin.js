@@ -1,14 +1,14 @@
 import React, { useEffect } from "react";
-import { getCoin, getCoinChartData } from "store/coin/actions";
+import { getCoin, getCoinChartData } from "../../store/coin/actions";
 import { useDispatch, useSelector } from "react-redux";
-import { getCurrentCoin } from "store/global/actions";
-import Chain from "assets/Images/chain.svg";
+import { getCurrentCoin } from "../../store/global/actions";
+import Chain from "../../assets/Images/chain.svg";
 import {
   CoinChartChange,
   CoinPageChart,
   CoinSummary,
   CurrencyConverter,
-} from "components";
+} from "../../components";
 import {
   ContentWrap,
   H4,

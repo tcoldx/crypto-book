@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Container } from "./App.styles";
 import { ThemeProvider } from "styled-components";
-import { GlobalStyle } from "styling/GlobalStyle";
-import { NavBar, NavUnder } from "components";
-import { Home, Coin, Portfolio } from "pages";
-import { darkTheme, lightTheme } from "styling/theme";
-import { Container } from "App.css";
-import MobileNavBar from "components/MobileNavBar";
+import { GlobalStyle } from "./styling/GlobalStyle";
+import { NavBar, NavUnder } from "./components";
+import { Home, Coin, Portfolio } from "./pages";
+import { darkTheme, lightTheme } from "./styling/theme";
+import MobileNavBar from "./components/MobileNavBar";
 
 function App() {
   const [toggle, setToggle] = useState(true);

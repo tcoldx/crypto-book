@@ -34,7 +34,7 @@ const PriceChart = (props) => {
       },
       layout: {
         padding: 15,
-        maintainAspectRatio: true,
+        maintainAspectRatio: false,
       },
     },
     scales: {

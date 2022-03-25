@@ -4,8 +4,8 @@ import {
   CoinTable,
   ChartSlider,
   MobileDayChange,
-} from "components";
-import { getCoins } from "store/coins/actions";
+} from "../../components";
+import { getCoins } from "../../store/coins/actions";
 import { useDispatch, useSelector } from "react-redux";
 import {
   ContentWrap,

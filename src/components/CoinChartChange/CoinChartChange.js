@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { getCoinChartData } from "store/coin/actions";
+import { getCoinChartData } from "../../store/coin/actions";
 import {
   InputContainer,
   DayButton,

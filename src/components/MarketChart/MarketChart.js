@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { PriceChart, VolumeChart, ChartLegend } from "components";
+import { PriceChart, VolumeChart, ChartLegend } from "../../components";
 import {
   ChartContainer,
   ChartWrap,
@@ -7,7 +7,7 @@ import {
 } from "./MarketChart.styles";
 import { ClipLoader } from "react-spinners";
 import { useDispatch, useSelector } from "react-redux";
-import { getChartData, getMarketPrice } from "store/coins/actions";
+import { getChartData, getMarketPrice } from "../../store/coins/actions";
 
 const MarketChart = (props) => {
   const dispatch = useDispatch();

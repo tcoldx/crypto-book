@@ -1,9 +1,9 @@
 import React from "react";
 import { Wrapper, StyledLink, LinkWrap } from "./MobileNavBar.styles";
-import Overview from "assets/Images/overview.svg";
-import Search from "assets/Images/SearchIcon.svg";
-import Summary from "assets/Images/summarymobile.svg";
-import Portfolio from "assets/Images/portfolio.svg";
+import Overview from "../../assets/Images/overview.svg";
+import Search from "../../assets/Images/SearchIcon.svg";
+import Summary from "../../assets/Images/summarymobile.svg";
+import Portfolio from "../../assets/Images/portfolio.svg";
 
 const MobileNavBar = () => {
   return (
