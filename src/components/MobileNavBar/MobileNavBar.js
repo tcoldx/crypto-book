@@ -20,10 +20,10 @@ const MobileNavBar = () => {
         <img src={Summary} width={40} height={40} alt="summary" />
         <div>Summary</div>
       </StyledLink>
-      <LinkWrap>
+      <StyledLink to="/search">
         <img src={Search} width={40} height={40} alt="search" />
         <div>Search</div>
-      </LinkWrap>
+      </StyledLink>
     </Wrapper>
   );
 };

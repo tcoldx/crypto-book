@@ -9,6 +9,7 @@ import {
 } from "./PortfolioCoinInput.styles";
 
 const PortfolioCoinInput = (props) => {
+  console.log(props);
   const [currentDate, setCurrentDate] = useState("");
   const maxDate = () => {
     var today = new Date();

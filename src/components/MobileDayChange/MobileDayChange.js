@@ -34,11 +34,12 @@ const MobileDayChange = () => {
     dispatch(getChartData(day));
     // eslint-disable-next-line
   }, [day]);
+
   return (
     <Container>
       <DayWrap>
         <DayContainer>
-          {days.map((el, i) => {
+          {days.map((el) => {
             const isActive = el.name === active;
             return (
               <DayItemWrap

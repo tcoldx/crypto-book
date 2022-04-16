@@ -17,25 +17,25 @@ import {
 
 const Home = React.memo(() => {
   const dispatch = useDispatch();
-  const { coins } = useSelector((state) => state.market);
+  const { coins, chartLoading } = useSelector((state) => state.market);
   const { currentCurrency } = useSelector((state) => state.global);
   useEffect(() => {
     dispatch(getCoins());
     // eslint-disable-next-line
   }, [currentCurrency]);
+
   return (
     <ContentWrap>
       <Content>
-        <Overview>Bitcoin Overview</Overview>
         <MobileChartWrap>
-          <ChartSlider />
+          <ChartSlider isLoading={chartLoading} />
         </MobileChartWrap>
         <ChartWrapper>
-          <MarketChart type="price" />
-          <MarketChart type="volume" />
+          <MarketChart type="price" isLoading={chartLoading} />
+          <MarketChart type="volume" isLoading={chartLoading} />
         </ChartWrapper>
         <MobileDayChange />
-        <Overview>Coin Overview</Overview>
+        <Overview>Market Overview</Overview>
         <CoinTable coins={coins} />
       </Content>
     </ContentWrap>

@@ -17,7 +17,7 @@ export const GlobalStyle = createGlobalStyle`
   }
   
   body {
-    font-family: "Poppins";
+    font-family: "Poppins, sans-serif";
     background: ${(props) => props.theme.main};
     min-height: 100vh;
     color: white;

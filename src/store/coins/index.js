@@ -6,13 +6,17 @@ const initialState = {
   currentPrice: null,
   currentVolume: null,
   coins: [],
-  isPriceLoading: true,
-  isVolumeLoading: true,
+  chartLoading: false,
   hasError: false,
 };
 
 export const market = (state = initialState, action) => {
   switch (action.type) {
+    case "FETCH_MARKET_PENDING":
+      return {
+        ...state,
+        chartLoading: true,
+      };
     case "FETCH_MARKET_SUCCESS":
       const { priceData, volumeData, priceLabels, volumeLabels } =
         action.payload;
@@ -24,6 +28,7 @@ export const market = (state = initialState, action) => {
         volumeData,
         volumeLabels,
         priceLabels,
+        chartLoading: false,
       };
 
     case "FETCH_COINS_SUCCESS":

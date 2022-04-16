@@ -75,6 +75,7 @@ export const StatMenuWrap = styled.div`
   background: #2c2f36;
   width: 55%;
   border-radius: 10px;
+  height: 22rem;
 
   @media (max-width: 799px) {
     width: 90%;
