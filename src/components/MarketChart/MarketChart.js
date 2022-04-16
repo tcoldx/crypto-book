@@ -4,10 +4,11 @@ import {
   ChartContainer,
   ChartWrap,
   ChartLegendWrap,
+  ChartContainerLoading,
 } from "./MarketChart.styles";
 import { ClipLoader } from "react-spinners";
 import { useDispatch, useSelector } from "react-redux";
-import { getChartData, getMarketPrice } from "../../store/coins/actions";
+import { getMarketPrice } from "../../store/coins/actions";
 
 const MarketChart = (props) => {
   const dispatch = useDispatch();
@@ -20,27 +21,36 @@ const MarketChart = (props) => {
     currentVolume,
   } = useSelector((state) => state.market);
 
+  const { currentCurrency } = useSelector((state) => state.global);
+
   useEffect(() => {
-    dispatch(getChartData());
     dispatch(getMarketPrice());
     // eslint-disable-next-line
   }, []);
 
-  if (!currentVolume)
+  if (props.isLoading)
     return (
-      <ChartContainer>
-        <ClipLoader color="#00FC2A" />
-      </ChartContainer>
+      <ChartContainerLoading>
+        <ClipLoader width="100" color="#00FC2A" />
+      </ChartContainerLoading>
     );
   return (
     <ChartContainer>
       <ChartLegendWrap>
         {props.type === "price" && (
-          <ChartLegend type="Price" market={currentPrice} />
+          <ChartLegend
+            type="BTC"
+            market={currentPrice}
+            currency={currentCurrency}
+          />
         )}
 
         {props.type === "volume" && (
-          <ChartLegend type="Volume 24h" market={currentVolume} />
+          <ChartLegend
+            type="Volume 24h"
+            market={currentVolume}
+            currency={currentCurrency}
+          />
         )}
       </ChartLegendWrap>
       <ChartWrap>

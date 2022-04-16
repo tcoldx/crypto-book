@@ -4,7 +4,7 @@ export const DayWrap = styled.div`
   border-radius: 10px;
   padding: 10px;
   width: 500px;
-  background: #2c2d33;
+  background: ${(props) => props.theme.main};
   display: flex;
   justify-content: center;
 `;

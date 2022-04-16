@@ -8,13 +8,13 @@ export const ContentWrap = styled.div`
 `;
 
 export const Content = styled.div`
-  width: 90%;
+  width: 75%;
 `;
 
 export const Overview = styled.h1`
   margin-top: 30px;
-  font-size: 1.3rem;
-
+  font-size: 1rem;
+  font-weight: normal;
   @media (max-width: 899px) {
     display: none;
   }
@@ -24,8 +24,8 @@ export const ChartWrapper = styled.div`
   display: flex;
   width: 100%;
   align-items: center;
-  margin-top: 20px;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 20px;
 
   @media (max-width: 899px) {
     display: none;

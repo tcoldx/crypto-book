@@ -6,12 +6,15 @@ export const Row = styled.tr`
 `;
 
 export const TD = styled.td`
-  font-size: 11px;
-  padding-block: 24px;
-  font-weight: bold;
+  font-size: 14px;
+
+  @media (max-width: 1200px) {
+    padding-block: 24px;
+  }
 
   &:nth-child(9) {
-    width: 100px;
+    width: 180px;
+
     @media (max-width: 1219px) {
       display: none;
     }
@@ -56,8 +59,8 @@ export const NameColumn = styled.div`
   display: flex;
   align-items: center;
   column-gap: 10px;
+  width: 200px;
   justify-content: flex-start;
-  width: 90px;
 `;
 
 export const Span = styled.div.attrs((props) => ({

@@ -10,17 +10,15 @@ const CoinPageChart = (props) => {
     gradient.addColorStop(0.5, "rgba(1, 65, 34)");
     gradient.addColorStop(1, "#191B1F");
     return {
-      labels: props.dataLabel,
       datasets: [
         {
-          lineTension: 0.3,
           label: "BTC",
           pointRadius: 0,
           data: props.dataPoint,
           fill: true,
           backgroundColor: gradient,
           borderColor: "#707070",
-          borderWidth: 2,
+          borderWidth: 1,
         },
       ],
     };
@@ -32,7 +30,7 @@ const CoinPageChart = (props) => {
         display: false,
       },
       layout: {
-        padding: 15,
+        padding: 0,
         maintainAspectRatio: false,
       },
     },
@@ -47,6 +45,7 @@ const CoinPageChart = (props) => {
           display: false,
         },
       },
+
       x: {
         grid: {
           display: false,
@@ -60,7 +59,7 @@ const CoinPageChart = (props) => {
   };
   return (
     <ChartWrapper>
-      <Line height="100%" options={options} data={data} />
+      <Line options={options} data={data} />
     </ChartWrapper>
   );
 };

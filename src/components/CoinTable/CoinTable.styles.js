@@ -12,8 +12,8 @@ export const CoinWrap = styled.div`
 
 export const Table = styled.table`
   color: white;
-  width: 100%;
   text-align: center;
+  width: 100%;
   color: ${(props) => props.theme.color};
   letter-spacing: 0.01071em;
   border-collapse: collapse;
@@ -27,7 +27,12 @@ export const TH = styled.th`
   padding-block: 24px;
   font-size: 11px;
   font-weight: bold;
-  border-bottom: 1px solid ${(props) => props.theme.border};
+
+  &:nth-child(2) {
+    display: flex;
+    justify-content: flex-start;
+    width: 200px;
+  }
 
   &:nth-child(9) {
     @media (max-width: 1219px) {

@@ -6,6 +6,7 @@ import { SliderWrapper, ChartWrap, SliderButton } from "./ChartSlider.styles";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { PriceChart, VolumeChart, ChartLegend } from "components";
+import { ClipLoader } from "react-spinners";
 
 const ChartSlider = React.memo((props) => {
   const slider = useRef(null);
@@ -33,6 +34,16 @@ const ChartSlider = React.memo((props) => {
     dispatch(getMarketPrice());
     // eslint-disable-next-line
   }, [currentCurrency]);
+
+  if (props.isLoading) {
+    return (
+      <SliderWrapper>
+        <ChartWrap>
+          <ClipLoader color="#00FC2A" />
+        </ChartWrap>
+      </SliderWrapper>
+    );
+  }
 
   return (
     <SliderWrapper>

@@ -1,22 +1,20 @@
 import React from "react";
 import { Line } from "react-chartjs-2";
 import { Container } from "./PriceChart.styles";
-import { ClipLoader } from "react-spinners";
-
 const PriceChart = (props) => {
   const data = (canvas) => {
     const ctx = canvas.getContext("2d");
-    let gradient = ctx.createLinearGradient(0, 0, 0, 150);
-    gradient.addColorStop(1, "rgba(0,255,102,0.1)");
-    gradient.addColorStop(0.5, "rgba(17,121,9, 0.4)");
-    gradient.addColorStop(0, "rgba(2,0,36, 1)");
+    let gradient = ctx.createLinearGradient(0, 0, 0, 223);
+    gradient.addColorStop(0, "rgba(2,0,36, 0)");
+    gradient.addColorStop(0.5, "rgba(13,119,33, 0.5)");
+    gradient.addColorStop(1, "rgba(25,26,30, 1)");
+
     return {
       labels: props.dataLabel,
       datasets: [
         {
           lineTension: 0.3,
           label: "BTC",
-          pointRadius: 0,
           data: props.dataPoint,
           fill: true,
           backgroundColor: gradient,
@@ -33,8 +31,13 @@ const PriceChart = (props) => {
         display: false,
       },
       layout: {
-        padding: 15,
+        padding: 1,
         maintainAspectRatio: false,
+      },
+    },
+    elements: {
+      point: {
+        radius: 2,
       },
     },
     scales: {
@@ -42,30 +45,24 @@ const PriceChart = (props) => {
         grid: {
           display: false,
           drawTicks: false,
-          borderWidth: 0,
         },
         ticks: {
           display: false,
         },
       },
       x: {
+        min: 60,
+        max: 200,
         grid: {
           display: false,
-          borderWidth: 0,
         },
         ticks: {
-          display: true,
+          display: false,
         },
       },
     },
   };
-  if (!props.dataPoint && !props.dataLabel) {
-    return (
-      <Container>
-        <ClipLoader color="#00FC2A" />
-      </Container>
-    );
-  }
+
   return (
     <Container>
       <Line data={data} options={options} />

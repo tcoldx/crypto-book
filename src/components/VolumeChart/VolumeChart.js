@@ -30,7 +30,7 @@ const VolumeChart = (props) => {
           borderWidth: 0,
         },
         ticks: {
-          display: true,
+          display: false,
         },
       },
     },
