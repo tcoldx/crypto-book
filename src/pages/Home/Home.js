@@ -17,7 +17,9 @@ import {
 
 const Home = React.memo(() => {
   const dispatch = useDispatch();
-  const { coins, chartLoading } = useSelector((state) => state.market);
+  const { coins, chartLoading, coinsLoading } = useSelector(
+    (state) => state.market
+  );
   const { currentCurrency } = useSelector((state) => state.global);
   useEffect(() => {
     dispatch(getCoins());
@@ -36,7 +38,7 @@ const Home = React.memo(() => {
         </ChartWrapper>
         <MobileDayChange />
         <Overview>Market Overview</Overview>
-        <CoinTable coins={coins} />
+        <CoinTable coins={coins} loading={coinsLoading} />
       </Content>
     </ContentWrap>
   );

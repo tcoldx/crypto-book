@@ -9,7 +9,6 @@ import {
 } from "./PortfolioCoinInput.styles";
 
 const PortfolioCoinInput = (props) => {
-  console.log(props);
   const [currentDate, setCurrentDate] = useState("");
   const maxDate = () => {
     var today = new Date();
@@ -42,6 +41,7 @@ const PortfolioCoinInput = (props) => {
         placeholder="Select Coins"
       />
       <Input
+        className={props.amountError ? "error" : ""}
         type="number"
         placeholder="Purchased Amount"
         min={0}
@@ -58,16 +58,18 @@ const PortfolioCoinInput = (props) => {
       />
       {props.close ? null : (
         <SelectCoinWrap>
-          {props.coinList?.map((el) => {
-            return (
-              <SelectCoin
-                key={el.id}
-                onClick={(e) => props.handleOption(e, el.id)}
-              >
-                {el.name}
-              </SelectCoin>
-            );
-          })}
+          {props.loading
+            ? "loading..."
+            : props.coinList?.map((el) => {
+                return (
+                  <SelectCoin
+                    key={el.id}
+                    onClick={(e) => props.handleOption(e, el.id)}
+                  >
+                    {el.name}
+                  </SelectCoin>
+                );
+              })}
         </SelectCoinWrap>
       )}
     </InputContainer>

@@ -33,6 +33,23 @@ export const getCoinInfo = (data) => async (dispatch) => {
   }
 };
 
+export const getCoinsList = (search) => async (dispatch) => {
+  try {
+    dispatch({
+      type: "GET_COINS_PENDING",
+    });
+    const { data } = await axios.get(
+      `https://crypto-app-server.herokuapp.com/coins/${search}`
+    );
+    dispatch({
+      type: "GET_COINS_SUCCESS",
+      payload: data,
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
+
 export const getCoinsData = (currency) => async (dispatch) => {
   try {
     dispatch({

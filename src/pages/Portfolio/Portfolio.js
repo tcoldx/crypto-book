@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { getCoinInfo, getCoinsData } from "store/portfolio/actions";
 import { useDispatch, useSelector } from "react-redux";
-import { getSearch } from "store/global/actions";
+import { getCoinsList } from "store/portfolio/actions";
 import ExitButton from "assets/Images/xbutton.svg";
 import {
   Wrapper,
@@ -40,8 +40,10 @@ const Portfolio = () => {
   });
 
   const dispatch = useDispatch();
-  const { coins, currentCurrency } = useSelector((state) => state.global);
-  const { coinsData } = useSelector((state) => state.portfolio);
+  const { currentCurrency } = useSelector((state) => state.global);
+  const { coinsData, arrayCoins, loading } = useSelector(
+    (state) => state.portfolio
+  );
 
   useEffect(() => {
     dispatch(getCoinsData(currentCurrency));
@@ -53,7 +55,7 @@ const Portfolio = () => {
   };
   const handleChange = (e) => {
     const { value } = e.target;
-    dispatch(getSearch(value));
+    dispatch(getCoinsList(value));
     setCoinData({ ...coinData, name: value });
     if (value === "") {
       setClose(true);
@@ -85,12 +87,12 @@ const Portfolio = () => {
       setDateError(true);
       return;
     }
+
     if (data.amount <= 0) {
-      setAmountError(true);
       return;
     }
     setNameError(data.name.length >= 1 ? false : true);
-    setAmountError(data.amount <= 0 ? false : true);
+    setAmountError(data.amount > 0 ? false : true);
     setDateError(data.date ? false : true);
     setSavedCoin([...savedCoin, coinData]);
     dispatch(getCoinInfo(coinData));
@@ -104,7 +106,7 @@ const Portfolio = () => {
   };
 
   const handleOption = (e, el) => {
-    const foundCoin = coins.find((el) => el.name === e.target.innerText);
+    const foundCoin = arrayCoins.find((el) => el.name === e.target.innerText);
     setCoinData({ ...coinData, name: el });
     setCoin(foundCoin);
     setClose(true);
@@ -137,7 +139,8 @@ const Portfolio = () => {
                     amountError={amountError}
                     dateError={dateError}
                     coinData={coinData}
-                    coinList={coins}
+                    coinList={arrayCoins}
+                    loading={loading}
                     close={close}
                   />
                 </CoinSelectors>

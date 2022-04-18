@@ -133,7 +133,6 @@ export const ItemsWrap = styled.div`
   position: absolute;
   top: 10%;
   border-radius: 6px;
-  height: 140px;
   overflow: hidden;
   background: #2c2f36;
 `;

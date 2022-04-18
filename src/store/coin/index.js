@@ -2,6 +2,7 @@ const initialState = {
   coin: null,
   priceData: null,
   priceLabels: null,
+  chartLoading: false,
 };
 
 export const coin = (state = initialState, action) => {
@@ -11,12 +12,19 @@ export const coin = (state = initialState, action) => {
         ...state,
         coin: action.payload,
       };
+
+    case "FETCH_CHART_PENDING":
+      return {
+        ...state,
+        chartLoading: true,
+      };
     case "FETCH_CHART_SUCCESS":
       const { priceData, priceLabels } = action.payload;
       return {
         ...state,
         priceData,
         priceLabels,
+        chartLoading: false,
       };
     default:
       return state;

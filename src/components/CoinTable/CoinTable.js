@@ -1,6 +1,7 @@
 import React from "react";
-import { CoinWrap, Table, OuterDiv, TH } from "./CoinTable.styles";
+import { CoinWrap, Table, OuterDiv, TH, Containment } from "./CoinTable.styles";
 import { CoinList } from "../../components";
+import { ClipLoader } from "react-spinners";
 
 const CoinTable = React.memo((props) => {
   return (
@@ -21,26 +22,32 @@ const CoinTable = React.memo((props) => {
             </tr>
           </thead>
           <tbody>
-            {props.coins.map((el) => {
-              return (
-                <CoinList
-                  key={el.id}
-                  name={el.name}
-                  symbol={el.symbol}
-                  image={el.image}
-                  price={el.current_price}
-                  hourPercentage={el.price_change_percentage_1h_in_currency}
-                  daysPercentage={el.price_change_percentage_7d_in_currency}
-                  percentage={el.price_change_percentage_24h}
-                  rank={el.market_cap_rank}
-                  marketCap={el.market_cap}
-                  volume={el.total_volume}
-                  circulating={el.circulating_supply}
-                  supply={el.total_supply}
-                  sparkline={el.sparkline_in_7d}
-                />
-              );
-            })}
+            {props.loading ? (
+              <Containment>
+                <ClipLoader color="#00FC2A" />
+              </Containment>
+            ) : (
+              props.coins.map((el) => {
+                return (
+                  <CoinList
+                    key={el.id}
+                    name={el.name}
+                    symbol={el.symbol}
+                    image={el.image}
+                    price={el.current_price}
+                    hourPercentage={el.price_change_percentage_1h_in_currency}
+                    daysPercentage={el.price_change_percentage_7d_in_currency}
+                    percentage={el.price_change_percentage_24h}
+                    rank={el.market_cap_rank}
+                    marketCap={el.market_cap}
+                    volume={el.total_volume}
+                    circulating={el.circulating_supply}
+                    supply={el.total_supply}
+                    sparkline={el.sparkline_in_7d}
+                  />
+                );
+              })
+            )}
           </tbody>
         </Table>
       </OuterDiv>

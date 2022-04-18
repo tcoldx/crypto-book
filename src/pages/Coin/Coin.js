@@ -22,7 +22,9 @@ import {
 
 const Coin = (props) => {
   const dispatch = useDispatch();
-  const { coin, priceData, priceLabels } = useSelector((state) => state.coin);
+  const { coin, priceData, priceLabels, chartLoading } = useSelector(
+    (state) => state.coin
+  );
   const coinId = props.match.params.coinId;
 
   useEffect(() => {
@@ -68,7 +70,11 @@ const Coin = (props) => {
         <CoinChartChange />
       </ContentWrap>
       <ChartContain>
-        <CoinPageChart dataLabel={priceLabels} dataPoint={priceData} />
+        <CoinPageChart
+          dataLabel={priceLabels}
+          dataPoint={priceData}
+          loading={chartLoading}
+        />
       </ChartContain>
     </Container>
   );

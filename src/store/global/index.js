@@ -3,6 +3,7 @@ const initialState = {
   currentCurrency: "usd",
   currentCoin: "bitcoin",
   coins: null,
+  setLoading: false,
 };
 
 export const global = (state = initialState, action) => {
@@ -11,6 +12,12 @@ export const global = (state = initialState, action) => {
       return {
         ...state,
         navData: action.payload,
+      };
+
+    case "SEARCH_PENDING":
+      return {
+        ...state,
+        setLoading: true,
       };
 
     case "CHANGE_CURRENCY":
@@ -29,6 +36,7 @@ export const global = (state = initialState, action) => {
       return {
         ...state,
         coins: action.payload,
+        setLoading: false,
       };
 
     default:

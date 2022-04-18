@@ -28,7 +28,7 @@ const NavBar = (props) => {
   const [close, setClose] = useState(false);
 
   const dispatch = useDispatch();
-  const { coins } = useSelector((state) => state.global);
+  const { coins, setLoading } = useSelector((state) => state.global);
 
   const handleChange = (e) => {
     const { value } = e.target;
@@ -75,13 +75,17 @@ const NavBar = (props) => {
             />
             {close ? null : (
               <ItemsWrap>
-                {coins?.map((el) => {
-                  return (
-                    <Item onClick={handleClick} key={el.id}>
-                      <StyledLink to={`/coin/${el.id}`}>{el.name}</StyledLink>
-                    </Item>
-                  );
-                })}
+                {setLoading
+                  ? "Loading..."
+                  : coins?.map((el) => {
+                      return (
+                        <Item onClick={handleClick} key={el.id}>
+                          <StyledLink to={`/coin/${el.id}`}>
+                            {el.name}
+                          </StyledLink>
+                        </Item>
+                      );
+                    })}
               </ItemsWrap>
             )}
           </SearchWrap>

@@ -4,9 +4,9 @@ export const SelectCoinWrap = styled.div`
   position: absolute;
   top: 45%;
   border-radius: 6px;
-  height: 140px;
   overflow: hidden;
-  background: #2c2f36;
+  padding: 10px;
+  background: ${(props) => props.theme.main};
 `;
 
 export const SelectCoin = styled.div`
@@ -32,6 +32,10 @@ export const Input = styled.input`
   ::placeholder {
     font-weight: 1;
     opacity: 0.7;
+  }
+
+  & .error {
+    border: 1px solid red;
   }
   ${({ amountError, nameError, dateError }) =>
     (amountError || nameError || dateError) &&
