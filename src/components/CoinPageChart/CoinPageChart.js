@@ -1,5 +1,6 @@
 import React from "react";
 import { Line } from "react-chartjs-2";
+import { ClipLoader } from "react-spinners";
 import { ChartWrapper } from "./CoinPageChart.styles";
 
 const CoinPageChart = (props) => {
@@ -57,6 +58,9 @@ const CoinPageChart = (props) => {
       },
     },
   };
+  if (props.loading) {
+    return <ClipLoader color="#00FC2A" />;
+  }
   return (
     <ChartWrapper>
       <Line options={options} data={data} />

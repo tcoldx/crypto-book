@@ -19,6 +19,13 @@ export const Table = styled.table`
   border-collapse: collapse;
 `;
 
+export const Containment = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70vw;
+`;
+
 export const OuterDiv = styled.div`
   width: 100%;
 `;
