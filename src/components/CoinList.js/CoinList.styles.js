@@ -51,6 +51,13 @@ export const TD = styled.td`
   }
 `;
 
+export const ContWrap = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+`;
+
 export const RankWrap = styled.div`
   margin: 0px 10px;
 `;

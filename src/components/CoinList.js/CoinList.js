@@ -12,7 +12,10 @@ import {
   ContentWrap,
   RankWrap,
   StyledLink,
+  ContWrap,
 } from "./CoinList.styles";
+import GreenCaret from "assets/Images/greenCaret.svg";
+import RedCaret from "assets/Images/redCaret.svg";
 import { formatPercent } from "../../utils/formatPercent";
 import { convertNumber } from "../../utils/convertNumber";
 import { TableChart } from "../../components";
@@ -49,19 +52,44 @@ const CoinList = ({
       <TD>${price.toLocaleString()}</TD>
 
       <TD>
-        <Span color={percentage < 0 ? "#fe1040" : "#00fc2a"}>
-          {formatPercent(percentage)}
-        </Span>
+        <ContWrap>
+          {percentage ? (
+            <img src={percentage < 0 ? RedCaret : GreenCaret} alt="img" />
+          ) : null}
+          <Span
+            color={!percentage ? "" : percentage < 0 ? "#fe1040" : "#00fc2a"}
+          >
+            {formatPercent(percentage)}
+          </Span>
+        </ContWrap>
       </TD>
       <TD>
-        <Span color={hourPercentage < 0 ? "#fe1040" : "#00fc2a"}>
-          {formatPercent(hourPercentage)}
-        </Span>
+        <ContWrap>
+          {hourPercentage ? (
+            <img src={hourPercentage < 0 ? RedCaret : GreenCaret} alt="img" />
+          ) : null}
+          <Span
+            color={
+              !hourPercentage ? "" : hourPercentage < 0 ? "#fe1040" : "#00fc2a"
+            }
+          >
+            {formatPercent(hourPercentage)}
+          </Span>
+        </ContWrap>
       </TD>
       <TD>
-        <Span color={daysPercentage < 0 ? "#fe1040" : "#00fc2a"}>
-          {formatPercent(daysPercentage)}
-        </Span>
+        <ContWrap>
+          {daysPercentage ? (
+            <img src={daysPercentage < 0 ? RedCaret : GreenCaret} alt="img" />
+          ) : null}
+          <Span
+            color={
+              !daysPercentage ? "" : daysPercentage < 0 ? "#fe1040" : "#00fc2a"
+            }
+          >
+            {formatPercent(daysPercentage)}
+          </Span>
+        </ContWrap>
       </TD>
 
       <TD>

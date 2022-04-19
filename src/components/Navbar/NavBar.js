@@ -26,6 +26,7 @@ import {
 
 const NavBar = (props) => {
   const [close, setClose] = useState(false);
+  const [value, setValue] = useState("");
 
   const dispatch = useDispatch();
   const { coins, setLoading } = useSelector((state) => state.global);
@@ -35,8 +36,14 @@ const NavBar = (props) => {
     dispatch(changeCurrency(value));
   };
 
+  const handleBlur = (e) => {
+    setClose(true);
+    setValue("");
+  };
+
   const handleSearch = (e) => {
     const { value } = e.target;
+    setValue(value);
     if (value === "") {
       setClose(true);
     } else {
@@ -66,12 +73,13 @@ const NavBar = (props) => {
           </ButtonWrap>
         </NavLeft>
         <NavRight>
-          <SearchWrap>
+          <SearchWrap onBlur={handleBlur}>
             <img width={15} height={15} src={SearchIcon} alt="search" />
             <Search
               onChange={(e) => handleSearch(e)}
               type="search"
               placeholder="Search..."
+              value={value}
             />
             {close ? null : (
               <ItemsWrap>
