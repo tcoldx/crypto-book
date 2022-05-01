@@ -14,9 +14,9 @@ import {
 const days = [
   { id: 1, name: "1d", value: 1 },
   { id: 2, name: "1w", value: 7 },
-  { id: 13, name: "1m", value: 30 },
-  { id: 44, name: "3m", value: 90 },
-  { id: 6, name: "6m", value: 180 },
+  { id: 13, name: "1mo", value: 30 },
+  { id: 44, name: "3mo", value: 90 },
+  { id: 6, name: "6mo", value: 180 },
   { id: 21, name: "1y", value: 365 },
 ];
 

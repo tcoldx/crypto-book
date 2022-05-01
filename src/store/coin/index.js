@@ -3,14 +3,21 @@ const initialState = {
   priceData: null,
   priceLabels: null,
   chartLoading: false,
+  loading: false,
 };
 
 export const coin = (state = initialState, action) => {
   switch (action.type) {
+    case "COIN_DATA_PENDING":
+      return {
+        ...state,
+        loading: true,
+      };
     case "COIN_DATA_SUCCESS":
       return {
         ...state,
         coin: action.payload,
+        loading: false,
       };
 
     case "FETCH_CHART_PENDING":

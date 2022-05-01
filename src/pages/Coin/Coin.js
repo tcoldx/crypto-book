@@ -3,6 +3,7 @@ import { getCoin, getCoinChartData } from "../../store/coin/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { getCurrentCoin } from "../../store/global/actions";
 import Chain from "../../assets/Images/chain.svg";
+import { ClipLoader } from "react-spinners";
 import {
   CoinChartChange,
   CoinPageChart,
@@ -22,7 +23,7 @@ import {
 
 const Coin = (props) => {
   const dispatch = useDispatch();
-  const { coin, priceData, priceLabels, chartLoading } = useSelector(
+  const { coin, priceData, priceLabels, chartLoading, loading } = useSelector(
     (state) => state.coin
   );
   const coinId = props.match.params.coinId;
@@ -34,41 +35,49 @@ const Coin = (props) => {
     // eslint-disable-next-line
   }, [coinId]);
 
-  if (!coin) return <h1>loading...</h1>;
+  if (loading) {
+    return (
+      <Container>
+        <ClipLoader color="green" />
+      </Container>
+    );
+  }
   return (
     <Container>
-      <ContentWrap>
-        <H4>Coin Summary</H4>
-        <CoinSummary coin={coin} />
-        <H4>Description:</H4>
-        <DescriptionContainer
-          dangerouslySetInnerHTML={{
-            __html: coin.description.en,
-          }}
-        />
-        <WebsiteContainer>
-          <SiteLink href={coin.links.blockchain_site[0]}>
-            <SiteInner>
-              <img src={Chain} alt="chain" />
-              {coin.links.blockchain_site[0]}
-            </SiteInner>
-          </SiteLink>
-          <SiteLink href={coin.links.blockchain_site[1]}>
-            <SiteInner>
-              <img src={Chain} alt="chain" />
-              {coin.links.blockchain_site[1]}
-            </SiteInner>
-          </SiteLink>
-          <SiteLink href={coin.links.blockchain_site[2]}>
-            <SiteInner>
-              <img src={Chain} alt="chain" />
-              {coin.links.blockchain_site[2]}
-            </SiteInner>
-          </SiteLink>
-        </WebsiteContainer>
-        <CurrencyConverter coinData={coin} coin={coin.symbol} />
-        <CoinChartChange />
-      </ContentWrap>
+      {coin && (
+        <ContentWrap>
+          <H4>Coin Summary</H4>
+          <CoinSummary coin={coin} />
+          <H4>Description:</H4>
+          <DescriptionContainer
+            dangerouslySetInnerHTML={{
+              __html: coin.description.en,
+            }}
+          />
+          <WebsiteContainer>
+            <SiteLink href={coin.links.blockchain_site[0]}>
+              <SiteInner>
+                <img src={Chain} alt="chain" />
+                {coin.links.blockchain_site[0]}
+              </SiteInner>
+            </SiteLink>
+            <SiteLink href={coin.links.blockchain_site[1]}>
+              <SiteInner>
+                <img src={Chain} alt="chain" />
+                {coin.links.blockchain_site[1]}
+              </SiteInner>
+            </SiteLink>
+            <SiteLink href={coin.links.blockchain_site[2]}>
+              <SiteInner>
+                <img src={Chain} alt="chain" />
+                {coin.links.blockchain_site[2]}
+              </SiteInner>
+            </SiteLink>
+          </WebsiteContainer>
+          <CurrencyConverter coinData={coin} coin={coin.symbol} />
+          <CoinChartChange />
+        </ContentWrap>
+      )}
       <ChartContain>
         <CoinPageChart
           dataLabel={priceLabels}

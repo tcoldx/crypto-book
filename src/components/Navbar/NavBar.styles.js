@@ -75,7 +75,7 @@ export const Button = styled(NavLink)`
   width: 100px;
   height: 38px;
   &.active {
-    background: #2c2f36;
+    background: ${(props) => props.theme.card.main};
   }
   &:hover {
     color: #00fc2a;
