@@ -7,12 +7,15 @@ import {
 } from "../../components";
 import { getCoins } from "../../store/coins/actions";
 import { useDispatch, useSelector } from "react-redux";
+import { AiFillGithub, AiFillLinkedin, AiOutlineMail } from "react-icons/ai";
 import {
   ContentWrap,
   Overview,
   Content,
   ChartWrapper,
   MobileChartWrap,
+  FooterPortfolio,
+  PortfolioWrap,
 } from "./Home.styles";
 
 const Home = React.memo(() => {
@@ -39,6 +42,19 @@ const Home = React.memo(() => {
         <MobileDayChange />
         <Overview>Market Overview</Overview>
         <CoinTable coins={coins} loading={coinsLoading} />
+        <FooterPortfolio>
+          <PortfolioWrap>
+            <a href="https://www.linkedin.com/in/tredis-ingram-211809195/">
+              <AiFillLinkedin />
+            </a>
+            <a href="mailto: t.tredis@gmail.com">
+              <AiOutlineMail />
+            </a>
+            <a href="https://github.com/tcoldx/crypto-book">
+              <AiFillGithub />
+            </a>
+          </PortfolioWrap>
+        </FooterPortfolio>
       </Content>
     </ContentWrap>
   );

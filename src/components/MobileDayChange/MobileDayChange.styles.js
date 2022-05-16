@@ -44,7 +44,6 @@ export const DayItemWrap = styled.div`
   background: ${({ active }) => (active ? "#00ff5f" : "transparent")};
 
   &:hover {
-    background: #00ff5f;
-    opacity: 0.5;
+    opacity: 0.7;
   }
 `;

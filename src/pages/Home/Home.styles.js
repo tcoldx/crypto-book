@@ -43,3 +43,31 @@ export const MobileChartWrap = styled.div`
     align-items: center;
   }
 `;
+
+export const FooterPortfolio = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  height: 50px;
+  background: ${(props) => props.theme.main};
+
+  & a {
+    display: flex;
+    align-items: center;
+    border-radius: 3px;
+    padding: 2px;
+    color: ${(props) => props.theme.card.main};
+    background: ${(props) => props.theme.color};
+  }
+`;
+
+export const PortfolioWrap = styled.div`
+  display: flex;
+  width: 180px;
+  justify-content: space-around;
+`;

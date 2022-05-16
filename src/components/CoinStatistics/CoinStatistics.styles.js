@@ -100,6 +100,35 @@ export const CoinHeader = styled.div`
   font-weight: bold;
 `;
 
+export const CoinOptions = styled.div`
+  display: flex;
+  gap: 10px;
+`;
+
+export const TrashDiv = styled.div`
+  background: ${(props) => props.theme.card.secondary};
+  height: 23px;
+  width: 23px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: red;
+  border-radius: 7px;
+`;
+
+export const PencilDiv = styled.div`
+  background: ${(props) => props.theme.card.secondary};
+  height: 23px;
+  width: 23px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: gold;
+  border-radius: 7px;
+`;
+
 export const StatContent = styled.div`
   @media (max-width: 899px) {
     display: flex;

@@ -4,6 +4,7 @@ import { ClipLoader } from "react-spinners";
 import { ChartWrapper } from "./CoinPageChart.styles";
 
 const CoinPageChart = (props) => {
+  console.log(props);
   const data = (canvas) => {
     const ctx = canvas.getContext("2d");
     let gradient = ctx.createLinearGradient(0, 0, 0, 150);
@@ -11,6 +12,7 @@ const CoinPageChart = (props) => {
     gradient.addColorStop(0.5, "rgba(1, 65, 34)");
     gradient.addColorStop(1, "#191B1F");
     return {
+      labels: props.dataLabel,
       datasets: [
         {
           label: "BTC",
@@ -63,7 +65,7 @@ const CoinPageChart = (props) => {
   }
   return (
     <ChartWrapper>
-      <Line options={options} data={data} />
+      <Line height={80} options={options} data={data} />
     </ChartWrapper>
   );
 };

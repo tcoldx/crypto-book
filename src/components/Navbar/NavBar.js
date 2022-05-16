@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { changeCurrency } from "store/global/actions";
 import { getSearch } from "store/global/actions";
 import { useDispatch, useSelector } from "react-redux";
@@ -30,15 +30,25 @@ const NavBar = (props) => {
 
   const dispatch = useDispatch();
   const { coins, setLoading } = useSelector((state) => state.global);
+  const menuRef = useRef();
+
+  // handles the search menu closing when you click outside of it
+  useEffect(() => {
+    const handleMouse = (e) => {
+      if (menuRef.current !== e.target) {
+        setClose(true);
+        setValue("");
+      }
+    };
+
+    document.addEventListener("click", handleMouse);
+
+    return () => document.removeEventListener("click", handleMouse);
+  }, []);
 
   const handleChange = (e) => {
     const { value } = e.target;
     dispatch(changeCurrency(value));
-  };
-
-  const handleBlur = (e) => {
-    setClose(true);
-    setValue("");
   };
 
   const handleSearch = (e) => {
@@ -73,25 +83,25 @@ const NavBar = (props) => {
           </ButtonWrap>
         </NavLeft>
         <NavRight>
-          <SearchWrap onBlur={handleBlur}>
+          <SearchWrap>
             <img width={15} height={15} src={SearchIcon} alt="search" />
             <Search
               onChange={(e) => handleSearch(e)}
               type="search"
-              placeholder="Search..."
+              placeholder="Search Coin..."
               value={value}
             />
             {close ? null : (
-              <ItemsWrap>
+              <ItemsWrap ref={menuRef}>
                 {setLoading
                   ? "Loading..."
                   : coins?.map((el) => {
                       return (
-                        <Item onClick={handleClick} key={el.id}>
-                          <StyledLink to={`/coin/${el.id}`}>
+                        <StyledLink to={`/coin/${el.id}`}>
+                          <Item onClick={handleClick} key={el.id}>
                             {el.name}
-                          </StyledLink>
-                        </Item>
+                          </Item>
+                        </StyledLink>
                       );
                     })}
               </ItemsWrap>

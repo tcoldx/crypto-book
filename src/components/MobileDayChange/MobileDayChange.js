@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getChartData } from "../../store/coins/actions";
 import {
   DayWrap,
@@ -30,10 +30,12 @@ const MobileDayChange = () => {
     setActive(item.name);
   };
 
+  const { currentCurrency } = useSelector((state) => state.global);
+
   useEffect(() => {
-    dispatch(getChartData(day));
+    dispatch(getChartData(day, currentCurrency));
     // eslint-disable-next-line
-  }, [day]);
+  }, [day, currentCurrency]);
 
   return (
     <Container>

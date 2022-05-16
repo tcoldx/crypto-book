@@ -18,6 +18,7 @@ import {
   MarketCapWrap,
   CoinAndExchange,
   EthereumWrap,
+  Percentages,
 } from "./NavUnder.styles";
 
 const NavUnder = () => {
@@ -57,14 +58,14 @@ const NavUnder = () => {
           </MarketCapWrap>
 
           <PercentContainer>
-            <span> {convertNumber(Math.round(totalVolume))}</span>
+            <Percentages> {convertNumber(Math.round(totalVolume))}</Percentages>
             <BarContainer>
               <VolumePercentage market={navData?.data?.total_market_cap.btc} />
             </BarContainer>
           </PercentContainer>
           <PercentContainer>
             <img src={BTC} width={10} height={10} alt="bitcoin" />
-            <span>{Math.round(bitcoinPercentage)}%</span>
+            <Percentages>{Math.round(bitcoinPercentage)}%</Percentages>
             <BarContainer>
               <Percentage
                 market={navData?.data?.total_market_cap.btc}
@@ -75,7 +76,7 @@ const NavUnder = () => {
           <EthereumWrap>
             <PercentContainer>
               <img src={ETH} width={10} height={10} alt="ethereum" />
-              <span>{Math.round(ethereumPercentage)}%</span>
+              <Percentages>{Math.round(ethereumPercentage)}%</Percentages>
               <BarContainer>
                 <Percentage
                   market={navData?.data?.total_market_cap.btc}

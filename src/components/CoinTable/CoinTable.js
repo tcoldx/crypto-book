@@ -7,27 +7,25 @@ const CoinTable = React.memo((props) => {
   return (
     <CoinWrap>
       <OuterDiv>
-        <Table>
-          <thead>
-            <tr>
-              <TH>#</TH>
-              <TH>Name</TH>
-              <TH>Price</TH>
-              <TH>1h%</TH>
-              <TH>24h%</TH>
-              <TH>7d%</TH>
-              <TH>24h Volume/Market Cap</TH>
-              <TH>Circulating/Total Supply</TH>
-              <TH>Last 7d</TH>
-            </tr>
-          </thead>
-          <tbody>
-            {props.loading ? (
-              <Containment>
-                <ClipLoader color="#00FC2A" />
-              </Containment>
-            ) : (
-              props.coins.map((el) => {
+        {props.loading ? (
+          <ClipLoader color="#00FC2A" />
+        ) : (
+          <Table>
+            <thead>
+              <tr>
+                <TH>#</TH>
+                <TH>Name</TH>
+                <TH>Price</TH>
+                <TH>1h%</TH>
+                <TH>24h%</TH>
+                <TH>7d%</TH>
+                <TH>24h Volume/Market Cap</TH>
+                <TH>Circulating/Total Supply</TH>
+                <TH>Last 7d</TH>
+              </tr>
+            </thead>
+            <tbody>
+              {props.coins.map((el) => {
                 return (
                   <CoinList
                     key={el.id}
@@ -46,10 +44,10 @@ const CoinTable = React.memo((props) => {
                     sparkline={el.sparkline_in_7d}
                   />
                 );
-              })
-            )}
-          </tbody>
-        </Table>
+              })}
+            </tbody>
+          </Table>
+        )}
       </OuterDiv>
     </CoinWrap>
   );
