@@ -41,11 +41,6 @@ const CoinStatistics = (props) => {
     currentData[0]?.circulating_supply / currentData[0]?.total_supply;
   const symbol = currentData[0]?.symbol;
 
-  const handleClick = () => {
-    console.log("delete this array item bitch");
-    console.log(props);
-  };
-
   return (
     <Container>
       <StatWrap>
@@ -94,7 +89,7 @@ const CoinStatistics = (props) => {
           <CoinHeader>
             <CoinOptions>
               Coin Stats:
-              <TrashDiv onClick={handleClick}>
+              <TrashDiv>
                 <FaTrash />
               </TrashDiv>
               <PencilDiv>
