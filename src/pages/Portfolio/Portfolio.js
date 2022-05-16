@@ -22,6 +22,7 @@ import {
   StatHeader,
   ImageWrap,
 } from "./Portfolio.styles";
+
 import { CoinStatistics, PortfolioCoinInput } from "components";
 
 const Portfolio = () => {
@@ -157,10 +158,9 @@ const Portfolio = () => {
       )}
 
       <AssetButton onClick={handleClick}>Add Asset</AssetButton>
-      <StatHeader>
-        <H2>Your Statistics</H2>
-      </StatHeader>
+      <StatHeader></StatHeader>
       {coinsData.map((el) => {
+        console.log(el);
         return (
           <CoinStatistics
             id={el.purchaseData.id}

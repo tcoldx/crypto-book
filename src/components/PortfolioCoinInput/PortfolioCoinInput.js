@@ -1,6 +1,5 @@
 import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Input,
   SelectCoinWrap,
@@ -10,6 +9,7 @@ import {
 
 const PortfolioCoinInput = (props) => {
   const [currentDate, setCurrentDate] = useState("");
+
   const maxDate = () => {
     var today = new Date();
     var dd = today.getDate();
@@ -30,6 +30,7 @@ const PortfolioCoinInput = (props) => {
   useEffect(() => {
     maxDate();
   }, []);
+
   return (
     <InputContainer>
       <Input

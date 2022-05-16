@@ -12,8 +12,9 @@ export const GlobalStyle = createGlobalStyle`
   }
   
   ::-webkit-input-placeholder {
-    color: ${(props) => props.theme.color};
-    font-weight: bold;
+    color: lightgrey;
+    opacity: 0.7;
+    font-weight: 600;
   }
   
   body {
@@ -27,5 +28,7 @@ export const GlobalStyle = createGlobalStyle`
     border: none;
     cursor: pointer;
   }
+
+
   
   `;

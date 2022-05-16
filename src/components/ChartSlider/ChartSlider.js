@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getMarketPrice, getChartData } from "store/coins/actions";
+import { getMarketPrice } from "store/coins/actions";
 import Slider from "react-slick";
 import { SliderWrapper, ChartWrap, SliderButton } from "./ChartSlider.styles";
 import "slick-carousel/slick/slick.css";
@@ -30,7 +30,6 @@ const ChartSlider = React.memo((props) => {
     currentVolume,
   } = useSelector((state) => state.market);
   useEffect(() => {
-    dispatch(getChartData());
     dispatch(getMarketPrice());
     // eslint-disable-next-line
   }, [currentCurrency]);

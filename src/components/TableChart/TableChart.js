@@ -4,6 +4,7 @@ import { Container, ChartWrap } from "./TableChart.styles";
 
 const TableChart = ({ dataPoint }) => {
   const price = dataPoint?.price.map((el) => el);
+  const newPrice = price.slice(0, 6);
 
   const data = (canvas) => {
     let borderColor = "";
@@ -17,7 +18,7 @@ const TableChart = ({ dataPoint }) => {
       datasets: [
         {
           tension: 0.4,
-          data: price,
+          data: newPrice,
           fill: false,
           borderColor: borderColor,
         },
@@ -65,7 +66,7 @@ const TableChart = ({ dataPoint }) => {
   return (
     <Container>
       <ChartWrap>
-        <Line data={data} options={options} width={115} height={70} />
+        <Line data={data} options={options} width={125} height={70} />
       </ChartWrap>
     </Container>
   );

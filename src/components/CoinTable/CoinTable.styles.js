@@ -19,15 +19,10 @@ export const Table = styled.table`
   border-collapse: collapse;
 `;
 
-export const Containment = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 70vw;
-`;
-
 export const OuterDiv = styled.div`
-  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const TH = styled.th`
@@ -38,7 +33,6 @@ export const TH = styled.th`
   &:nth-child(2) {
     display: flex;
     justify-content: flex-start;
-    width: 200px;
   }
 
   &:nth-child(9) {

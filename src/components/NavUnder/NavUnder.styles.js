@@ -42,6 +42,10 @@ export const PercentContainer = styled.div`
   gap: 2px;
 `;
 
+export const Percentages = styled.div`
+  font-size: 12px;
+`;
+
 export const BarContainer = styled.div`
   background: #2172e5;
   border-radius: 10px;

@@ -32,8 +32,9 @@ const PriceChart = (props) => {
       },
       layout: {
         padding: 1,
-        maintainAspectRatio: false,
       },
+      responsive: true,
+      maintainAspectRatio: false,
     },
     elements: {
       point: {
@@ -51,8 +52,8 @@ const PriceChart = (props) => {
         },
       },
       x: {
-        min: 60,
-        max: 200,
+        //min: 60,
+        //max: 200,
         grid: {
           display: false,
         },

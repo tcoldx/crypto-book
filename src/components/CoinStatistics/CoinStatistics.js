@@ -1,6 +1,8 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { formatPercent } from "utils/formatPercent";
+import { FaTrash } from "react-icons/fa";
+import { AiFillEdit } from "react-icons/ai";
 import {
   Container,
   StatWrap,
@@ -20,7 +22,10 @@ import {
   NameContainer,
   StatContent,
   CoinHeader,
+  CoinOptions,
   MarketHeader,
+  TrashDiv,
+  PencilDiv,
 } from "./CoinStatistics.styles";
 
 const CoinStatistics = (props) => {
@@ -35,6 +40,12 @@ const CoinStatistics = (props) => {
   const supplyVsMax =
     currentData[0]?.circulating_supply / currentData[0]?.total_supply;
   const symbol = currentData[0]?.symbol;
+
+  const handleClick = () => {
+    console.log("delete this array item bitch");
+    console.log(props);
+  };
+
   return (
     <Container>
       <StatWrap>
@@ -80,7 +91,17 @@ const CoinStatistics = (props) => {
               </StatContent>
             </MarketStatWrap>
           </MarketStatContainer>
-          <CoinHeader>Coin Stats:</CoinHeader>
+          <CoinHeader>
+            <CoinOptions>
+              Coin Stats:
+              <TrashDiv onClick={handleClick}>
+                <FaTrash />
+              </TrashDiv>
+              <PencilDiv>
+                <AiFillEdit />
+              </PencilDiv>
+            </CoinOptions>
+          </CoinHeader>
           <CoinStatContainer>
             <CoinStatWrap>
               <StatContent>

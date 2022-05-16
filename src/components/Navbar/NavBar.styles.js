@@ -12,22 +12,20 @@ export const NavRight = styled.div`
   align-items: center;
   gap: 20px;
   justify-content: space-evenly;
-  margin-right: 20px;
 `;
 
 export const NavLeft = styled.div`
   display: flex;
   align-items: center;
-  margin-left: 50px;
 `;
 
 export const Nav = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 60px;
-  width: 90%;
   margin: auto;
+  height: 60px;
+  width: 74%;
 `;
 
 export const SelectWrap = styled.div`
@@ -38,6 +36,11 @@ export const SelectWrap = styled.div`
   justify-content: center;
   height: 38px;
   width: 100px;
+  transition: 900ms ease-out;
+
+  &:hover {
+    border: 1px solid green;
+  }
 `;
 
 export const SearchWrap = styled.div`
@@ -49,6 +52,11 @@ export const SearchWrap = styled.div`
   padding-left: 8px;
   background: ${(props) => props.theme.card.secondary};
   height: 38px;
+  transition: 900ms ease-out;
+
+  &:hover {
+    border: 1px solid green;
+  }
 
   @media (max-width: 767px) {
     display: none;
@@ -134,10 +142,12 @@ export const ItemsWrap = styled.div`
   top: 10%;
   border-radius: 6px;
   overflow: hidden;
+  z-index: 2;
   background: #2c2f36;
 `;
 export const Item = styled.div`
   cursor: pointer;
+  padding: 10px;
   &:hover {
     opacity: 0.5;
     background: ${(props) => props.theme.main};

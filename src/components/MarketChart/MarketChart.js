@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { PriceChart, VolumeChart, ChartLegend } from "../../components";
 import {
   ChartContainer,
@@ -7,11 +7,9 @@ import {
   ChartContainerLoading,
 } from "./MarketChart.styles";
 import { ClipLoader } from "react-spinners";
-import { useDispatch, useSelector } from "react-redux";
-import { getMarketPrice } from "../../store/coins/actions";
+import { useSelector } from "react-redux";
 
-const MarketChart = (props) => {
-  const dispatch = useDispatch();
+const MarketChart = React.memo((props) => {
   const {
     priceData,
     volumeData,
@@ -22,11 +20,6 @@ const MarketChart = (props) => {
   } = useSelector((state) => state.market);
 
   const { currentCurrency } = useSelector((state) => state.global);
-
-  useEffect(() => {
-    dispatch(getMarketPrice());
-    // eslint-disable-next-line
-  }, []);
 
   if (props.isLoading)
     return (
@@ -55,7 +48,11 @@ const MarketChart = (props) => {
       </ChartLegendWrap>
       <ChartWrap>
         {props.type === "price" && (
-          <PriceChart dataLabel={priceLabels} dataPoint={priceData} />
+          <PriceChart
+            dataLabel={priceLabels}
+            dataPoint={priceData}
+            style={{ position: "absolute", left: 0, top: 0 }}
+          />
         )}
         {props.type === "volume" && (
           <VolumeChart dataLabel={volumeLabels} dataPoint={volumeData} />
@@ -63,6 +60,6 @@ const MarketChart = (props) => {
       </ChartWrap>
     </ChartContainer>
   );
-};
+});
 
 export default MarketChart;

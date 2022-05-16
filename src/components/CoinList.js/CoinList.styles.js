@@ -6,7 +6,7 @@ export const Row = styled.tr`
 `;
 
 export const TD = styled.td`
-  font-size: 14px;
+  font-size: 12px;
 
   @media (max-width: 1200px) {
     padding-block: 24px;
@@ -66,7 +66,6 @@ export const NameColumn = styled.div`
   display: flex;
   align-items: center;
   column-gap: 10px;
-  width: 200px;
   justify-content: flex-start;
 `;
 

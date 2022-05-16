@@ -58,6 +58,7 @@ export const getCoinsData = (currency) => async (dispatch) => {
     const { data } = await axios.get(
       `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&order=market_cap_desc&per_page=500&page=1&sparkline=false&price_change_percentage=24h%2C7d%2C30d`
     );
+    console.log(data);
     dispatch({
       type: "GET_COINLIST_SUCCESS",
       payload: data,
