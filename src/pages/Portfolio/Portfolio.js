@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { getCoinInfo, getCoinsData } from "store/portfolio/actions";
+import {
+  deleteItem,
+  changeItem,
+  getCoinInfo,
+  getCoinsData,
+} from "store/portfolio/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { getCoinsList } from "store/portfolio/actions";
 import ExitButton from "assets/Images/xbutton.svg";
@@ -45,7 +50,6 @@ const Portfolio = () => {
   const { coinsData, arrayCoins, loading } = useSelector(
     (state) => state.portfolio
   );
-
   useEffect(() => {
     dispatch(getCoinsData(currentCurrency));
     // eslint-disable-next-line
@@ -54,6 +58,11 @@ const Portfolio = () => {
   const handleClick = () => {
     setOpen(!open);
   };
+
+  const handleDelete = (coinId) => {
+    dispatch(deleteItem(coinId));
+  };
+
   const handleChange = (e) => {
     const { value } = e.target;
     dispatch(getCoinsList(value));
@@ -77,6 +86,10 @@ const Portfolio = () => {
     const { value } = e.target;
     setCoinData({ ...coinData, date: value });
     setDateError(false);
+  };
+
+  const handleEdit = () => {
+    setOpen(true);
   };
 
   const handleSave = (data) => {
@@ -103,6 +116,9 @@ const Portfolio = () => {
       amount: "",
       date: "",
     });
+    if ("coinchangeedit" === true) {
+      dispatch(changeItem(coinData));
+    }
     setOpen(false);
   };
 
@@ -160,9 +176,10 @@ const Portfolio = () => {
       <AssetButton onClick={handleClick}>Add Asset</AssetButton>
       <StatHeader></StatHeader>
       {coinsData.map((el) => {
-        console.log(el);
         return (
           <CoinStatistics
+            handleDelete={() => handleDelete(el.purchaseData.id)}
+            handleEdit={handleEdit}
             id={el.purchaseData.id}
             key={el.purchaseData.id}
             name={el.purchaseData.name}

@@ -45,9 +45,7 @@ export const getCoinsList = (search) => async (dispatch) => {
       type: "GET_COINS_SUCCESS",
       payload: data,
     });
-  } catch (err) {
-    console.log(err);
-  }
+  } catch (err) {}
 };
 
 export const getCoinsData = (currency) => async (dispatch) => {
@@ -58,7 +56,6 @@ export const getCoinsData = (currency) => async (dispatch) => {
     const { data } = await axios.get(
       `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&order=market_cap_desc&per_page=500&page=1&sparkline=false&price_change_percentage=24h%2C7d%2C30d`
     );
-    console.log(data);
     dispatch({
       type: "GET_COINLIST_SUCCESS",
       payload: data,
@@ -69,4 +66,24 @@ export const getCoinsData = (currency) => async (dispatch) => {
       payload: err,
     });
   }
+};
+
+export const deleteItem = (coinId) => {
+  return {
+    type: "REMOVE_ITEM",
+    payload: coinId,
+  };
+};
+
+// change the coin or edit the coin :D
+export const changeItem = (data) => {
+  const { amount, name, date } = data;
+  return {
+    type: "CHANGE_ITEM",
+    payload: {
+      name: name,
+      amount: amount,
+      date: date,
+    },
+  };
 };
