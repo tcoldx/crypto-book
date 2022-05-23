@@ -89,11 +89,11 @@ const CoinStatistics = (props) => {
           <CoinHeader>
             <CoinOptions>
               Coin Stats:
-              <TrashDiv>
+              <TrashDiv onClick={props.handleDelete}>
                 <FaTrash />
               </TrashDiv>
               <PencilDiv>
-                <AiFillEdit />
+                <AiFillEdit onClick={props.handleEdit} />
               </PencilDiv>
             </CoinOptions>
           </CoinHeader>

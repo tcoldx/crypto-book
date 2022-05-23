@@ -4,7 +4,6 @@ import { ClipLoader } from "react-spinners";
 import { ChartWrapper } from "./CoinPageChart.styles";
 
 const CoinPageChart = (props) => {
-  console.log(props);
   const data = (canvas) => {
     const ctx = canvas.getContext("2d");
     let gradient = ctx.createLinearGradient(0, 0, 0, 150);

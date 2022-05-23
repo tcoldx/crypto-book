@@ -13,6 +13,21 @@ export const portfolio = (state = initialState, action) => {
         coinsData: [...state.coinsData, action.payload],
       };
 
+    // if trash button is clicked then delete the coin from the list
+    case "REMOVE_ITEM":
+      return {
+        ...state,
+        coinsData: state.coinsData.filter(
+          (el) => el.purchaseData.id !== action.payload
+        ),
+      };
+
+    case "CHANGE_ITEM":
+      return {
+        ...state,
+        coinsData: [...state.coinsData, action.payload],
+      };
+
     case "GET_COINS_PENDING":
       return {
         ...state,

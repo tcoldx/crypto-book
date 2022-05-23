@@ -11,7 +11,6 @@ export const getChartData = (item, currency) => async (dispatch) => {
     // setting the chart labels and the price into variable with data
     // price chart data
     const priceData = data.prices.map((el) => el[1]);
-    console.log(priceData);
     const priceLabels = data.prices
       .map((el) => new Date(el[0]).getDate().toString())
       .map((el) => (el.length === 1 ? `0${el}` : el));
