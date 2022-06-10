@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import {
   deleteItem,
-  changeItem,
   getCoinInfo,
+  editItem,
   getCoinsData,
 } from "store/portfolio/actions";
 import { useDispatch, useSelector } from "react-redux";
@@ -33,7 +33,6 @@ import { CoinStatistics, PortfolioCoinInput } from "components";
 const Portfolio = () => {
   const [open, setOpen] = useState(false);
   const [coin, setCoin] = useState({});
-  const [savedCoin, setSavedCoin] = useState([]);
   const [close, setClose] = useState(false);
   const [amountError, setAmountError] = useState(false);
   const [dateError, setDateError] = useState(false);
@@ -57,6 +56,8 @@ const Portfolio = () => {
 
   const handleClick = () => {
     setOpen(!open);
+    setCoinData({});
+    setCoin({});
   };
 
   const handleDelete = (coinId) => {
@@ -88,37 +89,46 @@ const Portfolio = () => {
     setDateError(false);
   };
 
-  const handleEdit = () => {
+  const handleEdit = (data) => {
+    const { purchaseData, amountPurchased, datePurchased, key } = data;
+    setCoinData({
+      name: purchaseData.name,
+      amount: amountPurchased,
+      date: datePurchased,
+      key: key,
+    });
+    setCoin({
+      thumb: purchaseData.image.thumb,
+      name: purchaseData.name,
+    });
+    console.log("coinsData key:", key);
     setOpen(true);
   };
 
-  const handleSave = (data) => {
-    if (data.name.length <= 0) {
+  const handleSave = (data, coins) => {
+    if (!data.key) {
+      data.key = `${Math.random()}-${Math.random()}`;
+    }
+    let name = data.name;
+    let date = data.date;
+    let amount = data.amount;
+    if (name.length <= 0 || date.length <= 0 || amount.length <= 0) {
       setNameError(true);
-      return;
-    }
-    if (data.date.length <= 0) {
       setDateError(true);
-      return;
-    }
-
-    if (data.amount <= 0) {
+      setAmountError(true);
       return;
     }
     setNameError(data.name.length >= 1 ? false : true);
     setAmountError(data.amount > 0 ? false : true);
     setDateError(data.date ? false : true);
-    setSavedCoin([...savedCoin, coinData]);
     dispatch(getCoinInfo(coinData));
+
     setCoin({});
     setCoinData({
       name: "",
       amount: "",
       date: "",
     });
-    if ("coinchangeedit" === true) {
-      dispatch(changeItem(coinData));
-    }
     setOpen(false);
   };
 
@@ -164,7 +174,7 @@ const Portfolio = () => {
               </CoinTopContent>
               <ButtonWrap>
                 <Button onClick={handleClick}>Close</Button>
-                <Button onClick={() => handleSave(coinData)}>
+                <Button onClick={() => handleSave(coinData, coinsData)}>
                   Save and Continue
                 </Button>
               </ButtonWrap>
@@ -179,9 +189,9 @@ const Portfolio = () => {
         return (
           <CoinStatistics
             handleDelete={() => handleDelete(el.purchaseData.id)}
-            handleEdit={handleEdit}
+            handleEdit={() => handleEdit(el)}
             id={el.purchaseData.id}
-            key={el.purchaseData.id}
+            key={el.key}
             name={el.purchaseData.name}
             image={el.purchaseData.image.thumb}
             price={el?.purchaseData?.market_data?.current_price}

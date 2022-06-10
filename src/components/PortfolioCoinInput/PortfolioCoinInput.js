@@ -9,7 +9,6 @@ import {
 
 const PortfolioCoinInput = (props) => {
   const [currentDate, setCurrentDate] = useState("");
-
   const maxDate = () => {
     var today = new Date();
     var dd = today.getDate();

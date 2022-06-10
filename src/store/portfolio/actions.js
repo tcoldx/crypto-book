@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const getCoinInfo = (data) => async (dispatch) => {
-  const { amount, name, date } = data;
+  const { amount, name, date, key } = data;
 
   if (amount < 1) {
     return null;
@@ -16,10 +16,11 @@ export const getCoinInfo = (data) => async (dispatch) => {
         .reverse()
         .join("-")}`
     );
+
     dispatch({
       type: "COIN_HISTORY_SUCCESS",
       payload: {
-        currencyPurchased: null,
+        key: key,
         amountPurchased: amount,
         datePurchased: date,
         purchaseData: data,
@@ -75,15 +76,9 @@ export const deleteItem = (coinId) => {
   };
 };
 
-// change the coin or edit the coin :D
-export const changeItem = (data) => {
-  const { amount, name, date } = data;
+export const editItem = (data, newData) => {
   return {
-    type: "CHANGE_ITEM",
-    payload: {
-      name: name,
-      amount: amount,
-      date: date,
-    },
+    type: "EDIT_ITEM",
+    payload: data,
   };
 };
