@@ -1,5 +1,6 @@
 const initialState = {
   coinsData: [],
+  newCoin: {},
   arrayCoins: [],
   statsList: null,
   loading: false,
@@ -11,6 +12,7 @@ export const portfolio = (state = initialState, action) => {
       return {
         ...state,
         coinsData: [...state.coinsData, action.payload],
+        newCoin: action.payload,
       };
 
     // if trash button is clicked then delete the coin from the list
@@ -22,10 +24,12 @@ export const portfolio = (state = initialState, action) => {
         ),
       };
 
-    case "CHANGE_ITEM":
+    case "EDIT_ITEM":
+      const newArray = state.coinsData.map((el) =>
+        el.key === action.payload.key ? state.newCoin : el
+      );
       return {
         ...state,
-        coinsData: [...state.coinsData, action.payload],
       };
 
     case "GET_COINS_PENDING":

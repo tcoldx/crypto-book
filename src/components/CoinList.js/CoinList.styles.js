@@ -7,7 +7,6 @@ export const Row = styled.tr`
 
 export const TD = styled.td`
   font-size: 12px;
-
   @media (max-width: 1200px) {
     padding-block: 24px;
   }
@@ -35,12 +34,12 @@ export const TD = styled.td`
     }
   }
   &:nth-child(5) {
-    @media (max-width: 620px) {
+    @media (max-width: 320px) {
       display: none;
     }
   }
   &:nth-child(4) {
-    @media (max-width: 499px) {
+    @media (max-width: 309px) {
       display: none;
     }
   }

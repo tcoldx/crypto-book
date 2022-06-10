@@ -56,12 +56,12 @@ export const TH = styled.th`
     }
   }
   &:nth-child(5) {
-    @media (max-width: 620px) {
+    @media (max-width: 320px) {
       display: none;
     }
   }
   &:nth-child(4) {
-    @media (max-width: 499px) {
+    @media (max-width: 309px) {
       display: none;
     }
   }

@@ -16,7 +16,7 @@ const MobileNavBar = () => {
         <img src={Portfolio} width={40} height={40} alt="portfolio" />
         <div>Portfolio</div>
       </StyledLink>
-      <StyledLink to="/coin/etheruem">
+      <StyledLink to="/coin/bitcoin">
         <img src={Summary} width={40} height={40} alt="summary" />
         <div>Summary</div>
       </StyledLink>

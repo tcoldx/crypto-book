@@ -9,6 +9,10 @@ export const ContentWrap = styled.div`
 
 export const Content = styled.div`
   width: 75%;
+
+  @media (max-width: 499px) {
+    width: 90%;
+  }
 `;
 
 export const Overview = styled.h1`
