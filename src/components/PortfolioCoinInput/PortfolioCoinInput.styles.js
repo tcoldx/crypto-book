@@ -5,7 +5,6 @@ export const SelectCoinWrap = styled.div`
   top: 45%;
   border-radius: 6px;
   overflow: hidden;
-  padding: 10px;
   background: ${(props) => props.theme.main};
 `;
 

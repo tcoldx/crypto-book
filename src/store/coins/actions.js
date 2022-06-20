@@ -31,7 +31,7 @@ export const getChartData = (item, currency) => async (dispatch) => {
   }
 };
 
-export const getCoins = () => async (dispatch, getState) => {
+export const getCoins = (type) => async (dispatch, getState) => {
   const state = getState();
   const { currentCurrency } = state.global;
   // return an action
@@ -40,7 +40,9 @@ export const getCoins = () => async (dispatch, getState) => {
       type: "FETCH_COINS_PENDING",
     });
     const { data } = await axios.get(
-      `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currentCurrency}&order=market_cap_desc&per_page=10&page=1&sparkline=true&price_change_percentage=1h%2C7d`
+      `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currentCurrency}&category=${`${
+        type ? type : "cryptocurrency"
+      }`}&order=market_cap_desc&per_page=10&page=1&sparkline=true&price_change_percentage=1h%2C7d`
     );
     dispatch({
       type: "FETCH_COINS_SUCCESS",

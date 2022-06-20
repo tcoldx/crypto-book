@@ -76,9 +76,21 @@ export const deleteItem = (coinId) => {
   };
 };
 
-export const editItem = (data, newData) => {
-  return {
+export const editItem = (datas) => async (dispatch) => {
+  const { name, amount, date, key } = datas;
+  const { data } = await axios.get(
+    `https://api.coingecko.com/api/v3/coins/${name}/history?date=${date
+      .split("-")
+      .reverse()
+      .join("-")}`
+  );
+  dispatch({
     type: "EDIT_ITEM",
-    payload: data,
-  };
+    payload: {
+      key: key,
+      amountPurchased: amount,
+      datePurchased: date,
+      purchaseData: data,
+    },
+  });
 };

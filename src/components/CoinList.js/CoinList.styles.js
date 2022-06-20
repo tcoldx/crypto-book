@@ -65,6 +65,7 @@ export const NameColumn = styled.div`
   display: flex;
   align-items: center;
   column-gap: 10px;
+  margin-right: -3.5rem;
   justify-content: flex-start;
 `;
 
