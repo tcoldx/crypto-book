@@ -24,6 +24,7 @@ const Home = React.memo(() => {
     (state) => state.market
   );
   const { currentCurrency } = useSelector((state) => state.global);
+
   useEffect(() => {
     dispatch(getCoins());
     // eslint-disable-next-line

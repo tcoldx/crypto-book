@@ -17,6 +17,33 @@ export const Table = styled.table`
   color: ${(props) => props.theme.color};
   letter-spacing: 0.01071em;
   border-collapse: collapse;
+
+  & thead {
+  }
+`;
+
+export const SortSection = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  gap: 5px;
+  align-items: center;
+  margin-bottom: 5px;
+
+  @media (max-width: 600px) {
+    display: grid;
+    grid-template-columns: 0.5fr 0.5fr;
+    grid-gap: 10px;
+  }
+`;
+
+export const Option = styled.div`
+  background: ${({ active, theme }) =>
+    active ? "rgb(0, 255, 95)" : theme.card.main}};
+  padding: 10px;
+  border-radius: 9px;
+  cursor: pointer;
+
+ 
 `;
 
 export const OuterDiv = styled.div`

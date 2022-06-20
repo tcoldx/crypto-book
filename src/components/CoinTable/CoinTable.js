@@ -1,11 +1,55 @@
-import React from "react";
-import { CoinWrap, Table, OuterDiv, TH, Containment } from "./CoinTable.styles";
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import {
+  CoinWrap,
+  Table,
+  OuterDiv,
+  TH,
+  SortSection,
+  Option,
+} from "./CoinTable.styles";
 import { CoinList } from "../../components";
 import { ClipLoader } from "react-spinners";
+import { getCoins } from "store/coins/actions";
 
-const CoinTable = React.memo((props) => {
+const SortOptions = [
+  { name: "Cryptocurrencies", value: "cryptocurrency", id: 1 },
+  { name: "DeFi", value: "decentralized-finance-defi", id: 2 },
+  { name: "NFTs", value: "non-fungible-tokens-nft", id: 3 },
+  { name: "Metaverse", value: "metaverse", id: 4 },
+];
+
+const CoinTable = (props) => {
+  const [listType, setListType] = useState("");
+  const [active, setActive] = useState("Cryptocurrencies");
+  const dispatch = useDispatch();
+
+  const handleClick = (currency, name) => {
+    setListType(currency);
+    setActive(name);
+    dispatch(getCoins(listType));
+  };
+
+  useEffect(() => {
+    dispatch(getCoins(listType)); // eslint-disable-next-line
+  }, [listType]);
+
   return (
     <CoinWrap>
+      <SortSection>
+        {SortOptions.map((el) => {
+          const isActive = el.name === active;
+          return (
+            <Option
+              key={el.id}
+              active={isActive}
+              onClick={() => handleClick(el.value, el.name)}
+            >
+              {el.name}
+            </Option>
+          );
+        })}
+      </SortSection>
       <OuterDiv>
         {props.loading ? (
           <ClipLoader color="#00FC2A" />
@@ -51,6 +95,6 @@ const CoinTable = React.memo((props) => {
       </OuterDiv>
     </CoinWrap>
   );
-});
+};
 
 export default CoinTable;

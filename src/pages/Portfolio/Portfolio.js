@@ -68,12 +68,12 @@ const Portfolio = () => {
     const { value } = e.target;
     dispatch(getCoinsList(value));
     setCoinData({ ...coinData, name: value });
+    setNameError(false);
     if (value === "") {
       setClose(true);
     } else {
       setClose(false);
     }
-    setNameError(false);
   };
 
   const handleAmountChange = (e) => {
@@ -101,14 +101,18 @@ const Portfolio = () => {
       thumb: purchaseData.image.thumb,
       name: purchaseData.name,
     });
-    console.log("coinsData key:", key);
     setOpen(true);
   };
-
-  const handleSave = (data, coins) => {
+  const handleSave = (data) => {
     if (!data.key) {
       data.key = `${Math.random()}-${Math.random()}`;
+      dispatch(getCoinInfo(coinData));
     }
+
+    if (data.key) {
+      dispatch(editItem(data));
+    }
+
     let name = data.name;
     let date = data.date;
     let amount = data.amount;
@@ -118,10 +122,6 @@ const Portfolio = () => {
       setAmountError(true);
       return;
     }
-    setNameError(data.name.length >= 1 ? false : true);
-    setAmountError(data.amount > 0 ? false : true);
-    setDateError(data.date ? false : true);
-    dispatch(getCoinInfo(coinData));
 
     setCoin({});
     setCoinData({
@@ -174,7 +174,7 @@ const Portfolio = () => {
               </CoinTopContent>
               <ButtonWrap>
                 <Button onClick={handleClick}>Close</Button>
-                <Button onClick={() => handleSave(coinData, coinsData)}>
+                <Button onClick={() => handleSave(coinData)}>
                   Save and Continue
                 </Button>
               </ButtonWrap>
