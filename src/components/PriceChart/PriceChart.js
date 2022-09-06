@@ -2,28 +2,30 @@ import React from "react";
 import { Line } from "react-chartjs-2";
 import { Container } from "./PriceChart.styles";
 const PriceChart = (props) => {
-  const data = (canvas) => {
-    const ctx = canvas.getContext("2d");
-    let gradient = ctx.createLinearGradient(0, 0, 0, 223);
-    gradient.addColorStop(0, "rgba(2,0,36, 0)");
-    gradient.addColorStop(0.5, "rgba(13,119,33, 0.5)");
-    gradient.addColorStop(1, "rgba(25,26,30, 1)");
 
-    return {
-      labels: props.dataLabel,
-      datasets: [
-        {
-          lineTension: 0.3,
-          label: "BTC",
-          data: props.dataPoint,
-          fill: true,
-          backgroundColor: gradient,
-          borderColor: "#00FF5F",
-          borderWidth: 2,
-        },
-      ],
-    };
-  };
+      const data = (canvas) => {
+        const ctx = canvas.getContext("2d");
+        let gradient = ctx.createLinearGradient(0, 0, 0, 223);
+        gradient.addColorStop(0, "rgba(2,0,36, 0)");
+        gradient.addColorStop(0.5, "rgba(13,119,33, 0.5)");
+        gradient.addColorStop(1, "rgba(25,26,30, 1)");
+    
+        return {
+          labels: props.dataLabel,
+          datasets: [
+            {
+              lineTension: 0.3,
+              label: "BTC",
+              data: props.dataPoint,
+              fill: true,
+              backgroundColor: gradient,
+              borderColor: "#00FF5F",
+              borderWidth: 2,
+            },
+          ],
+        };
+      };
+    
 
   const options = {
     plugins: {

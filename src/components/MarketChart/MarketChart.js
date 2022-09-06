@@ -18,7 +18,7 @@ const MarketChart = React.memo((props) => {
     currentPrice,
     currentVolume,
   } = useSelector((state) => state.market);
-
+  
   const { currentCurrency } = useSelector((state) => state.global);
 
   if (props.isLoading)

@@ -1,6 +1,6 @@
 import React from "react";
 import { Line } from "react-chartjs-2";
-import { Container, ChartWrap } from "./TableChart.styles";
+import {ChartJS } from "./TableChart.styles";
 
 const TableChart = ({ dataPoint }) => {
   const price = dataPoint?.price.map((el) => el);
@@ -64,11 +64,9 @@ const TableChart = ({ dataPoint }) => {
     },
   };
   return (
-    <Container>
-      <ChartWrap>
+   <ChartJS>
         <Line data={data} options={options} width={125} height={70} />
-      </ChartWrap>
-    </Container>
+    </ChartJS>
   );
 };
 

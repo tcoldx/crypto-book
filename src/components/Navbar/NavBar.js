@@ -80,6 +80,10 @@ const NavBar = (props) => {
             <Button activeClassName="active" exact to="/portfolio">
               Portfolio
             </Button>
+            <Button activeClassName="active" exact to="/chat">
+              Chat
+            </Button>
+            <Button activeClassName="active" exact to="/watchlist">Watchlist</Button>
           </ButtonWrap>
         </NavLeft>
         <NavRight>

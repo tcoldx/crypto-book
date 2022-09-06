@@ -7,6 +7,7 @@ import {
   TH,
   SortSection,
   Option,
+HeaderWrap
 } from "./CoinTable.styles";
 import { CoinList } from "../../components";
 import { ClipLoader } from "react-spinners";
@@ -50,13 +51,9 @@ const CoinTable = (props) => {
           );
         })}
       </SortSection>
-      <OuterDiv>
-        {props.loading ? (
-          <ClipLoader color="#00FC2A" />
-        ) : (
-          <Table>
-            <thead>
-              <tr>
+      <thead>
+        <HeaderWrap>
+              <TH>Favorite</TH>
                 <TH>#</TH>
                 <TH>Name</TH>
                 <TH>Price</TH>
@@ -66,8 +63,14 @@ const CoinTable = (props) => {
                 <TH>24h Volume/Market Cap</TH>
                 <TH>Circulating/Total Supply</TH>
                 <TH>Last 7d</TH>
-              </tr>
+             
+              </HeaderWrap>
             </thead>
+      <OuterDiv>
+        {props.loading ? (
+          <ClipLoader color="#00FC2A" />
+        ) : (
+          <Table>
             <tbody>
               {props.coins.map((el) => {
                 return (

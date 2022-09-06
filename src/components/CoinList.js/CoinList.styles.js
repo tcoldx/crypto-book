@@ -3,9 +3,11 @@ import { Link } from "react-router-dom";
 
 export const Row = styled.tr`
   border-bottom: 1px solid ${(props) => props.theme.border};
+
 `;
 
 export const TD = styled.td`
+  width: 100%;
   font-size: 12px;
   @media (max-width: 1200px) {
     padding-block: 24px;
@@ -13,7 +15,6 @@ export const TD = styled.td`
 
   &:nth-child(9) {
     width: 180px;
-
     @media (max-width: 1219px) {
       display: none;
     }
@@ -48,7 +49,23 @@ export const TD = styled.td`
       display: none;
     }
   }
+
+  & .star {
+    cursor: pointer;
+  }
 `;
+
+export const FullList = styled.div`
+width: 100%;
+display: grid;
+grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+justify-content: space-between;
+align-items: center;
+&:hover {
+  background: ${props => props.theme.card.main};
+ box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+}
+`
 
 export const ContWrap = styled.div`
   display: flex;
@@ -65,7 +82,7 @@ export const NameColumn = styled.div`
   display: flex;
   align-items: center;
   column-gap: 10px;
-  margin-right: -3.5rem;
+  margin-right: -5rem;
   justify-content: flex-start;
 `;
 
@@ -115,6 +132,6 @@ export const MarketWrap = styled.div`
 `;
 
 export const StyledLink = styled(Link)`
-  text-decoration: none;
+  text-decoration: underline;
   color: ${(props) => props.theme.color};
 `;
