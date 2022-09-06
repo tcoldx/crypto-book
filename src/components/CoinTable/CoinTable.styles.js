@@ -8,6 +8,7 @@ export const CoinWrap = styled.div`
   margin-top: 30px;
   padding: 20px;
   border-radius: 10px;
+  box-shadow: 2px 2px 5px -1px #414241;
 `;
 
 export const Table = styled.table`
@@ -46,6 +47,14 @@ export const Option = styled.div`
  
 `;
 
+export const HeaderWrap = styled.div`
+width: 100%;
+display: grid;
+grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+justify-content: space-between;
+align-items: center;
+`
+
 export const OuterDiv = styled.div`
   display: flex;
   align-items: center;
@@ -53,15 +62,9 @@ export const OuterDiv = styled.div`
 `;
 
 export const TH = styled.th`
-  padding-block: 24px;
   font-size: 11px;
   font-weight: bold;
-
-  &:nth-child(2) {
-    display: flex;
-    justify-content: flex-start;
-  }
-
+padding-block: 12px;
   &:nth-child(9) {
     @media (max-width: 1219px) {
       display: none;

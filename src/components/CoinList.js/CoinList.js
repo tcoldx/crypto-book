@@ -1,7 +1,5 @@
-import React from "react";
-
+import React, {useState} from "react";
 import {
-  Row,
   TD,
   NameColumn,
   Span,
@@ -14,13 +12,18 @@ import {
   RankWrap,
   StyledLink,
   ContWrap,
+  FullList,
 } from "./CoinList.styles";
+import {toast} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 import GreenCaret from "assets/Images/greenCaret.svg";
 import RedCaret from "assets/Images/redCaret.svg";
+import {AiOutlineStar, AiFillStar} from "react-icons/ai";
 import { formatPercent } from "../../utils/formatPercent";
 import { convertNumber } from "../../utils/convertNumber";
 import { TableChart } from "../../components";
-
+import { StarredCoins } from "store/watchlist/actions";
+  import { useDispatch } from "react-redux";
 const CoinList = ({
   rank,
   name,
@@ -36,8 +39,25 @@ const CoinList = ({
   image,
   sparkline,
 }) => {
+
+  const [saved, setSaved] = useState(false); 
+   const dispatch = useDispatch();
+  const handleClick = () => {
+    setSaved(!saved)
+    if (!saved) {
+    toast("Coin saved to watchlist!")
+    dispatch(StarredCoins(name.toLowerCase()))
+    } 
+  } /* <TD>
+        {saved && <AiFillStar className="star" size={20} fill={saved ? "yellow" : "white"}  onClick={handleClick}/>}
+        {!saved && <AiOutlineStar className="star" size={20} fill={saved ? "yellow" : "white"}  onClick={handleClick}/>}
+      </TD> */
   return (
-    <Row>
+    <FullList>
+<TD>
+        {saved && <AiFillStar className="star" size={20} fill={saved ? "yellow" : "white"}  onClick={handleClick}/>}
+        {!saved && <AiOutlineStar className="star" size={20} fill={saved ? "yellow" : "white"}  onClick={handleClick}/>}
+      </TD>
       <TD>
         <RankWrap>
           <span>{rank}</span>
@@ -122,7 +142,7 @@ const CoinList = ({
       <TD>
         <TableChart dataPoint={sparkline} />
       </TD>
-    </Row>
+    </FullList>
   );
 };
 
