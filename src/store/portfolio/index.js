@@ -18,7 +18,7 @@ export const portfolio = (state = initialState, action) => {
       return {
         ...state,
         coinsData: state.coinsData.filter(
-          (el) => el.purchaseData.id !== action.payload
+          (el) => el.id ? el.id !== action.payload : el.key !== action.payload
         ),
       };
 

@@ -53,6 +53,10 @@ display: grid;
 grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 justify-content: space-between;
 align-items: center;
+@media (max-width: 699px) {
+  margin-right: 1px;
+  grid-template-columns:  1fr 1fr 1fr 1fr;
+}
 `
 
 export const OuterDiv = styled.div`
@@ -65,6 +69,7 @@ export const TH = styled.th`
   font-size: 11px;
   font-weight: bold;
 padding-block: 12px;
+
   &:nth-child(9) {
     @media (max-width: 1219px) {
       display: none;
@@ -82,6 +87,16 @@ padding-block: 12px;
   }
   &:nth-child(6) {
     @media (max-width: 767px) {
+      display: none;
+    }
+  }
+  &:nth-child(2) {
+    @media (max-width: 767px) {
+      display: none;
+    }
+  }
+  &:nth-child(10) {
+    @media(max-width: 767px) {
       display: none;
     }
   }

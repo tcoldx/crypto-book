@@ -5,6 +5,7 @@ import {
   editItem,
   getCoinsData,
 } from "store/portfolio/actions";
+import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { getCoinsList } from "store/portfolio/actions";
 import ExitButton from "assets/Images/xbutton.svg";
@@ -29,6 +30,7 @@ import {
 } from "./Portfolio.styles";
 
 import { CoinStatistics, PortfolioCoinInput } from "components";
+import { RiSafariFill } from "react-icons/ri";
 
 const Portfolio = () => {
   const [open, setOpen] = useState(false);
@@ -37,7 +39,6 @@ const Portfolio = () => {
   const [amountError, setAmountError] = useState(false);
   const [dateError, setDateError] = useState(false);
   const [nameError, setNameError] = useState(false);
-
   const [coinData, setCoinData] = useState({
     name: "",
     amount: 0,
@@ -51,6 +52,16 @@ const Portfolio = () => {
   );
   useEffect(() => {
     dispatch(getCoinsData(currentCurrency));
+    if (coinsData.length === 0) {
+    async function getCoin() {
+   await axios.get("http://localhost:5000/getCoin").then((res) => {
+        res.data.map(coin => {
+        return dispatch(getCoinInfo(coin))
+      })
+      }); 
+    }
+    getCoin();
+  }
     // eslint-disable-next-line
   }, []);
 
@@ -60,8 +71,12 @@ const Portfolio = () => {
     setCoin({});
   };
 
-  const handleDelete = (coinId) => {
-    dispatch(deleteItem(coinId));
+  const handleDelete =  (coinId) => {
+     function deleteCoin() {
+   dispatch(deleteItem(coinId));
+    axios.delete(`http://localhost:5000/deleteCoin/${coinId}`); 
+    }
+    deleteCoin();
   };
 
   const handleChange = (e) => {
@@ -90,7 +105,7 @@ const Portfolio = () => {
   };
 
   const handleEdit = (data) => {
-    const { purchaseData, amountPurchased, datePurchased, key } = data;
+    const { purchaseData, amountPurchased, datePurchased, key, id } = data;
     setCoinData({
       name: purchaseData.name,
       amount: amountPurchased,
@@ -100,17 +115,23 @@ const Portfolio = () => {
     setCoin({
       thumb: purchaseData.image.thumb,
       name: purchaseData.name,
-    });
+    }); 
+      axios.post(`http://localhost:5000/update/${id}`);
     setOpen(true);
+    
   };
-  const handleSave = (data) => {
+  const handleSave =  (data) => {
     if (!data.key) {
       data.key = `${Math.random()}-${Math.random()}`;
       dispatch(getCoinInfo(coinData));
+      if (data.key) {
+       axios.post("http://localhost:5000/coin", coinData);
+      }
     }
 
     if (data.key) {
       dispatch(editItem(data));
+       axios.post(`http://localhost:5000/update/${data.key}`, coinData);
     }
 
     let name = data.name;
@@ -122,7 +143,7 @@ const Portfolio = () => {
       setAmountError(true);
       return;
     }
-
+    // send to backend!
     setCoin({});
     setCoinData({
       name: "",
@@ -188,7 +209,7 @@ const Portfolio = () => {
       {coinsData.map((el) => {
         return (
           <CoinStatistics
-            handleDelete={() => handleDelete(el.purchaseData.id)}
+            handleDelete={() => handleDelete(el.id ? el.id : el.key)}
             handleEdit={() => handleEdit(el)}
             id={el.purchaseData.id}
             key={el.key}

@@ -66,9 +66,10 @@ const CoinList = ({
       <TD>
         <NameColumn>
           <img width={20} height={20} src={image} alt="img" />
-
+          <div className="mobile-stack">
           <StyledLink to={`/coin/${name.toLowerCase()}`}>{name}</StyledLink>
           <span>({symbol.toUpperCase()})</span>
+          </div>
         </NameColumn>
       </TD>
       <TD>${price.toLocaleString()}</TD>

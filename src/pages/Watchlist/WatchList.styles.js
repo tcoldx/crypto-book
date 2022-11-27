@@ -14,13 +14,12 @@ color: ${props => props.theme.color};
 export const ContWrap = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 3px;
 `;
 
 export const RowWrap = styled.div`
-display: flex;
-justify-content: space-around;
+display: grid;
+grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 align-items: center;
 padding: 10px;  
 
@@ -34,8 +33,6 @@ gap: 4px;
 
 & .priceCon {
   display: flex;
-  justify-content: flex-start;
-  width: 10%;
 }
 
 &:hover {
@@ -45,8 +42,8 @@ gap: 4px;
 `
 
 export const Header = styled.div`
-display: flex;
-justify-content: space-around;
+display: grid;
+grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 align-items: center;
 border-top: 1px solid white;
 border-bottom: 1px solid white;

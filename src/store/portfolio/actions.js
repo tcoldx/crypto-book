@@ -1,8 +1,8 @@
 import axios from "axios";
 
 export const getCoinInfo = (data) => async (dispatch) => {
-  const { amount, name, date, key } = data;
-
+  const { amount, name, date, key, _id } = data;
+  console.log(_id)
   if (amount < 1) {
     return null;
   }
@@ -21,6 +21,7 @@ export const getCoinInfo = (data) => async (dispatch) => {
       type: "COIN_HISTORY_SUCCESS",
       payload: {
         key: key,
+        id: _id,
         amountPurchased: amount,
         datePurchased: date,
         purchaseData: data,
