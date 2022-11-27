@@ -1,28 +1,62 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const http = require("http");
-const { Server } = require("socket.io");
-const server = http.createServer(app);
-const port = process.env.PORT || 3001 
-app.use(cors())
-app.get("/", (req, res) => {
-    res.send("server up and runnin");
-})
-const io = new Server(server, {
-    cors: {
-        origin: "*",
+const port = 5000;
+const mongoose = require('mongoose');
+const schema = require('./crypto-schema');
+const { ObjectID, ObjectId } = require('bson');
+mongoose.connect('mongodb+srv://ttredis:king15as@crypto-codes.neinwrq.mongodb.net/?retryWrites=true&w=majority');
+
+
+app.use(cors());
+app.use(express.json());
+app.post("/coin", (req, res) => {
+    async function connect() {
+        try {
+            await schema.create({
+                name: req.body.name,
+                amount: req.body.amount,
+                date: req.body.date,
+            })
+            console.log("database connected!")
+        } catch (err) {
+            console.log(err);
+        }
     }
+
+    connect();
 })
 
-io.on("connection", (socket) => {
-    socket.on("loggedin", (data) => {
-        socket.join(data)
-        console.log(`User with ID: ${socket.id} joined room: ${data}`)
+app.get("/getCoin", async (req,res) => {
+    try {
+    await schema.find({}, (err, result) => {
+        res.send(result);
     })
-    socket.on("send-message", (data) =>  {
- socket.to(data.room).emit("recieve-message", data)
-    })
+    } catch (err) {
+    console.log("error: ", err);
+    }
+});
+
+app.post("/update/:id", async (req, res) => { 
+    const {id} = req.params;
+    let body = req.body; 
+  console.log(body);
+    try {
+        schema.findOneAndUpdate(id, body, {upsert: true}, function(err, doc) {
+            if (err) return res.send(500, {error: err});
+            return res.send('Succesfully saved.');
+        });
+            console.log("connected to database!");
+    } catch (err) {
+        console.log("errorrrr: ", err);
+    }
+   
+  
 })
-server.listen(port, () => console.log("happy hacking!"))
+
+app.delete("/deleteCoin/:id", (req, res) => {
+   const {id} = req.params;
+   schema.findByIdAndDelete(id).exec();
+})
     
+app.listen(port, () => console.log(`listening on port: ${port}`))

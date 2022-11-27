@@ -34,6 +34,11 @@ export const TD = styled.td`
       display: none;
     }
   }
+  &:nth-child(2) {
+    @media (max-width: 767px) {
+      display: none;
+    }
+  }
   &:nth-child(5) {
     @media (max-width: 320px) {
       display: none;
@@ -47,6 +52,12 @@ export const TD = styled.td`
   &:nth-child(1) {
     @media (max-width: 369px) {
       display: none;
+    }
+  }
+
+  &:nth-child(10) {
+    @media (max-width: 499px) {
+      display: none;  
     }
   }
 
@@ -64,6 +75,16 @@ align-items: center;
 &:hover {
   background: ${props => props.theme.card.main};
  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+}
+
+& .mobile-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 3.2px;
+  margin-right: 10px;
+}
+@media (max-width: 699px) {
+  grid-template-columns: 1fr 1fr 1fr 1fr; 
 }
 `
 
@@ -83,7 +104,10 @@ export const NameColumn = styled.div`
   align-items: center;
   column-gap: 10px;
   margin-right: -5rem;
-  justify-content: flex-start;
+  justify-content: flex-start; 
+  @media (max-width: 699px) {
+    margin-right: 1px;
+  }
 `;
 
 export const Span = styled.div.attrs((props) => ({

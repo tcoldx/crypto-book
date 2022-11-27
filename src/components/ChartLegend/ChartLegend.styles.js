@@ -10,6 +10,13 @@ export const Price = styled.div`
   font-family: poppins, sans-serif;
   gap: 6px;
   font-weight: bold;
+
+  & .currency {
+    z-index: 2;
+    @media (max-width: 699px) {
+      color: ${props => props.theme.color};
+    }
+  }
 `;
 
 export const ChartDate = styled.div`
