@@ -12,7 +12,7 @@ export const ChartWrap = styled.div`
 `;
 
 export const ChartLegendWrap = styled.div`
-  position: absolute;
+  position: relative;
   margin-left: 10px;
   margin-top: 10px;
 `;
@@ -21,7 +21,6 @@ export const ChartContainerLoading = styled.div`
   text-align: center;
   display: flex;
   width: 48.5%;
-
   align-items: center;
   justify-content: center;
   height: 270px;

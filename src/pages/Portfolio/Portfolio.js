@@ -30,7 +30,6 @@ import {
 } from "./Portfolio.styles";
 
 import { CoinStatistics, PortfolioCoinInput } from "components";
-import { RiSafariFill } from "react-icons/ri";
 
 const Portfolio = () => {
   const [open, setOpen] = useState(false);

@@ -2,7 +2,6 @@ import React from "react";
 import { Line } from "react-chartjs-2";
 import { Container } from "./PriceChart.styles";
 const PriceChart = (props) => {
-
       const data = (canvas) => {
         const ctx = canvas.getContext("2d");
         let gradient = ctx.createLinearGradient(0, 0, 0, 223);
@@ -14,13 +13,13 @@ const PriceChart = (props) => {
           labels: props.dataLabel,
           datasets: [
             {
-              lineTension: 0.3,
+              lineTension: 0,
               label: "BTC",
               data: props.dataPoint,
               fill: true,
               backgroundColor: gradient,
               borderColor: "#00FF5F",
-              borderWidth: 2,
+              borderWidth: 1,
             },
           ],
         };
@@ -60,12 +59,12 @@ const PriceChart = (props) => {
           display: false,
         },
         ticks: {
-          display: false,
+          display: window.innerWidth < 699 ? true : false,
         },
       },
     },
   };
-
+console.log(window.innerWidth);
   return (
     <Container>
       <Line data={data} options={options} />
