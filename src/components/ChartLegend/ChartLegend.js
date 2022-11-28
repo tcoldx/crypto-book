@@ -11,7 +11,7 @@ const ChartLegend = (props) => {
     <Container>
       <Header>{props.type}</Header>
       <Price>
-        <div className="currency">{props.currency ? props.currency : currentCurrency.toUpperCase()}</div>
+        <div className="currency">{props.currency ? props.currency.toUpperCase() : currentCurrency.toUpperCase()}</div>
         {numberFormat(props.market)}
       </Price>
       <ChartDate>{date.toLocaleDateString("en-US", options)}</ChartDate>
